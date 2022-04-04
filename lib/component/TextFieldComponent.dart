@@ -29,7 +29,7 @@ class TextFieldComponent extends StatelessWidget {
             //     .of(context)
             //     .size
             //     .width / 8),
-            margin: EdgeInsets.fromLTRB(margin, margin, margin, 20.0),
+            // margin: EdgeInsets.fromLTRB(margin, margin, margin, ),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(
                   MainTextFieldPalettes.simpleTextfield["RADIUS"])),

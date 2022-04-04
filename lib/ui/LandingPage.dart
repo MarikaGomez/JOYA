@@ -1,0 +1,81 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:joya/component/ButtonComponent.dart';
+import 'package:joya/enum/EnumerateCategoriesButton.dart';
+import 'package:joya/styles/MainColorPalettes.dart';
+import 'package:joya/styles/MainTextPalettes.dart';
+
+class LandingPage extends StatelessWidget{
+  final bool debugShowCheckedModeBanner;
+  final bool isIOSPlatform;
+
+  LandingPage({required this.isIOSPlatform,required this.debugShowCheckedModeBanner});
+
+  @override
+  Widget build(BuildContext context) {
+    if(this.isIOSPlatform){
+    return Scaffold(
+      body: Container(
+        color: MainColorPalettes.colorsThemeMultiple[5],
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(
+              height: 100,
+            ),
+            Container(
+              color: MainColorPalettes.colorsThemeMultiple[5],
+              padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+              child: Image.asset(
+                'assets/images/joyalogo.png',
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height / 5,
+                scale: 0.8,
+                colorBlendMode: BlendMode.darken,
+                fit: BoxFit.fitWidth,
+              ),
+            ),
+            SizedBox(height: 50,),
+            Text('${MainTextPalettes.textFr["BIENVENUE"]}',
+              style: TextStyle(
+                  color: MainColorPalettes.colorsThemeMultiple[20],
+                fontSize: 65,
+                fontFamily: 'DMSans-Bold.ttf'
+              ),
+            ),
+            Text(
+                '${MainTextPalettes.textFr["VOS_PLANTES"]}',
+              style: TextStyle(
+                  color: MainColorPalettes.colorsThemeMultiple[20],
+                  fontSize: 20,
+                  fontFamily: 'DMSans-Regular.ttf'
+              ),
+            ),
+            SizedBox(height: 150,),
+            ButtonComponent(
+              text : MainTextPalettes.textFr["INSCRIPTION"],
+              enumerateCategoriesButton: EnumerateCategoriesButton.typeButtonTextOnly,
+              isIOSPlatform: isIOSPlatform,
+              methode: () =>{Navigator.pushNamed(context, 'signup')},
+              colorBorder: MainColorPalettes.colorsThemeMultiple[5]!,
+              backgroundColorButton: MainColorPalettes.colorsThemeMultiple[10]!,
+            ),
+            SizedBox(height: 50,),
+            ButtonComponent(
+              text : MainTextPalettes.textFr["CONNEXION_BUTTON_DEFAULT_TEXTFIELD"],
+              enumerateCategoriesButton: EnumerateCategoriesButton.typeButtonTextOnly,
+              isIOSPlatform: isIOSPlatform,
+              methode: () =>{Navigator.pushNamed(context, 'signin')},
+              colorBorder: MainColorPalettes.colorsThemeMultiple[5]!,
+              backgroundColorButton: MainColorPalettes.colorsThemeMultiple[10]!,
+            ),
+          ],
+        ),
+      )
+    );
+    }else{
+      return Container();
+    }
+  }
+
+}

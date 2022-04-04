@@ -27,6 +27,7 @@ flutter:
 #    - assets/images/joyalogo.png
 #    - assets/images/emailcheck.png
     - assets/images/error_window.png
+    - assets/images/joyalogo.png
   uses-material-design: true
   fonts:
     - family: DMSans-Bold
