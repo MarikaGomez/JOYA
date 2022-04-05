@@ -13,6 +13,16 @@ class MainTextPalettes {
     "VOS_PLANTES": "Vos plantes connectées 🌱",
     "PLUSINFO":"Plus d’informations",
     "CONDITIONURL":"Condition d’utilisation & confidentialité.",
-    "RECUP":"Mot de passe oublié ?"
+    "RECUP":"Mot de passe oublié ?",
+    "REGARDEBOITE":"Regarde ta boite mail !",
+    "TEXTSENDEMAIL":"Pour confirmer ton adresse mail, ouvre le mail que tu as reçu et clique sur le lien !",
+    "TEXT CONFIRM MAIL QUESTION":"Tu as un compte ?",
+    "QUESTION EMAIL":"Connecte toi",
+    "OPENMAIL":"Ouvrir Mail",
+    "ABOUT":"Paramètres",
+    "ABOUTPRENIUM":"Devenir membre premium",
+    "ABOUTNOTIF":"Notifications",
+    "ABOUTDECO":"Déconnexion"
+
   };
 }

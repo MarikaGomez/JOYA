@@ -38,6 +38,8 @@ class ButtonComponent extends StatelessWidget {
         return renderingOfButtonWithoutIconWithText(context);
       case EnumerateCategoriesButton.typeButtonTextAndIconRight:
         return renderingOfButtonWithIconAndText(context);
+      case EnumerateCategoriesButton.typeButtonTextAndIconAndOpacity:
+        return renderingButtonTextAndIconAndOpacity(context);
       default:
         return BoxShadowComponent(
             text: 'Botton category Don\'t existed',
@@ -129,6 +131,36 @@ class ButtonComponent extends StatelessWidget {
               MainIconsPalettes.iconButtons["NEXT"]
             ],
           )),
+    );
+  }
+
+  Widget renderingButtonTextAndIconAndOpacity(BuildContext context) {
+    return SizedBox(
+      width: MediaQuery.of(context).size.width / 1.2,
+      height: MediaQuery.of(context).size.height / 16,
+      child: ElevatedButton(
+        onPressed: methode,
+        style: ButtonStyle(
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+              RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(
+                      MainBottonPalettes.bottonWithTextOnly["BTN_RADIUS"]),
+                  side: BorderSide(color: colorBorder))),
+          backgroundColor: MaterialStateProperty.all(backgroundColorButton),
+          padding: MaterialStateProperty.all(
+              MainBottonPalettes.bottonWithTextOnly["EDGEINSET_ICON"]),
+        ),
+        child: Center(
+            child: Text(
+              '$text',
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  decoration: TextDecoration.none,
+                  fontFamily: 'DMSans-Bold',
+                  fontSize: MediaQuery.of(context).size.width / 18,
+                  color: MainColorPalettes.colorsThemeMultiple[20]),
+            )),
+      ),
     );
   }
 }

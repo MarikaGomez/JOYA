@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:joya/styles/MainColorPalettes.dart';
+import 'package:joya/ui/About.dart';
 import 'package:joya/ui/ConfirmationEmail.dart';
 import 'package:joya/ui/ErrorPage.dart';
 import 'package:joya/ui/InscriptionPage.dart';
@@ -37,6 +38,9 @@ class MyApp extends StatelessWidget {
                 isIOSPlatform: isIOS,
                 debugShowCheckedModeBanner: debugShowCheckedModeBanner)),
         "confirmEmail" : (BuildContext context) => ConfirmationEmail(
+            isIOSPlatform: isIOS,
+            debugShowCheckedModeBanner: debugShowCheckedModeBanner),
+        "about" : (BuildContext context) => About(
             isIOSPlatform: isIOS,
             debugShowCheckedModeBanner: debugShowCheckedModeBanner),
       },

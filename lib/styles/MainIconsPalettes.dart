@@ -11,12 +11,13 @@ class MainIconsPalettes {
         color: Color.fromARGB(255, 255, 255, 255),
       ),
       Icon(
-        Icons.add_shopping_cart,
+        Icons.list,
         size: 35,
         color: MaterialColor(0xFFFFFFFF, {
-          50: Color.fromARGB(255, 246, 10, 10),
+          50: Color.fromARGB(255, 255, 255, 255),
         }),
       ),
+
       Icon(
         Icons.qr_code,
         size: 35,
@@ -25,14 +26,14 @@ class MainIconsPalettes {
         }),
       ),
       Icon(
-        Icons.list,
+        Icons.add_shopping_cart,
         size: 35,
         color: MaterialColor(0xFFFFFFFF, {
-          50: Color.fromARGB(255, 255, 255, 255),
+          50: Color.fromARGB(255, 246, 10, 10),
         }),
       ),
       Icon(
-        Icons.settings,
+        Icons.more_vert,
         size: 35,
         color: MaterialColor(0xFFFFFFFF, {
           50: Color.fromARGB(255, 255, 255, 255),
