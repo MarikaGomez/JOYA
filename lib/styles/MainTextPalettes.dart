@@ -37,6 +37,12 @@ class MainTextPalettes {
     "ABOUT_JOYA":"À propos de Joya",
     "MY_PLANT":"Mes plantes",
     "SEARCH":"Rechercher",
+    "ERROR_EMAIL":"Adresse mail incorrect",
+    "ABOUT_SETTING":"Parametre d'application",
+    "VIDE":"",
+    "BUILD":"Site en cours de construction",
+    "DELETE_ACCOUNT":"Supprimer de mon compte",
+
 
   };
 }

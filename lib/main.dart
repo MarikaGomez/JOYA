@@ -7,9 +7,11 @@ import 'package:joya/ui/HomeWithoutSensorPage.dart';
 import 'package:joya/ui/InscriptionPage.dart';
 import 'package:joya/ui/LandingPage.dart';
 import 'package:joya/ui/Login.dart';
+import 'package:joya/ui/MyAccountPage.dart';
 import 'package:joya/ui/MyPlantPage.dart';
 import 'package:joya/ui/QrCode.dart';
 import 'package:joya/ui/QrCodeScan.dart';
+import 'package:joya/ui/StorePage.dart';
 import 'bloc/bloc_provider.dart';
 import 'bloc/controller/RequestBloc.dart';
 
@@ -63,6 +65,16 @@ class MyApp extends StatelessWidget {
         "myPlant" : (BuildContext context) => MyPlantPage(
             isIOSPlatform: isIOS,
             debugShowCheckedModeBanner: debugShowCheckedModeBanner),
+        'myAccount': (BuildContext context) => BlocProvider<RequestBloc>(
+            bloc: RequestBloc(),
+            child: MyAccountPage(
+                isIOSPlatform: isIOS,
+                debugShowCheckedModeBanner: debugShowCheckedModeBanner)),
+        'store': (BuildContext context) => BlocProvider<RequestBloc>(
+            bloc: RequestBloc(),
+            child: StorePage(
+                isIOSPlatform: isIOS,
+                debugShowCheckedModeBanner: debugShowCheckedModeBanner)),
       },
     );
   }

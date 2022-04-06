@@ -38,7 +38,7 @@ class ScaffoldComponent extends StatelessWidget{
     0:"homeWithoutSensor",
     1:"myPlant",
     2:"qrcode",
-    3:null,
+    3:"store",
     4:"about"
   };
 

@@ -21,7 +21,7 @@ class MyPlantPage extends StatelessWidget {
         enumerateCategoriesScaffold: EnumerateCategoriesScaffold.curvedBar,
         isIOSPlatform: isIOSPlatform,
         debugShowCheckedModeBanner: debugShowCheckedModeBanner,
-        index: 4,
+        index: 1,
         child: Container(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
@@ -47,9 +47,8 @@ class MyPlantPage extends StatelessWidget {
                     ),
                     child: TextFieldComponent(
                       methode: (test)=>{
-
                       },
-                      text: "${MainTextPalettes.textFr["SEARCH"]}",
+                      text: "${MainTextPalettes.textFr["VIDE"]}",
                       isValid: true,
                       isNotValidRenderText: 'test',
                       hiddenText: true,
@@ -84,27 +83,20 @@ class MyPlantPage extends StatelessWidget {
                 SizedBox(
                   height: MediaQuery.of(context).size.height /10,
                 ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(
-              MediaQuery.of(context).size.height / 6,
-              MediaQuery.of(context).size.height / 35,
-              MediaQuery.of(context).size.height / 6,
-              100,
-            ),
-                child : ButtonComponent(
-                  text: "+",
+                ButtonComponent(
+                  text: MainTextPalettes.textFr[
+                  "CONNEXION_BUTTON_DEFAULT_TEXTFIELD"],
                   enumerateCategoriesButton:
-                  EnumerateCategoriesButton.typeButtonTextAndIconAndOpacity,
+                  EnumerateCategoriesButton
+                      .typeButtonIconOnly,
                   isIOSPlatform: isIOSPlatform,
                   methode: () =>
                   {Navigator.pushNamed(context, 'qrcode')},
-
                   colorBorder:
-                  MainColorPalettes.colorsThemeMultiple[25]!,
+                  MainColorPalettes.colorsThemeMultiple[5]!,
                   backgroundColorButton:
                   MainColorPalettes.colorsThemeMultiple[10]!,
                 ),
-          )
               ],
             )
         ),

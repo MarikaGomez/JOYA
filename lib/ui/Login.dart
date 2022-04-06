@@ -65,7 +65,7 @@ class Login extends StatelessWidget {
                                     },
                                     text: "${MainTextPalettes.textFr["EMAIL_LABEL_DEFAULT_TEXTFIELD"]}",
                                     isValid: snapshot.data["isValidEmail"],
-                                    isNotValidRenderText: "${MainTextPalettes.textFr["BOOLISVALIDMAIL"]}",
+                                    isNotValidRenderText: "${MainTextPalettes.textFr["ERROR_EMAIL"]}",
                                     hiddenText: false,
                                   )),
                               Padding(

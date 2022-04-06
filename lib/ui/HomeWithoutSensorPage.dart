@@ -28,7 +28,7 @@ class HomeWithoutSensorPage extends StatelessWidget{
         enumerateCategoriesScaffold: EnumerateCategoriesScaffold.curvedBar,
         isIOSPlatform: isIOSPlatform,
         debugShowCheckedModeBanner: debugShowCheckedModeBanner,
-        index: 4,
+        index: 0,
         child: Container(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
@@ -93,7 +93,7 @@ class HomeWithoutSensorPage extends StatelessWidget{
                             .typeButtonIconOnly,
                         isIOSPlatform: isIOSPlatform,
                         methode: () =>
-                        {Navigator.pushNamed(context, 'landing')},
+                        {Navigator.pushNamed(context, 'qrcode')},
                         colorBorder:
                         MainColorPalettes.colorsThemeMultiple[5]!,
                         backgroundColorButton:

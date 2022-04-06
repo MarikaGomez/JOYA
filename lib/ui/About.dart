@@ -70,6 +70,19 @@ class About extends StatelessWidget {
                   EnumerateCategoriesButton.typeButtonTextAndIconAndOpacity,
                   isIOSPlatform: isIOSPlatform,
                   methode: () =>
+                  {Navigator.pushNamed(context, 'myAccount')},
+                  colorBorder:
+                  MainColorPalettes.colorsThemeMultiple[5]!,
+                  backgroundColorButton:
+                  MainColorPalettes.colorsThemeMultiple[5]!,
+                ),
+                SizedBox(height: 30,),
+                ButtonComponent(
+                  text: MainTextPalettes.textFr["ABOUT_SETTING"],
+                  enumerateCategoriesButton:
+                  EnumerateCategoriesButton.typeButtonTextAndIconAndOpacity,
+                  isIOSPlatform: isIOSPlatform,
+                  methode: () =>
                   {Navigator.pushNamed(context, 'confirmEmail')},
                   colorBorder:
                   MainColorPalettes.colorsThemeMultiple[5]!,
@@ -161,7 +174,7 @@ class About extends StatelessWidget {
                 EnumerateCategoriesButton.typeButtonTextAndIconAndOpacity,
                 isIOSPlatform: isIOSPlatform,
                 methode: () =>
-                {Navigator.pushNamed(context, 'confirmEmail')},
+                {Navigator.pushNamed(context, 'myAccount')},
                 colorBorder:
                 MainColorPalettes.colorsThemeMultiple[5]!,
                 backgroundColorButton:

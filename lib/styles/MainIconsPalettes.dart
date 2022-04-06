@@ -57,7 +57,7 @@ class MainIconsPalettes {
     ),
     "CAMERA" :
     Icon(
-      Icons.linked_camera_rounded,
+      Icons.add,
       size: 30,
       color: Color.fromARGB(255, 255, 255, 255),
     ),
@@ -65,6 +65,11 @@ class MainIconsPalettes {
       Icons.qr_code,
       color: Color.fromARGB(255, 0, 0, 0),
       size: 300.0,
+    ),
+    "BUILD":Icon(
+      Icons.build,
+      size: 300.0,
+      color: Color.fromARGB(255, 0, 0, 0),
     ),
   };
 
