@@ -37,7 +37,7 @@ class ScaffoldComponent extends StatelessWidget{
   Map<int,String?> path = {
     0:null,
     1:null,
-    2:null,
+    2:"qrcode",
     3:null,
     4:"about"
   };
@@ -56,16 +56,21 @@ class ScaffoldComponent extends StatelessWidget{
         animationDuration: const Duration(milliseconds: 800),
         onTap: (index) async {
           if(path[index] == null){
-            await Future.delayed(const Duration(milliseconds: 800), (){
+            await Future.delayed(const Duration(milliseconds: 1000), (){
               Navigator.pushNamed(context, 'landing');
             });
           }else{
-            Navigator.pushNamed(context, path[index].toString());
+            await Future.delayed(const Duration(milliseconds: 1000), (){
+              Navigator.pushNamed(context, path[index].toString());
+            });
           }
         },
         letIndexChange: (index) => true,
       ),
-      body: child,
+      body: SafeArea(
+          bottom: false,
+          child: child,
+      ),
     );
   }
 

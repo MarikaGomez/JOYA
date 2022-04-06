@@ -6,6 +6,8 @@ import 'package:joya/ui/ErrorPage.dart';
 import 'package:joya/ui/InscriptionPage.dart';
 import 'package:joya/ui/LandingPage.dart';
 import 'package:joya/ui/Login.dart';
+import 'package:joya/ui/QrCode.dart';
+import 'package:joya/ui/QrCodeScan.dart';
 import 'bloc/bloc_provider.dart';
 import 'bloc/controller/RequestBloc.dart';
 
@@ -43,6 +45,14 @@ class MyApp extends StatelessWidget {
         "about" : (BuildContext context) => About(
             isIOSPlatform: isIOS,
             debugShowCheckedModeBanner: debugShowCheckedModeBanner),
+        "qrcode" : (BuildContext context) => QrCode(
+            isIOSPlatform: isIOS,
+            debugShowCheckedModeBanner: debugShowCheckedModeBanner),
+        'qrcodeScan': (BuildContext context) => BlocProvider<RequestBloc>(
+            bloc: RequestBloc(),
+            child:QrCodeScan(
+                isIOSPlatform: isIOS,
+                debugShowCheckedModeBanner: debugShowCheckedModeBanner)),
       },
     );
   }

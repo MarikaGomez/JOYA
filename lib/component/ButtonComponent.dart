@@ -40,6 +40,8 @@ class ButtonComponent extends StatelessWidget {
         return renderingOfButtonWithIconAndText(context);
       case EnumerateCategoriesButton.typeButtonTextAndIconAndOpacity:
         return renderingButtonTextAndIconAndOpacity(context);
+      case EnumerateCategoriesButton.typeBigButtonIconQRcode:
+        return renderingBigButtonIcon(context);
       default:
         return BoxShadowComponent(
             text: 'Botton category Don\'t existed',
@@ -160,6 +162,25 @@ class ButtonComponent extends StatelessWidget {
                   fontSize: MediaQuery.of(context).size.width / 18,
                   color: MainColorPalettes.colorsThemeMultiple[20]),
             )),
+      ),
+    );
+  }
+
+  Widget renderingBigButtonIcon(BuildContext context) {
+    return SizedBox(
+      child: ElevatedButton(
+        onPressed: methode,
+        style: ButtonStyle(
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+              RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(
+                      MainBottonPalettes.bottonWithIconOnly["BTN_RADIUS"]),
+                  side: BorderSide(color: colorBorder))),
+          backgroundColor: MaterialStateProperty.all(backgroundColorButton),
+          padding: MaterialStateProperty.all(
+              MainBottonPalettes.bottonWithIconOnly["EDGEINSET_ICON"]),
+        ),
+        child: Center(child: MainIconsPalettes.iconButtons["QR"]),
       ),
     );
   }

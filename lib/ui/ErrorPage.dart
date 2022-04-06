@@ -20,12 +20,13 @@ class ErrorPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ScaffoldComponent(
-        enumerateCategoriesScaffold: EnumerateCategoriesScaffold.curvedBar,
-        child: errorBody(),
-        isIOSPlatform: isIOSPlatform,
-        debugShowCheckedModeBanner: debugShowCheckedModeBanner
-    );
+    return Container(child: Text('test'),);
+    // return ScaffoldComponent(
+    //     enumerateCategoriesScaffold: EnumerateCategoriesScaffold.curvedBar,
+    //     child: errorBody(),
+    //     isIOSPlatform: isIOSPlatform,
+    //     debugShowCheckedModeBanner: debugShowCheckedModeBanner
+    // );
 
   }
 

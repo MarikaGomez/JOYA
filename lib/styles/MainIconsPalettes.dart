@@ -61,6 +61,11 @@ class MainIconsPalettes {
       size: 30,
       color: Color.fromARGB(255, 255, 255, 255),
     ),
+    "QR":Icon(
+      Icons.qr_code,
+      color: Color.fromARGB(255, 0, 0, 0),
+      size: 300.0,
+    ),
   };
 
 }

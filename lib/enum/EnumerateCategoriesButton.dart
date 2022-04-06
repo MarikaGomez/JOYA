@@ -3,5 +3,6 @@ enum EnumerateCategoriesButton {
   typeButtonTextAndIconRight,
   typeButtonTextAndIconLeft,
   typeButtonIconOnly,
-  typeButtonTextAndIconAndOpacity
+  typeButtonTextAndIconAndOpacity,
+  typeBigButtonIconQRcode,
 }
