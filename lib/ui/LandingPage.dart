@@ -6,7 +6,7 @@ import 'package:joya/enum/EnumerateCategoriesButton.dart';
 import 'package:joya/enum/EnumerateCategoriesScaffold.dart';
 import 'package:joya/styles/MainColorPalettes.dart';
 import 'package:joya/styles/MainTextPalettes.dart';
-
+// SWITCH BACK
 class LandingPage extends StatelessWidget{
   final bool debugShowCheckedModeBanner;
   final bool isIOSPlatform;
@@ -23,7 +23,8 @@ class LandingPage extends StatelessWidget{
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SizedBox(
-              height: 100,
+              height: MediaQuery.of(context).size.height / 30,
+
             ),
             Container(
               color: MainColorPalettes.colorsThemeMultiple[5],
@@ -37,7 +38,7 @@ class LandingPage extends StatelessWidget{
                 fit: BoxFit.fitWidth,
               ),
             ),
-            SizedBox(height: 50,),
+            SizedBox(height: 50,), // TODO
             Text('${MainTextPalettes.textFr["BIENVENUE"]}',
               style: TextStyle(
                   color: MainColorPalettes.colorsThemeMultiple[20],
@@ -53,7 +54,7 @@ class LandingPage extends StatelessWidget{
                   fontFamily: 'DMSans-Regular.ttf'
               ),
             ),
-            SizedBox(height: 150,),
+            SizedBox(height: 150,), // TODO
             ButtonComponent(
               text : MainTextPalettes.textFr["INSCRIPTION"],
               enumerateCategoriesButton: EnumerateCategoriesButton.typeButtonTextOnly,
@@ -62,7 +63,7 @@ class LandingPage extends StatelessWidget{
               colorBorder: MainColorPalettes.colorsThemeMultiple[5]!,
               backgroundColorButton: MainColorPalettes.colorsThemeMultiple[10]!,
             ),
-            SizedBox(height: 50,),
+            SizedBox(height: 50,), // TODO
             ButtonComponent(
               text : MainTextPalettes.textFr["CONNEXION_BUTTON_DEFAULT_TEXTFIELD"],
               enumerateCategoriesButton: EnumerateCategoriesButton.typeButtonTextOnly,

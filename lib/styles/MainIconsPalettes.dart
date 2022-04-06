@@ -55,6 +55,12 @@ class MainIconsPalettes {
       size: 30,
       color: Color.fromARGB(255, 255, 255, 255),
     ),
+    "CAMERA" :
+    Icon(
+      Icons.camera,
+      size: 30,
+      color: Color.fromARGB(255, 255, 255, 255),
+    ),
   };
 
 }
