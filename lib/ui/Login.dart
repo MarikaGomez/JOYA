@@ -26,17 +26,106 @@ class Login extends StatelessWidget {
     final bloc = BlocProvider.of<RequestBloc>(context);
     if (this.isIOSPlatform) {
       return ScaffoldComponent(
-        enumerateCategoriesScaffold: EnumerateCategoriesScaffold.noCurvedBar,
-        isIOSPlatform: isIOSPlatform,
-        debugShowCheckedModeBanner: debugShowCheckedModeBanner,
-        child: Container(
-            height: double.infinity,
-            width: double.infinity,
-            child: SingleChildScrollView(
-              child: Container(
-
-              ),
-            )),
+          enumerateCategoriesScaffold: EnumerateCategoriesScaffold.noCurvedBar,
+          isIOSPlatform: isIOSPlatform,
+          debugShowCheckedModeBanner: debugShowCheckedModeBanner,
+          child: Container(
+              height: double.infinity,
+              width: double.infinity,
+              child: StreamBuilder<Map<String, dynamic>>(
+                  stream: bloc?.stream,
+                  builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+                    if (snapshot.data == null) {
+                      return ErrorPage(
+                          errorMessage: 'Data is Null',
+                          debugShowCheckedModeBanner: debugShowCheckedModeBanner,
+                          isIOSPlatform: isIOSPlatform);
+                    } else if (snapshot.hasData) {
+                      return SingleChildScrollView(
+                        child: Container(
+                          child: Column(
+                            children: [
+                              SizedBox(height: MediaQuery.of(context).size.height /10,),
+                              Text(
+                                '${MainTextPalettes.textFr["CONNEXION_BUTTON_DEFAULT_TEXTFIELD"]}',
+                                style: TextStyle(
+                                    color: MainColorPalettes.colorsThemeMultiple[10],
+                                    fontSize: 60,
+                                    fontFamily: 'DMSans-Bold.ttf'),
+                              ),
+                              Padding(
+                                  padding: EdgeInsets.fromLTRB(
+                                    MediaQuery.of(context).size.height / 25,
+                                    MediaQuery.of(context).size.height / 15,
+                                    MediaQuery.of(context).size.height / 25,
+                                    5,
+                                  ),
+                                  child: TextFieldComponent(
+                                    methode: "test",
+                                    text:
+                                    "${MainTextPalettes.textFr["EMAIL_LABEL_DEFAULT_TEXTFIELD"]}",
+                                    isValid: true,
+                                    isNotValidRenderText: 'test',
+                                  )),
+                              Padding(
+                                  padding: EdgeInsets.fromLTRB(
+                                    MediaQuery.of(context).size.height / 25,
+                                    MediaQuery.of(context).size.height / 50,
+                                    MediaQuery.of(context).size.height / 25,
+                                    5,
+                                  ),
+                                  child: TextFieldComponent(
+                                    methode: "test",
+                                    text:
+                                    "${MainTextPalettes.textFr["PASSWORD_LABEL_DEFAULT_TEXTFIELD"]}",
+                                    isValid: true,
+                                    isNotValidRenderText: 'test',
+                                  )),
+                              SizedBox(height: MediaQuery.of(context).size.height /25,),
+                              ButtonComponent(
+                                text: MainTextPalettes.textFr["CONNEXION_BUTTON_DEFAULT_TEXTFIELD"],
+                                enumerateCategoriesButton:
+                                EnumerateCategoriesButton.typeButtonTextAndIconRight,
+                                isIOSPlatform: isIOSPlatform,
+                                methode: () =>
+                                {Navigator.pushNamed(context, 'homeWithoutSensor')},
+                                colorBorder:
+                                MainColorPalettes.colorsThemeMultiple[5]!,
+                                backgroundColorButton:
+                                MainColorPalettes.colorsThemeMultiple[10]!,
+                              ),
+                              SizedBox(height: MediaQuery.of(context).size.height /25,),
+                              Center(
+                                  child: RichText(
+                                      textAlign: TextAlign.center,
+                                      text: TextSpan(children: [
+                                        TextSpan(
+                                          text:
+                                          "\n${MainTextPalettes.textFr["RECUP"]}",
+                                          style: TextStyle(
+                                              fontFamily: "DMSans-Regular",
+                                              fontSize: 15,
+                                              color: MainColorPalettes
+                                                  .colorsThemeMultiple[10]),
+                                          recognizer: TapGestureRecognizer()
+                                            ..onTap = () {
+                                              Navigator.pushNamed(context, 'about');
+                                            },
+                                        ),
+                                      ])))
+                            ],
+                          ),
+                        ),
+                      );
+                    }else{
+                      return ErrorPage(
+                          errorMessage: 'Data is Null',
+                          debugShowCheckedModeBanner: debugShowCheckedModeBanner,
+                          isIOSPlatform: isIOSPlatform);
+                    }
+                  }
+              )
+          )
       );
     } else {
       return ScaffoldComponent(

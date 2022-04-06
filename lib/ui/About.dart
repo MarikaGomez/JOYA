@@ -20,7 +20,91 @@ class About extends StatelessWidget {
         enumerateCategoriesScaffold: EnumerateCategoriesScaffold.curvedBar,
         isIOSPlatform: isIOSPlatform,
         debugShowCheckedModeBanner: debugShowCheckedModeBanner,
-        child: Container(child: Text('te'),),
+        index: 4,
+        child: Container(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            color: MainColorPalettes.colorsThemeMultiple[5],
+            child: Column(
+              children: [
+                SizedBox(
+                  height: MediaQuery.of(context).size.height /10,
+                ),
+                Text(
+                  '${MainTextPalettes.textFr["ABOUT"]}',
+                  style: TextStyle(
+                      color: MainColorPalettes.colorsThemeMultiple[10],
+                      fontSize: 50,
+                      fontFamily: 'DMSans-Bold.ttf'),
+                ),
+                SizedBox(height: 90,),
+                ButtonComponent(
+                  text: MainTextPalettes.textFr["ABOUTPRENIUM"],
+                  enumerateCategoriesButton:
+                  EnumerateCategoriesButton.typeButtonTextAndIconAndOpacity,
+                  isIOSPlatform: isIOSPlatform,
+                  methode: () =>
+                  {Navigator.pushNamed(context, 'confirmEmail')},
+                  colorBorder:
+                  MainColorPalettes.colorsThemeMultiple[5]!,
+                  backgroundColorButton:
+                  MainColorPalettes.colorsThemeMultiple[5]!,
+                ),
+                SizedBox(height: 30,),
+                ButtonComponent(
+                  text: MainTextPalettes.textFr["ABOUTNOTIF"],
+                  enumerateCategoriesButton:
+                  EnumerateCategoriesButton.typeButtonTextAndIconAndOpacity,
+                  isIOSPlatform: isIOSPlatform,
+                  methode: () =>
+                  {Navigator.pushNamed(context, 'confirmEmail')},
+                  colorBorder:
+                  MainColorPalettes.colorsThemeMultiple[5]!,
+                  backgroundColorButton:
+                  MainColorPalettes.colorsThemeMultiple[5]!,
+                ),
+                SizedBox(height: 30,),
+                ButtonComponent(
+                  text: MainTextPalettes.textFr["ABOUT_MY_ACCOUNT"],
+                  enumerateCategoriesButton:
+                  EnumerateCategoriesButton.typeButtonTextAndIconAndOpacity,
+                  isIOSPlatform: isIOSPlatform,
+                  methode: () =>
+                  {Navigator.pushNamed(context, 'confirmEmail')},
+                  colorBorder:
+                  MainColorPalettes.colorsThemeMultiple[5]!,
+                  backgroundColorButton:
+                  MainColorPalettes.colorsThemeMultiple[5]!,
+                ),
+                SizedBox(height: 30,),
+                ButtonComponent(
+                  text: MainTextPalettes.textFr["ABOUT_HELP"],
+                  enumerateCategoriesButton:
+                  EnumerateCategoriesButton.typeButtonTextAndIconAndOpacity,
+                  isIOSPlatform: isIOSPlatform,
+                  methode: () =>
+                  {Navigator.pushNamed(context, 'confirmEmail')},
+                  colorBorder:
+                  MainColorPalettes.colorsThemeMultiple[5]!,
+                  backgroundColorButton:
+                  MainColorPalettes.colorsThemeMultiple[5]!,
+                ),
+                SizedBox(height: 30,),
+                ButtonComponent(
+                  text: MainTextPalettes.textFr["ABOUT_JOYA"],
+                  enumerateCategoriesButton:
+                  EnumerateCategoriesButton.typeButtonTextAndIconAndOpacity,
+                  isIOSPlatform: isIOSPlatform,
+                  methode: () =>
+                  {Navigator.pushNamed(context, 'confirmEmail')},
+                  colorBorder:
+                  MainColorPalettes.colorsThemeMultiple[5]!,
+                  backgroundColorButton:
+                  MainColorPalettes.colorsThemeMultiple[5]!,
+                ),
+              ],
+            )
+        ),
       );
     } else {
       return ScaffoldComponent(
@@ -72,7 +156,33 @@ class About extends StatelessWidget {
               ),
               SizedBox(height: 30,),
               ButtonComponent(
-                text: MainTextPalettes.textFr["ABOUTDECO"],
+                text: MainTextPalettes.textFr["ABOUT_MY_ACCOUNT"],
+                enumerateCategoriesButton:
+                EnumerateCategoriesButton.typeButtonTextAndIconAndOpacity,
+                isIOSPlatform: isIOSPlatform,
+                methode: () =>
+                {Navigator.pushNamed(context, 'confirmEmail')},
+                colorBorder:
+                MainColorPalettes.colorsThemeMultiple[5]!,
+                backgroundColorButton:
+                MainColorPalettes.colorsThemeMultiple[5]!,
+              ),
+              SizedBox(height: 30,),
+              ButtonComponent(
+                text: MainTextPalettes.textFr["ABOUT_HELP"],
+                enumerateCategoriesButton:
+                EnumerateCategoriesButton.typeButtonTextAndIconAndOpacity,
+                isIOSPlatform: isIOSPlatform,
+                methode: () =>
+                {Navigator.pushNamed(context, 'confirmEmail')},
+                colorBorder:
+                MainColorPalettes.colorsThemeMultiple[5]!,
+                backgroundColorButton:
+                MainColorPalettes.colorsThemeMultiple[5]!,
+              ),
+              SizedBox(height: 30,),
+              ButtonComponent(
+                text: MainTextPalettes.textFr["ABOUT_JOYA"],
                 enumerateCategoriesButton:
                 EnumerateCategoriesButton.typeButtonTextAndIconAndOpacity,
                 isIOSPlatform: isIOSPlatform,

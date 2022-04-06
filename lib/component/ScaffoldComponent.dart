@@ -35,8 +35,8 @@ class ScaffoldComponent extends StatelessWidget{
   }
 
   Map<int,String?> path = {
-    0:null,
-    1:null,
+    0:"homeWithoutSensor",
+    1:"myPlant",
     2:"qrcode",
     3:null,
     4:"about"
@@ -82,5 +82,5 @@ class ScaffoldComponent extends StatelessWidget{
       ),
     );
   }
-  
+
 }

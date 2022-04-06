@@ -57,7 +57,7 @@ class MainIconsPalettes {
     ),
     "CAMERA" :
     Icon(
-      Icons.camera,
+      Icons.linked_camera_rounded,
       size: 30,
       color: Color.fromARGB(255, 255, 255, 255),
     ),

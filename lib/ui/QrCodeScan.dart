@@ -16,7 +16,33 @@ class QrCodeScan extends StatelessWidget{
   Widget build(BuildContext context) {
     final bloc = BlocProvider.of<RequestBloc>(context);
     if(isIOSPlatform){
-      return Container();
+      return ScaffoldComponent(
+          enumerateCategoriesScaffold: EnumerateCategoriesScaffold.curvedBar,
+          isIOSPlatform: isIOSPlatform,
+          debugShowCheckedModeBanner: debugShowCheckedModeBanner,
+          child: Container(
+              height: double.infinity,
+              width: double.infinity,
+              child: StreamBuilder<Map<String, dynamic>>(
+                  stream: bloc?.stream,
+                  builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+                    if (snapshot.data == null) {
+                      return ErrorPage(
+                          errorMessage: 'Data is Null',
+                          debugShowCheckedModeBanner: debugShowCheckedModeBanner,
+                          isIOSPlatform: isIOSPlatform);
+                    } else if (snapshot.hasData) {
+                      return Container(); // TO DO
+                    }else{
+                      return ErrorPage(
+                          errorMessage: 'Data is Null',
+                          debugShowCheckedModeBanner: debugShowCheckedModeBanner,
+                          isIOSPlatform: isIOSPlatform);
+                    }
+                  }
+              )
+          )
+      );
     }else{
       return ScaffoldComponent(
           enumerateCategoriesScaffold: EnumerateCategoriesScaffold.curvedBar,

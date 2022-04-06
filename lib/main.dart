@@ -3,9 +3,11 @@ import 'package:joya/styles/MainColorPalettes.dart';
 import 'package:joya/ui/About.dart';
 import 'package:joya/ui/ConfirmationEmail.dart';
 import 'package:joya/ui/ErrorPage.dart';
+import 'package:joya/ui/HomeWithoutSensorPage.dart';
 import 'package:joya/ui/InscriptionPage.dart';
 import 'package:joya/ui/LandingPage.dart';
 import 'package:joya/ui/Login.dart';
+import 'package:joya/ui/MyPlantPage.dart';
 import 'package:joya/ui/QrCode.dart';
 import 'package:joya/ui/QrCodeScan.dart';
 import 'bloc/bloc_provider.dart';
@@ -53,6 +55,14 @@ class MyApp extends StatelessWidget {
             child:QrCodeScan(
                 isIOSPlatform: isIOS,
                 debugShowCheckedModeBanner: debugShowCheckedModeBanner)),
+        'homeWithoutSensor': (BuildContext context) => BlocProvider<RequestBloc>(
+            bloc: RequestBloc(),
+            child:HomeWithoutSensorPage(
+                isIOSPlatform: isIOS,
+                debugShowCheckedModeBanner: debugShowCheckedModeBanner)),
+        "myPlant" : (BuildContext context) => MyPlantPage(
+            isIOSPlatform: isIOS,
+            debugShowCheckedModeBanner: debugShowCheckedModeBanner),
       },
     );
   }

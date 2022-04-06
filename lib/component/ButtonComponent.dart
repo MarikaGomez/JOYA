@@ -66,7 +66,7 @@ class ButtonComponent extends StatelessWidget {
           padding: MaterialStateProperty.all(
               MainBottonPalettes.bottonWithIconOnly["EDGEINSET_ICON"]),
         ),
-        child: Center(child: MainIconsPalettes.iconButtons["BACK"]),
+        child: Center(child: MainIconsPalettes.iconButtons["CAMERA"]),
       ),
     );
     // );

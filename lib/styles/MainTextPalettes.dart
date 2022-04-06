@@ -32,5 +32,11 @@ class MainTextPalettes {
     "LOCALISATION_PLANT":"Localisation de ma plante",
     "CONNECT_PLANT":"Connecter ma plante",
     "SCAN_QRCODE":"Scannez le QR code de votre capteur pour pouvoir établir la connexion.",
+    "ABOUT_MY_ACCOUNT":"Mon compte",
+    "ABOUT_HELP":"FAQ / Aide",
+    "ABOUT_JOYA":"À propos de Joya",
+    "MY_PLANT":"Mes plantes",
+    "SEARCH":"Rechercher",
+
   };
 }
