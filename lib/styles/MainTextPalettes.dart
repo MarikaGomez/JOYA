@@ -22,7 +22,15 @@ class MainTextPalettes {
     "ABOUT":"Paramètres",
     "ABOUTPRENIUM":"Devenir membre premium",
     "ABOUTNOTIF":"Notifications",
-    "ABOUTDECO":"Déconnexion"
-
+    "ABOUTDECO":"Déconnexion",
+    "NOPLANT":"Aucune plante ajoutée.",
+    "ADDFIRSTPLANT":"Ajoutez votre première plante en appuyant sur le bouton de scanner.",
+    "SUIVANT":"Suivant",
+    "VALIDER":"Valider",
+    "CONFIG_PLANT":"Configurer ma plante",
+    "NAME_PLANT":"Nom de ma plante",
+    "LOCALISATION_PLANT":"Localisation de ma plante",
+    "CONNECT_PLANT":"Connecter ma plante",
+    "SCAN_QRCODE":"Scannez le QR code de votre capteur pour pouvoir établir la connexion.",
   };
 }

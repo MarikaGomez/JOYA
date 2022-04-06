@@ -20,15 +20,15 @@ class GridComponent extends StatelessWidget{
   EnumerateCategoriesScaffold enumerateCategoriesScaffold;
   int? index;
 
-   ScaffoldComponent({
+   GridComponent({
      required this.enumerateCategoriesScaffold,
      required this.child,
      required this.isIOSPlatform,
      required this.debugShowCheckedModeBanner,
      this.index
-   }) {
+   });
 
-   }
+
 
   @override
   Widget build(BuildContext context) {
