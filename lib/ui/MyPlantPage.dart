@@ -46,11 +46,13 @@ class MyPlantPage extends StatelessWidget {
                       100,
                     ),
                     child: TextFieldComponent(
-                      methode: "test",
-                      text:
-                      "${MainTextPalettes.textFr["SEARCH"]}",
+                      methode: (test)=>{
+
+                      },
+                      text: "${MainTextPalettes.textFr["SEARCH"]}",
                       isValid: true,
                       isNotValidRenderText: 'test',
+                      hiddenText: true,
                     )),
                 SizedBox(
                   height: MediaQuery.of(context).size.height /10,
@@ -137,7 +139,10 @@ class MyPlantPage extends StatelessWidget {
                       100,
                     ),
                     child: TextFieldComponent(
-                      methode: "test",
+                      methode: (test){
+
+                      },
+                      hiddenText: true,
                       text:
                       "${MainTextPalettes.textFr["SEARCH"]}",
                       isValid: true,

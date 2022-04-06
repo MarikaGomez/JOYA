@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:joya/bloc/bloc_provider.dart';
-import 'package:joya/bloc/controller/GetDataInstance.dart';
 import 'package:joya/bloc/controller/RequestBloc.dart';
 import 'package:joya/component/ButtonComponent.dart';
 import 'package:joya/component/ScaffoldComponent.dart';
@@ -61,11 +60,13 @@ class Login extends StatelessWidget {
                                     5,
                                   ),
                                   child: TextFieldComponent(
-                                    methode: "test",
-                                    text:
-                                    "${MainTextPalettes.textFr["EMAIL_LABEL_DEFAULT_TEXTFIELD"]}",
-                                    isValid: true,
-                                    isNotValidRenderText: 'test',
+                                    methode: (data){
+                                      bloc?.setIsValidEmail(data.isValidEmail());
+                                    },
+                                    text: "${MainTextPalettes.textFr["EMAIL_LABEL_DEFAULT_TEXTFIELD"]}",
+                                    isValid: snapshot.data["isValidEmail"],
+                                    isNotValidRenderText: "${MainTextPalettes.textFr["BOOLISVALIDMAIL"]}",
+                                    hiddenText: false,
                                   )),
                               Padding(
                                   padding: EdgeInsets.fromLTRB(
@@ -75,11 +76,14 @@ class Login extends StatelessWidget {
                                     5,
                                   ),
                                   child: TextFieldComponent(
-                                    methode: "test",
+                                    methode:  (data){
+                                      print(data);
+                                    },
                                     text:
                                     "${MainTextPalettes.textFr["PASSWORD_LABEL_DEFAULT_TEXTFIELD"]}",
                                     isValid: true,
                                     isNotValidRenderText: 'test',
+                                    hiddenText: true,
                                   )),
                               SizedBox(height: MediaQuery.of(context).size.height /25,),
                               ButtonComponent(
@@ -165,11 +169,11 @@ class Login extends StatelessWidget {
                                   ),
                                   child: TextFieldComponent(
                                     methode: (data){
-                                      return data;
+                                      bloc?.setIsValidEmail(data.isValidEmail());
                                     },
                                     text: "${MainTextPalettes.textFr["EMAIL_LABEL_DEFAULT_TEXTFIELD"]}",
-                                    isValid: GetDataInstance().dataInstance,
-                                    isNotValidRenderText: '',
+                                    isValid: snapshot.data["isValidEmail"],
+                                    isNotValidRenderText: "${MainTextPalettes.textFr["BOOLISVALIDMAIL"]}",
                                     hiddenText: false,
                                   )),
                               Padding(
@@ -233,15 +237,6 @@ class Login extends StatelessWidget {
                   )
         )
       );
-    }
-  }
-
-  getvalidmail(String dataText){
-    var data = GetDataInstance();
-    if(dataText.isValidEmail()){
-      data.setDataKey("mail", true);
-    }else{
-      data.setDataKey("mail", false);
     }
   }
 }
