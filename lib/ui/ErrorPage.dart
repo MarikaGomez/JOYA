@@ -60,7 +60,7 @@ class ErrorPage extends StatelessWidget {
               //   colorBorder: MainColorPalettes.colorsThemeMultiple[5]!,
               //   backgroundColorButton: MainColorPalettes.colorsThemeMultiple[10]!,
               // )
-              TextFieldComponent(methode: "test",text: "DATA",isValid: true,isNotValidRenderText: 'test',)
+              TextFieldComponent(hiddenText: false,methode: (test)=>{},text: "DATA",isValid: true,isNotValidRenderText: 'test',)
             ],
           ));
     }

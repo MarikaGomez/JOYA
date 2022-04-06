@@ -78,20 +78,22 @@ class ConfigSensor2 extends StatelessWidget {
                         Padding(
                             padding: EdgeInsets.fromLTRB(40, 55, 40, 5), // TODO
                             child: TextFieldComponent(
-                              methode: "test",
+                              methode: (test)=>{},
                               text:
                               "${MainTextPalettes.textFr["NAME_PLANT"]}",
                               isValid: true,
                               isNotValidRenderText: 'test',
+                              hiddenText: false,
                             )),
                         Padding(
                             padding: EdgeInsets.fromLTRB(40, 5, 40, 5), // TODO
                             child: TextFieldComponent(
-                              methode: "test",
+                              methode: (test)=>{},
                               text:
                               "${MainTextPalettes.textFr["LOCALISATION_PLANT"]}",
                               isValid: true,
                               isNotValidRenderText: 'test',
+                              hiddenText: false,
                             )),
                         ButtonComponent(
                           text: MainTextPalettes.textFr["VALIDER"],

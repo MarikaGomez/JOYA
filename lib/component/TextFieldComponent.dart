@@ -4,32 +4,28 @@ import 'package:joya/styles/MainColorPalettes.dart';
 import 'package:joya/styles/MainTextFieldPalettes.dart';
 
 class TextFieldComponent extends StatelessWidget {
-  var methode;
+  Function(String) methode;
   Icon? icon;
   String text;
   bool isValid;
   String isNotValidRenderText;
+  bool hiddenText;
 
   TextFieldComponent(
       {required this.methode,
       required this.text,
       required this.isValid,
       this.icon,
+      required this.hiddenText,
       required this.isNotValidRenderText});
 
   @override
   Widget build(BuildContext context) {
-    double margin = (MediaQuery.of(context).size.width / 8);
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
-            // margin: EdgeInsets.all(MediaQuery
-            //     .of(context)
-            //     .size
-            //     .width / 8),
-            // margin: EdgeInsets.fromLTRB(margin, margin, margin, ),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(
                   MainTextFieldPalettes.simpleTextfield["RADIUS"])),
@@ -46,15 +42,15 @@ class TextFieldComponent extends StatelessWidget {
               ],
             ),
             child: TextField(
-              obscureText: true,
+              onChanged: methode,
+              obscureText: hiddenText,
               decoration: InputDecoration(
                 labelText: '$text',
                 filled: true,
                 alignLabelWithHint: true,
-                // contentPadding: EdgeInsets.only(bottom: 5.0, left: 10.0, right: 10.0),
                 labelStyle: TextStyle(
                   color: isValid
-                      ? MainColorPalettes.colorsThemeMultiple[25]!
+                      ? MainColorPalettes.colorsThemeMultiple[20]!
                       : MainColorPalettes.colorsThemeMultiple[30]!,
                   fontWeight: FontWeight.normal,
                   decoration: TextDecoration.none,
