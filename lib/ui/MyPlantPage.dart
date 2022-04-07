@@ -90,8 +90,12 @@ class MyPlantPage extends StatelessWidget {
                   EnumerateCategoriesButton
                       .typeButtonIconOnly,
                   isIOSPlatform: isIOSPlatform,
-                  methode: () =>
-                  {Navigator.pushNamed(context, 'qrcode')},
+                  methode: () async =>
+                  {
+                    await Future.delayed(const Duration(milliseconds: 1000), (){
+                    Navigator.pushNamed(context, 'qrcode');
+                  })
+                  },
                   colorBorder:
                   MainColorPalettes.colorsThemeMultiple[5]!,
                   backgroundColorButton:
@@ -180,8 +184,10 @@ class MyPlantPage extends StatelessWidget {
                         EnumerateCategoriesButton
                             .typeButtonIconOnly,
                         isIOSPlatform: isIOSPlatform,
-                        methode: () =>
-                        {Navigator.pushNamed(context, 'qrcode')},
+                        methode: () async =>
+                        { await Future.delayed(const Duration(milliseconds: 1000), (){
+                          Navigator.pushNamed(context, 'qrcode');
+                        })},
                         colorBorder:
                         MainColorPalettes.colorsThemeMultiple[5]!,
                         backgroundColorButton:

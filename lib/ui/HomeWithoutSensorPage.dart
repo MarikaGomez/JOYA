@@ -92,8 +92,10 @@ class HomeWithoutSensorPage extends StatelessWidget{
                         EnumerateCategoriesButton
                             .typeButtonIconOnly,
                         isIOSPlatform: isIOSPlatform,
-                        methode: () =>
-                        {Navigator.pushNamed(context, 'qrcode')},
+                        methode: () async =>
+                        { await Future.delayed(const Duration(milliseconds: 1000), (){
+                          Navigator.pushNamed(context, 'qrcode');
+                        })},
                         colorBorder:
                         MainColorPalettes.colorsThemeMultiple[5]!,
                         backgroundColorButton:
@@ -155,7 +157,7 @@ class HomeWithoutSensorPage extends StatelessWidget{
                                 text: "\n${MainTextPalettes.textFr["ADDFIRSTPLANT"]}",
                                 style: TextStyle(
                                     fontFamily: "DMSans-Regular",
-                                    fontSize: 25,
+                                    fontSize: 16,
                                     color: MainColorPalettes.colorsThemeMultiple[20]
                                 ),
                               ),
@@ -175,8 +177,13 @@ class HomeWithoutSensorPage extends StatelessWidget{
                         EnumerateCategoriesButton
                             .typeButtonIconOnly,
                         isIOSPlatform: isIOSPlatform,
-                        methode: () =>
-                        {Navigator.pushNamed(context, 'qrcode')},
+                        methode: () async =>
+                        {
+                        await Future.delayed(const Duration(milliseconds: 1000), (){
+                          Navigator.pushNamed(context, 'qrcode');
+                        })
+
+                        },
                         colorBorder:
                         MainColorPalettes.colorsThemeMultiple[5]!,
                         backgroundColorButton:
