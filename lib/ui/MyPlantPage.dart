@@ -106,7 +106,7 @@ class MyPlantPage extends StatelessWidget {
         enumerateCategoriesScaffold: EnumerateCategoriesScaffold.curvedBar,
         isIOSPlatform: isIOSPlatform,
         debugShowCheckedModeBanner: debugShowCheckedModeBanner,
-        index: 4,
+        index: 1,
         child: Container(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
@@ -131,14 +131,12 @@ class MyPlantPage extends StatelessWidget {
                       100,
                     ),
                     child: TextFieldComponent(
-                      methode: (test){
-
+                      methode: (test)=>{
                       },
-                      hiddenText: true,
-                      text:
-                      "${MainTextPalettes.textFr["SEARCH"]}",
+                      text: "${MainTextPalettes.textFr["VIDE"]}",
                       isValid: true,
                       isNotValidRenderText: 'test',
+                      hiddenText: true,
                     )),
                 SizedBox(
                   height: MediaQuery.of(context).size.height /10,
@@ -171,26 +169,27 @@ class MyPlantPage extends StatelessWidget {
                   height: MediaQuery.of(context).size.height /10,
                 ),
                 Padding(
-                  padding: EdgeInsets.fromLTRB(
-                    MediaQuery.of(context).size.height / 6,
-                    MediaQuery.of(context).size.height / 35,
-                    MediaQuery.of(context).size.height / 6,
-                    100,
+                  padding: EdgeInsets.fromLTRB(170, 50, 0, 0), // TO DO
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      ButtonComponent(
+                        text: MainTextPalettes.textFr[
+                        "CONNEXION_BUTTON_DEFAULT_TEXTFIELD"],
+                        enumerateCategoriesButton:
+                        EnumerateCategoriesButton
+                            .typeButtonIconOnly,
+                        isIOSPlatform: isIOSPlatform,
+                        methode: () =>
+                        {Navigator.pushNamed(context, 'qrcode')},
+                        colorBorder:
+                        MainColorPalettes.colorsThemeMultiple[5]!,
+                        backgroundColorButton:
+                        MainColorPalettes.colorsThemeMultiple[10]!,
+                      ),
+                    ],
                   ),
-                  child : ButtonComponent(
-                    text: "+",
-                    enumerateCategoriesButton:
-                    EnumerateCategoriesButton.typeButtonTextAndIconAndOpacity,
-                    isIOSPlatform: isIOSPlatform,
-                    methode: () =>
-                    {Navigator.pushNamed(context, 'confirmEmail')},
-
-                    colorBorder:
-                    MainColorPalettes.colorsThemeMultiple[25]!,
-                    backgroundColorButton:
-                    MainColorPalettes.colorsThemeMultiple[10]!,
-                  ),
-                )
+                ),
               ],
             )
         ),

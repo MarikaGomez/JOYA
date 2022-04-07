@@ -198,7 +198,7 @@ class Login extends StatelessWidget {
                                 EnumerateCategoriesButton.typeButtonTextAndIconRight,
                                 isIOSPlatform: isIOSPlatform,
                                 methode: () =>
-                                {Navigator.pushNamed(context, 'confirmEmail')},
+                                {Navigator.pushNamed(context, 'homeWithoutSensor')},
                                 colorBorder:
                                 MainColorPalettes.colorsThemeMultiple[5]!,
                                 backgroundColorButton:
