@@ -28,6 +28,7 @@ class MyAccountPage extends StatelessWidget {
           isIOSPlatform: isIOSPlatform,
           debugShowCheckedModeBanner: debugShowCheckedModeBanner,
           child: Container(
+              color: MainColorPalettes.colorsThemeMultiple[5],
               height: double.infinity,
               width: double.infinity,
               child: SingleChildScrollView(
@@ -181,6 +182,7 @@ class MyAccountPage extends StatelessWidget {
           isIOSPlatform: isIOSPlatform,
           debugShowCheckedModeBanner: debugShowCheckedModeBanner,
           child: Container(
+            color: MainColorPalettes.colorsThemeMultiple[5],
               height: double.infinity,
               width: double.infinity,
               child: SingleChildScrollView(
