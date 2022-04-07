@@ -72,7 +72,7 @@ class MyPlantPage extends StatelessWidget {
                                 text: "\n${MainTextPalettes.textFr["ADDFIRSTPLANT"]}",
                                 style: TextStyle(
                                     fontFamily: "DMSans-Regular",
-                                    fontSize: 25,
+                                    fontSize: 16,
                                     color: MainColorPalettes.colorsThemeMultiple[20]
                                 ),
                               ),

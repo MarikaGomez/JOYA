@@ -128,7 +128,7 @@ class MyAccountPage extends StatelessWidget {
                             EnumerateCategoriesButton.typeButtonTextOnly,
                             isIOSPlatform: isIOSPlatform,
                             methode: () =>
-                            {Navigator.pushNamed(context, 'confirmEmail')},
+                            {Navigator.pushNamed(context, 'landing')},
                             colorBorder:
                             MainColorPalettes.colorsThemeMultiple[5]!,
                             backgroundColorButton:
@@ -143,7 +143,7 @@ class MyAccountPage extends StatelessWidget {
                             EnumerateCategoriesButton.typeButtonTextOnly,
                             isIOSPlatform: isIOSPlatform,
                             methode: () =>
-                            {Navigator.pushNamed(context, 'confirmEmail')},
+                            {Navigator.pushNamed(context, 'signin')},
                             colorBorder:
                             MainColorPalettes.colorsThemeMultiple[5]!,
                             backgroundColorButton:
