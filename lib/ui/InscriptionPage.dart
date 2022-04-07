@@ -193,13 +193,13 @@ class InscriptionPage extends StatelessWidget {
                             style: TextStyle(
                                 color:
                                     MainColorPalettes.colorsThemeMultiple[10],
-                                fontSize: 60,
+                                fontSize: 50,
                                 fontFamily: 'DMSans-Bold.ttf'),
                           ),
                           Padding(
                               padding: EdgeInsets.fromLTRB(
                                 MediaQuery.of(context).size.height / 25,
-                                MediaQuery.of(context).size.height / 15,
+                                MediaQuery.of(context).size.height / 25,
                                 MediaQuery.of(context).size.height / 25,
                                 5,
                               ),

@@ -28,7 +28,7 @@ class About extends StatelessWidget {
             child: Column(
               children: [
                 SizedBox(
-                  height: MediaQuery.of(context).size.height /10,
+                  height: MediaQuery.of(context).size.height /20,
                 ),
                 Text(
                   '${MainTextPalettes.textFr["ABOUT"]}',
@@ -132,7 +132,7 @@ class About extends StatelessWidget {
             child: Column(
               children: [
                 SizedBox(
-                  height: MediaQuery.of(context).size.height /10,
+                  height: MediaQuery.of(context).size.height /30,
                 ),
                 Text(
                   '${MainTextPalettes.textFr["ABOUT"]}',
@@ -141,7 +141,7 @@ class About extends StatelessWidget {
                       fontSize: 50,
                       fontFamily: 'DMSans-Bold.ttf'),
                 ),
-                SizedBox(height: 90,),
+                SizedBox(height: MediaQuery.of(context).size.width/25,),
                 ButtonComponent(
                   text: MainTextPalettes.textFr["ABOUTPRENIUM"],
                   enumerateCategoriesButton:
@@ -154,7 +154,7 @@ class About extends StatelessWidget {
                   backgroundColorButton:
                   MainColorPalettes.colorsThemeMultiple[5]!,
                 ),
-                SizedBox(height: 30,),
+                SizedBox(height: MediaQuery.of(context).size.width/25,),
                 ButtonComponent(
                   text: MainTextPalettes.textFr["ABOUTNOTIF"],
                   enumerateCategoriesButton:
@@ -167,7 +167,7 @@ class About extends StatelessWidget {
                   backgroundColorButton:
                   MainColorPalettes.colorsThemeMultiple[5]!,
                 ),
-                SizedBox(height: 30,),
+                SizedBox(height: MediaQuery.of(context).size.width/25,),
                 ButtonComponent(
                   text: MainTextPalettes.textFr["ABOUT_MY_ACCOUNT"],
                   enumerateCategoriesButton:
@@ -180,7 +180,7 @@ class About extends StatelessWidget {
                   backgroundColorButton:
                   MainColorPalettes.colorsThemeMultiple[5]!,
                 ),
-                SizedBox(height: 30,),
+                SizedBox(height: MediaQuery.of(context).size.width/25,),
                 ButtonComponent(
                   text: MainTextPalettes.textFr["ABOUT_SETTING"],
                   enumerateCategoriesButton:
@@ -193,7 +193,7 @@ class About extends StatelessWidget {
                   backgroundColorButton:
                   MainColorPalettes.colorsThemeMultiple[5]!,
                 ),
-                SizedBox(height: 30,),
+                SizedBox(height: MediaQuery.of(context).size.width/25,),
                 ButtonComponent(
                   text: MainTextPalettes.textFr["ABOUT_HELP"],
                   enumerateCategoriesButton:
@@ -206,7 +206,7 @@ class About extends StatelessWidget {
                   backgroundColorButton:
                   MainColorPalettes.colorsThemeMultiple[5]!,
                 ),
-                SizedBox(height: 30,),
+                SizedBox(height: MediaQuery.of(context).size.width/25,),
                 ButtonComponent(
                   text: MainTextPalettes.textFr["ABOUT_JOYA"],
                   enumerateCategoriesButton:
