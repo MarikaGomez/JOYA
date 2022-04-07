@@ -42,7 +42,8 @@ class MainTextPalettes {
     "VIDE":"",
     "BUILD":"Site en cours de construction",
     "DELETE_ACCOUNT":"Supprimer de mon compte",
-    "ERROR_PASSWORD":"Mots de passe incorrect"
+    "ERROR_PASSWORD":"Mots de passe incorrect",
+    "SCANMESSAGE":"Scanner votre plante ici."
 
   };
 }

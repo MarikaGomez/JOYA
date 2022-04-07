@@ -11,6 +11,7 @@ import 'package:joya/enum/EnumerateCategoriesScaffold.dart';
 import 'package:joya/styles/MainColorPalettes.dart';
 import 'package:joya/styles/MainIconsPalettes.dart';
 import 'package:joya/styles/MainTextPalettes.dart';
+import 'package:qr_code_scanner/qr_code_scanner.dart';
 
 import 'ErrorPage.dart';
 
@@ -18,13 +19,10 @@ class QrCode extends StatelessWidget {
   final bool debugShowCheckedModeBanner;
   final bool isIOSPlatform;
 
-  QrCode(
-      {required this.isIOSPlatform, required this.debugShowCheckedModeBanner});
+  QrCode({required this.isIOSPlatform, required this.debugShowCheckedModeBanner});
 
   @override
   Widget build(BuildContext context) {
-    bool change = true;
-    final bloc = BlocProvider.of<RequestBloc>(context);
     if (this.isIOSPlatform) {
       return ScaffoldComponent(
           enumerateCategoriesScaffold: EnumerateCategoriesScaffold.curvedBar,
@@ -35,124 +33,118 @@ class QrCode extends StatelessWidget {
               height: double.infinity,
               width: double.infinity,
               child: SingleChildScrollView(
-                  child: Container(
-                      color: MainColorPalettes.colorsThemeMultiple[5],
-                      child: Column(
-                        children: [
-                          SizedBox(
-                            height: MediaQuery.of(context).size.height / 5,
-                          ),
-                          Text(
-                            '${MainTextPalettes.textFr["CONNECT_PLANT"]}',
-                            style: TextStyle(
-                                color:
-                                MainColorPalettes.colorsThemeMultiple[10],
-                                fontSize: 40,
-                                fontFamily: 'DMSans-Bold.ttf'),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(
-                                MediaQuery.of(context).size.width / 15,
-                                0,
-                                MediaQuery.of(context).size.width / 15,
-                                0),
-                            child: ButtonComponent(
-                              text: MainTextPalettes
-                                  .textFr["CONNEXION_BUTTON_DEFAULT_TEXTFIELD"],
-                              enumerateCategoriesButton:
-                              EnumerateCategoriesButton
-                                  .typeBigButtonIconQRcode,
-                              isIOSPlatform: isIOSPlatform,
-                              methode: () => {
-                                Navigator.pushNamed(context, 'qrcodeScan')
-                              },
-                              colorBorder:
-                              MainColorPalettes.colorsThemeMultiple[5]!,
-                              backgroundColorButton:
-                              MainColorPalettes.colorsThemeMultiple[5]!,
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(
-                                MediaQuery.of(context).size.width / 15,
-                                0,
-                                MediaQuery.of(context).size.width / 15,
-                                0),
-                            child: Text(
-                              "\n${MainTextPalettes.textFr["SCAN_QRCODE"]}",
-                              style: TextStyle(
-                                  color:
-                                  MainColorPalettes.colorsThemeMultiple[20],
-                                  fontSize: 18,
-                                  fontFamily: 'DMSans-Bold.ttf'),
-                            ),
-                          )
-                        ],
-                      )))));
+                  child: QrCodeScanPage(
+                      debugShowCheckedModeBanner: debugShowCheckedModeBanner,
+                      platformBool: isIOSPlatform
+                  ))));
     } else {
       return ScaffoldComponent(
           enumerateCategoriesScaffold: EnumerateCategoriesScaffold.curvedBar,
           isIOSPlatform: isIOSPlatform,
           debugShowCheckedModeBanner: debugShowCheckedModeBanner,
           index: 2,
-          child: Container(
-              height: double.infinity,
-              width: double.infinity,
-              child: SingleChildScrollView(
-                  child: Container(
-                      color: MainColorPalettes.colorsThemeMultiple[5],
-                      child: Column(
-                        children: [
-                          SizedBox(
-                            height: MediaQuery.of(context).size.height / 5,
-                          ),
-                          Text(
-                            '${MainTextPalettes.textFr["CONNECT_PLANT"]}',
-                            style: TextStyle(
-                                color:
-                                    MainColorPalettes.colorsThemeMultiple[10],
-                                fontSize: 40,
-                                fontFamily: 'DMSans-Bold.ttf'),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(
-                                MediaQuery.of(context).size.width / 15,
-                                0,
-                                MediaQuery.of(context).size.width / 15,
-                                0),
-                            child: ButtonComponent(
-                              text: MainTextPalettes
-                                  .textFr["CONNEXION_BUTTON_DEFAULT_TEXTFIELD"],
-                              enumerateCategoriesButton:
-                                  EnumerateCategoriesButton
-                                      .typeBigButtonIconQRcode,
-                              isIOSPlatform: isIOSPlatform,
-                              methode: () => {
-                                Navigator.pushNamed(context, 'qrcodeScan')
-                              },
-                              colorBorder:
-                                  MainColorPalettes.colorsThemeMultiple[5]!,
-                              backgroundColorButton:
-                                  MainColorPalettes.colorsThemeMultiple[5]!,
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(
-                                MediaQuery.of(context).size.width / 15,
-                                0,
-                                MediaQuery.of(context).size.width / 15,
-                                0),
-                            child: Text(
-                              "\n${MainTextPalettes.textFr["SCAN_QRCODE"]}",
-                              style: TextStyle(
-                                  color:
-                                      MainColorPalettes.colorsThemeMultiple[20],
-                                  fontSize: 18,
-                                  fontFamily: 'DMSans-Bold.ttf'),
-                            ),
-                          )
-                        ],
-                      )))));
+          child: QrCodeScanPage(
+              debugShowCheckedModeBanner: debugShowCheckedModeBanner,
+              platformBool: isIOSPlatform
+          )
+      );
     }
+  }
+}
+
+
+class QrCodeScanPage extends StatefulWidget {
+  final bool debugShowCheckedModeBanner;
+  final bool platformBool;
+
+  QrCodeScanPage({Key? key,required this.debugShowCheckedModeBanner,required this.platformBool}) : super(key: key);
+
+
+  @override
+  State<QrCodeScanPage> createState() => _QrCodeScanPageState(this.platformBool);
+
+}
+
+class _QrCodeScanPageState extends State<QrCodeScanPage> {
+
+  final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
+  Barcode? result;
+  QRViewController? controller;
+  final bool platformBool;
+
+  _QrCodeScanPageState(bool this.platformBool);
+
+
+  // In order to get hot reload to work we need to pause the camera if the platform
+  // is android, or resume the camera if the platform is iOS.
+  @override
+  void reassemble() {
+    super.reassemble();
+    if (!this.platformBool) {
+      controller!.pauseCamera();
+    } else if (this.platformBool) {
+      controller!.resumeCamera();
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) => SafeArea(
+    child: Scaffold(
+      body: Stack(
+        alignment: Alignment.center,
+        children: <Widget>[
+          buildQrView(context),
+          Positioned(bottom: MediaQuery.of(context).size.height/10, child: buildResult())
+        ],
+      ),
+    ),
+  );
+
+  Widget buildQrView(BuildContext context) => QRView(
+    key: qrKey,
+    onQRViewCreated: _onQRViewCreated,
+    overlay: QrScannerOverlayShape(
+      borderColor: Theme.of(context).highlightColor,
+      borderRadius: 10,
+      borderLength: 20,
+      borderWidth: 10,
+      cutOutSize: MediaQuery.of(context).size.width * 0.8,
+    ),
+  );
+
+
+  Widget buildResult() => Container(
+    padding: EdgeInsets.all(12),
+    decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(8),
+        color: MainColorPalettes.colorsThemeMultiple[40]
+    ),
+    child: Center(
+      child: (result != null)
+          ? Text(
+          'Data: ${result!.code}',
+          style: const TextStyle(
+              fontSize: 9.0
+          ))
+          : Text('${MainTextPalettes.textFr["SCANMESSAGE"]}'),
+
+    ),
+  );
+
+  void _onQRViewCreated(QRViewController controller) {
+    this.controller = controller;
+    controller.scannedDataStream.listen((scanData) {
+      setState(() {
+        result = scanData;
+        print(result);
+        // Navigator.pushNamed(context, 'about',arguments: result!.code.toString());
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    controller?.dispose();
+    super.dispose();
   }
 }

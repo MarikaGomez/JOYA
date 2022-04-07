@@ -9,7 +9,9 @@ class MainColorPalettes {
     25:Color.fromARGB(255, 199, 198, 198),
     30:Color.fromARGB(255, 255, 60, 60),
     35:Color.fromARGB(255, 0, 0, 0),
+    40:Color.fromARGB(64, 255, 255, 255),
   });
+
   static const Map<int, Color> colorsCustum = {
     5:Color.fromARGB(255, 255, 255, 255),
     10:Color.fromARGB(255, 35, 162, 100),

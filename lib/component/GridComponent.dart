@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:joya/component/ItemsComponent.dart';
 import 'package:joya/component/ScaffoldComponent.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
@@ -9,52 +10,32 @@ import 'package:joya/styles/MainColorPalettes.dart';
 import 'package:joya/styles/MainIconsPalettes.dart';
 import 'package:joya/styles/MainTextPalettes.dart';
 
+class GridComponent extends StatelessWidget {
 
-class GridComponent extends StatelessWidget{
+  final bool debugShowCheckedModeBanner;
+  final bool isIOSPlatform;
 
-   Widget child;
-  bool debugShowCheckedModeBanner;
-  bool isIOSPlatform;
-  EnumerateCategoriesScaffold enumerateCategoriesScaffold;
-  int? index;
-
-   GridComponent({
-     required this.enumerateCategoriesScaffold,
-     required this.child,
-     required this.isIOSPlatform,
-     required this.debugShowCheckedModeBanner,
-     this.index
-   });
-
-
+  GridComponent({required this.isIOSPlatform,required this.debugShowCheckedModeBanner});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: '${MainTextPalettes.textFr["GRIDTITLE"]}',
-      home: Scaffold(
-        appBar: AppBar(
-
+    if(this.isIOSPlatform){
+      return GridView(
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 1,
         ),
-        body: GridView.count(
-          // Create a grid with 2 columns. If you change the scrollDirection to
-          // horizontal, this produces 2 rows.
-          crossAxisCount: 2,
-          // Generate 100 widgets that display their index in the List.
-          children: List.generate(100, (index) {
-            return Center(
-              child: Text(
-                'Item $index',
-                style: Theme.of(context).textTheme.headline5,
-              ),
-            );
-          }),
+        children: [
+        ],
+      );
+    }else{
+      return GridView.builder(
+        itemCount: 100,
+        itemBuilder: (context, index) => ItemTile(index),
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 1,
+          childAspectRatio: 2,
         ),
-      ),
-    );
+      );
+    }
   }
-
-
-
-
 }
