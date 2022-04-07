@@ -107,96 +107,87 @@ class HomeWithoutSensorPage extends StatelessWidget{
         ),
       );
     } else {
-      return Scaffold(
-        body: StreamBuilder<Map<String, dynamic>>(
-            stream: bloc?.stream,
-            builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
-              if (snapshot.data == null) {
-                return ErrorPage(
-                    errorMessage: 'Data is Null',
-                    debugShowCheckedModeBanner: debugShowCheckedModeBanner,
-                    isIOSPlatform: isIOSPlatform);
-              } else if (snapshot.hasData) {
-                return Container(
-                    color: MainColorPalettes.colorsThemeMultiple[5],
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.fromLTRB(0, 150, 0, 50), // TO DO
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      return ScaffoldComponent(
+        enumerateCategoriesScaffold: EnumerateCategoriesScaffold.curvedBar,
+        isIOSPlatform: isIOSPlatform,
+        debugShowCheckedModeBanner: debugShowCheckedModeBanner,
+        index: 0,
+        child: Container(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            color: MainColorPalettes.colorsThemeMultiple[5],
+            child: Column(
+              children: [
+                Padding(
+                  padding: EdgeInsets.fromLTRB(0, 0, 0, 50), // TO DO
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        color: MainColorPalettes.colorsThemeMultiple[5],
+                        padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                        child: Image.asset(
+                          'assets/images/joyalogo.png',
+                          width: MediaQuery.of(context).size.width,
+                          height: MediaQuery.of(context).size.height / 3,
+                          scale: 0.8,
+                          colorBlendMode: BlendMode.darken,
+                          fit: BoxFit.fitWidth,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Text(
+                  '${MainTextPalettes.textFr["NOPLANT"]}',
+                  style: TextStyle(
+                      color: MainColorPalettes.colorsThemeMultiple[20],
+                      fontSize: 25,
+                      fontFamily: 'DMSans-Bold.ttf'),
+                ),
+                SizedBox(height: 15,),
+                Center(
+                    child: RichText(
+                        textAlign: TextAlign.center,
+                        text: TextSpan(
                             children: [
-                              Container(
-                                color: MainColorPalettes.colorsThemeMultiple[5],
-                                padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                                child: Image.asset(
-                                  'assets/images/joyalogo.png',
-                                  width: MediaQuery.of(context).size.width,
-                                  height: MediaQuery.of(context).size.height / 3,
-                                  scale: 0.8,
-                                  colorBlendMode: BlendMode.darken,
-                                  fit: BoxFit.fitWidth,
+                              TextSpan(
+                                text: "\n${MainTextPalettes.textFr["ADDFIRSTPLANT"]}",
+                                style: TextStyle(
+                                    fontFamily: "DMSans-Regular",
+                                    fontSize: 25,
+                                    color: MainColorPalettes.colorsThemeMultiple[20]
                                 ),
                               ),
-                            ],
-                          ),
-                        ),
-                        Text(
-                          '${MainTextPalettes.textFr["NOPLANT"]}',
-                          style: TextStyle(
-                              color: MainColorPalettes.colorsThemeMultiple[20],
-                              fontSize: 25,
-                              fontFamily: 'DMSans-Bold.ttf'),
-                        ),
-                        SizedBox(height: 15,),
-                        Center(
-                            child: RichText(
-                                textAlign: TextAlign.center,
-                                text: TextSpan(
-                                    children: [
-                                      TextSpan(
-                                        text: "\n${MainTextPalettes.textFr["ADDFIRSTPLANT"]}",
-                                        style: TextStyle(
-                                            fontFamily: "DMSans-Regular",
-                                            fontSize: 25,
-                                            color: MainColorPalettes.colorsThemeMultiple[20]
-                                        ),
-                                      ),
-                                    ]
-                                )
-                            )
-                        ),
-                        Padding(
-                          padding: EdgeInsets.fromLTRB(190, 50, 0, 0), // TO DO
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              ButtonComponent(
-                                text: MainTextPalettes.textFr[
-                                "CONNEXION_BUTTON_DEFAULT_TEXTFIELD"],
-                                enumerateCategoriesButton:
-                                EnumerateCategoriesButton
-                                    .typeButtonIconOnly,
-                                isIOSPlatform: isIOSPlatform,
-                                methode: () =>
-                                {Navigator.pushNamed(context, 'landing')},
-                                colorBorder:
-                                MainColorPalettes.colorsThemeMultiple[5]!,
-                                backgroundColorButton:
-                                MainColorPalettes.colorsThemeMultiple[10]!,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ));
-              } else {
-                return ErrorPage(
-                    errorMessage: 'Data is Bad',
-                    debugShowCheckedModeBanner: debugShowCheckedModeBanner,
-                    isIOSPlatform: isIOSPlatform);
-              }
-            }),
+                            ]
+                        )
+                    )
+                ),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(170, 50, 0, 0), // TO DO
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      ButtonComponent(
+                        text: MainTextPalettes.textFr[
+                        "CONNEXION_BUTTON_DEFAULT_TEXTFIELD"],
+                        enumerateCategoriesButton:
+                        EnumerateCategoriesButton
+                            .typeButtonIconOnly,
+                        isIOSPlatform: isIOSPlatform,
+                        methode: () =>
+                        {Navigator.pushNamed(context, 'qrcode')},
+                        colorBorder:
+                        MainColorPalettes.colorsThemeMultiple[5]!,
+                        backgroundColorButton:
+                        MainColorPalettes.colorsThemeMultiple[10]!,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            )
+        ),
       );
     }
   }

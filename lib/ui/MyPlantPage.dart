@@ -168,19 +168,27 @@ class MyPlantPage extends StatelessWidget {
                 SizedBox(
                   height: MediaQuery.of(context).size.height /10,
                 ),
-                ButtonComponent(
-                  text: MainTextPalettes.textFr[
-                  "CONNEXION_BUTTON_DEFAULT_TEXTFIELD"],
-                  enumerateCategoriesButton:
-                  EnumerateCategoriesButton
-                      .typeButtonIconOnly,
-                  isIOSPlatform: isIOSPlatform,
-                  methode: () =>
-                  {Navigator.pushNamed(context, 'qrcode')},
-                  colorBorder:
-                  MainColorPalettes.colorsThemeMultiple[5]!,
-                  backgroundColorButton:
-                  MainColorPalettes.colorsThemeMultiple[10]!,
+                Padding(
+                  padding: EdgeInsets.fromLTRB(170, 50, 0, 0), // TO DO
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      ButtonComponent(
+                        text: MainTextPalettes.textFr[
+                        "CONNEXION_BUTTON_DEFAULT_TEXTFIELD"],
+                        enumerateCategoriesButton:
+                        EnumerateCategoriesButton
+                            .typeButtonIconOnly,
+                        isIOSPlatform: isIOSPlatform,
+                        methode: () =>
+                        {Navigator.pushNamed(context, 'qrcode')},
+                        colorBorder:
+                        MainColorPalettes.colorsThemeMultiple[5]!,
+                        backgroundColorButton:
+                        MainColorPalettes.colorsThemeMultiple[10]!,
+                      ),
+                    ],
+                  ),
                 ),
               ],
             )
