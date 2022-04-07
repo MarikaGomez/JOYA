@@ -44,7 +44,7 @@ class About extends StatelessWidget {
                   EnumerateCategoriesButton.typeButtonTextAndIconAndOpacity,
                   isIOSPlatform: isIOSPlatform,
                   methode: () =>
-                  {Navigator.pushNamed(context, 'confirmEmail')},
+                  {Navigator.pushNamed(context, '')},
                   colorBorder:
                   MainColorPalettes.colorsThemeMultiple[5]!,
                   backgroundColorButton:
@@ -57,7 +57,7 @@ class About extends StatelessWidget {
                   EnumerateCategoriesButton.typeButtonTextAndIconAndOpacity,
                   isIOSPlatform: isIOSPlatform,
                   methode: () =>
-                  {Navigator.pushNamed(context, 'confirmEmail')},
+                  {Navigator.pushNamed(context, '')},
                   colorBorder:
                   MainColorPalettes.colorsThemeMultiple[5]!,
                   backgroundColorButton:
@@ -83,7 +83,7 @@ class About extends StatelessWidget {
                   EnumerateCategoriesButton.typeButtonTextAndIconAndOpacity,
                   isIOSPlatform: isIOSPlatform,
                   methode: () =>
-                  {Navigator.pushNamed(context, 'confirmEmail')},
+                  {Navigator.pushNamed(context, '')},
                   colorBorder:
                   MainColorPalettes.colorsThemeMultiple[5]!,
                   backgroundColorButton:
@@ -96,7 +96,7 @@ class About extends StatelessWidget {
                   EnumerateCategoriesButton.typeButtonTextAndIconAndOpacity,
                   isIOSPlatform: isIOSPlatform,
                   methode: () =>
-                  {Navigator.pushNamed(context, 'confirmEmail')},
+                  {Navigator.pushNamed(context, '')},
                   colorBorder:
                   MainColorPalettes.colorsThemeMultiple[5]!,
                   backgroundColorButton:
@@ -109,7 +109,7 @@ class About extends StatelessWidget {
                   EnumerateCategoriesButton.typeButtonTextAndIconAndOpacity,
                   isIOSPlatform: isIOSPlatform,
                   methode: () =>
-                  {Navigator.pushNamed(context, 'confirmEmail')},
+                  {Navigator.pushNamed(context, '')},
                   colorBorder:
                   MainColorPalettes.colorsThemeMultiple[5]!,
                   backgroundColorButton:
