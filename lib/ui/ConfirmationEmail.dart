@@ -66,7 +66,7 @@ class ConfirmationEmail extends StatelessWidget{
                   EnumerateCategoriesButton.typeButtonTextOnly,
                   isIOSPlatform: isIOSPlatform,
                   methode: () =>
-                  {Navigator.pushNamed(context, 'confirmEmail')},
+                  {Navigator.pushNamed(context, 'homeWithoutSensor')},
                   colorBorder:
                   MainColorPalettes.colorsThemeMultiple[5]!,
                   backgroundColorButton:
@@ -154,7 +154,7 @@ class ConfirmationEmail extends StatelessWidget{
                 EnumerateCategoriesButton.typeButtonTextOnly,
                 isIOSPlatform: isIOSPlatform,
                 methode: () =>
-                {Navigator.pushNamed(context, 'confirmEmail')},
+                {Navigator.pushNamed(context, 'homeWithoutSensor')},
                 colorBorder:
                 MainColorPalettes.colorsThemeMultiple[5]!,
                 backgroundColorButton:
