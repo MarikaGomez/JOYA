@@ -186,7 +186,7 @@ class InscriptionPage extends StatelessWidget {
                       child: Column(
                         children: [
                           SizedBox(
-                            height: MediaQuery.of(context).size.height / 18,
+                            height: MediaQuery.of(context).size.height / 50,
                           ),
                           Text(
                             '${MainTextPalettes.textFr["INSCRIPTION"]}',
@@ -287,7 +287,7 @@ class InscriptionPage extends StatelessWidget {
                                 MainColorPalettes.colorsThemeMultiple[10]!,
                           ),
                           SizedBox(
-                            height: 15,
+                            height: MediaQuery.of(context).size.height /50,
                           ),
                           Center(
                               child: RichText(

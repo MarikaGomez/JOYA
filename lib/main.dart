@@ -37,12 +37,14 @@ class MyApp extends StatelessWidget {
             bloc: RequestBloc(),
             child: InscriptionPage(
                 isIOSPlatform: isIOS,
-                debugShowCheckedModeBanner: debugShowCheckedModeBanner)),
+                debugShowCheckedModeBanner: debugShowCheckedModeBanner)
+        ),
         'signin': (BuildContext context) => BlocProvider<RequestBloc>(
             bloc: RequestBloc(),
             child: Login(
                 isIOSPlatform: isIOS,
-                debugShowCheckedModeBanner: debugShowCheckedModeBanner)),
+                debugShowCheckedModeBanner: debugShowCheckedModeBanner)
+        ),
         "confirmEmail" : (BuildContext context) => ConfirmationEmail(
             isIOSPlatform: isIOS,
             debugShowCheckedModeBanner: debugShowCheckedModeBanner),
@@ -56,12 +58,14 @@ class MyApp extends StatelessWidget {
             bloc: RequestBloc(),
             child:QrCodeScan(
                 isIOSPlatform: isIOS,
-                debugShowCheckedModeBanner: debugShowCheckedModeBanner)),
+                debugShowCheckedModeBanner: debugShowCheckedModeBanner)
+        ),
         'homeWithoutSensor': (BuildContext context) => BlocProvider<RequestBloc>(
             bloc: RequestBloc(),
             child:HomeWithoutSensorPage(
                 isIOSPlatform: isIOS,
-                debugShowCheckedModeBanner: debugShowCheckedModeBanner)),
+                debugShowCheckedModeBanner: debugShowCheckedModeBanner)
+        ),
         "myPlant" : (BuildContext context) => MyPlantPage(
             isIOSPlatform: isIOS,
             debugShowCheckedModeBanner: debugShowCheckedModeBanner),
@@ -69,12 +73,14 @@ class MyApp extends StatelessWidget {
             bloc: RequestBloc(),
             child: MyAccountPage(
                 isIOSPlatform: isIOS,
-                debugShowCheckedModeBanner: debugShowCheckedModeBanner)),
+                debugShowCheckedModeBanner: debugShowCheckedModeBanner)
+        ),
         'store': (BuildContext context) => BlocProvider<RequestBloc>(
             bloc: RequestBloc(),
             child: StorePage(
                 isIOSPlatform: isIOS,
-                debugShowCheckedModeBanner: debugShowCheckedModeBanner)),
+                debugShowCheckedModeBanner: debugShowCheckedModeBanner)
+        ),
       },
     );
   }
