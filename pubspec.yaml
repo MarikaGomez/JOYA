@@ -12,10 +12,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   mockito: ^5.0.17
   bloc_test: ^9.0.2
-  http: ^0.13.4
   curved_navigation_bar: ^1.0.1
-  salomon_bottom_bar: ^3.3.0
-  diamond_bottom_bar: ^1.0.0
+  dio: ^4.0.6
 
 
 dev_dependencies:
