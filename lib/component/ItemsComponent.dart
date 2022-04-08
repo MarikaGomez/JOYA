@@ -1,35 +1,66 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:joya/component/BoxShadowComponent.dart';
 import 'package:joya/styles/MainColorPalettes.dart';
+import 'package:joya/styles/MainWidgetPalettes.dart';
 
-class ItemTile extends StatelessWidget {
-  final int itemNo;
+class ItemsComponent extends StatelessWidget {
+  final String name;
+  final String serial_number;
+  final String location;
+  final Color colorBorder;
+  final Color colorCard;
 
-  const ItemTile(
-      this.itemNo,
-      );
+  // "content" : {"name": "string",
+  // "serial_number": "string",
+  // "location": "string"}
+
+  const ItemsComponent(
+      {required this.name,
+      required this.serial_number,
+      required this.location,
+      required this.colorBorder,
+      required this.colorCard});
 
   @override
   Widget build(BuildContext context) {
-    final Color color = Colors.primaries[itemNo % Colors.primaries.length];
     return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: ListTile(
-        tileColor: color.withOpacity(0.3),
-        onTap: () {},
-        leading: Container(
-          width: MediaQuery.of(context).size.height / 3,
-          height: 30,
-          color: MainColorPalettes.colorsThemeMultiple[10],
-          child: Placeholder(
-            color: color,
-          ),
+        padding: EdgeInsets.fromLTRB(
+          10,
+          20,
+          10,
+          0,
         ),
-        title: Text(
-          'Product $itemNo',
-          key: Key('text_$itemNo'),
-        ),
-      ),
+        child: GestureDetector(
+            onTap: () {
+              print("Container clicked");
+            },
+            child: Container(
+              decoration: BoxDecoration(
+                color: colorCard,
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(
+                        MainWidgetPalettes.itemsComponentConfig["ROUND"]),
+                    topRight: Radius.circular(
+                        MainWidgetPalettes.itemsComponentConfig["ROUND"]),
+                    bottomLeft: Radius.circular(
+                        MainWidgetPalettes.itemsComponentConfig["ROUND"]),
+                    bottomRight: Radius.circular(
+                        MainWidgetPalettes.itemsComponentConfig["ROUND"])),
+                boxShadow: [
+                  BoxShadow(
+                    color: colorBorder,
+                    spreadRadius: 1,
+                    blurRadius: 5,
+                    offset: const Offset(0, 5), // changes position of shadow
+                  ),
+                ],
+              ),
+              child: Column(
+                children: [Text("test")],
+              ),
+            )
+        )
     );
   }
 }
