@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:joya/component/BoxShadowComponent.dart';
-import 'package:joya/enum/EnumerateCategoriesButton.dart';
 import 'package:joya/styles/MainBottonPalettes.dart';
 import 'package:joya/styles/MainColorPalettes.dart';
 import 'package:joya/styles/MainIconsPalettes.dart';
+
+import '../data/enum/EnumerateCategoriesButton.dart';
 
 class ButtonComponent extends StatelessWidget {
   EnumerateCategoriesButton enumerateCategoriesButton;
@@ -154,14 +155,14 @@ class ButtonComponent extends StatelessWidget {
         ),
         child: Center(
             child: Text(
-              '$text',
-              style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  decoration: TextDecoration.none,
-                  fontFamily: 'DMSans-Bold',
-                  fontSize: MediaQuery.of(context).size.width / 18,
-                  color: MainColorPalettes.colorsThemeMultiple[20]),
-            )),
+          '$text',
+          style: TextStyle(
+              fontWeight: FontWeight.bold,
+              decoration: TextDecoration.none,
+              fontFamily: 'DMSans-Bold',
+              fontSize: MediaQuery.of(context).size.width / 18,
+              color: MainColorPalettes.colorsThemeMultiple[20]),
+        )),
       ),
     );
   }

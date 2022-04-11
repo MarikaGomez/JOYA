@@ -3,10 +3,11 @@ import 'package:joya/component/ButtonComponent.dart';
 import 'package:joya/component/GridComponent.dart';
 import 'package:joya/component/ScaffoldComponent.dart';
 import 'package:joya/component/TextFieldComponent.dart';
-import 'package:joya/enum/EnumerateCategoriesButton.dart';
-import 'package:joya/enum/EnumerateCategoriesScaffold.dart';
 import 'package:joya/styles/MainColorPalettes.dart';
 import 'package:joya/styles/MainTextPalettes.dart';
+
+import '../data/enum/EnumerateCategoriesButton.dart';
+import '../data/enum/EnumerateCategoriesScaffold.dart';
 
 class MyPlantPage extends StatelessWidget {
   final bool debugShowCheckedModeBanner;
@@ -30,7 +31,7 @@ class MyPlantPage extends StatelessWidget {
             child: Column(
               children: [
                 SizedBox(
-                  height: MediaQuery.of(context).size.height /50,
+                  height: MediaQuery.of(context).size.height / 50,
                 ),
                 Text(
                   '${MainTextPalettes.textFr["MY_PLANT"]}',
@@ -47,15 +48,14 @@ class MyPlantPage extends StatelessWidget {
                       100,
                     ),
                     child: TextFieldComponent(
-                      methode: (test)=>{
-                      },
+                      methode: (test) => {},
                       text: "${MainTextPalettes.textFr["VIDE"]}",
                       isValid: true,
                       isNotValidRenderText: 'test',
                       hiddenText: true,
                     )),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height /10,
+                  height: MediaQuery.of(context).size.height / 10,
                 ),
                 Text(
                   '${MainTextPalettes.textFr["NOPLANT"]}',
@@ -67,44 +67,38 @@ class MyPlantPage extends StatelessWidget {
                 Center(
                     child: RichText(
                         textAlign: TextAlign.center,
-                        text: TextSpan(
-                            children: [
-                              TextSpan(
-                                text: "\n${MainTextPalettes.textFr["ADDFIRSTPLANT"]}",
-                                style: TextStyle(
-                                    fontFamily: "DMSans-Regular",
-                                    fontSize: 16,
-                                    color: MainColorPalettes.colorsThemeMultiple[20]
-                                ),
-                              ),
-                            ]
-                        )
-                    )
-                ),
+                        text: TextSpan(children: [
+                          TextSpan(
+                            text:
+                                "\n${MainTextPalettes.textFr["ADDFIRSTPLANT"]}",
+                            style: TextStyle(
+                                fontFamily: "DMSans-Regular",
+                                fontSize: 16,
+                                color:
+                                    MainColorPalettes.colorsThemeMultiple[20]),
+                          ),
+                        ]))),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height /10,
+                  height: MediaQuery.of(context).size.height / 10,
                 ),
                 ButtonComponent(
-                  text: MainTextPalettes.textFr[
-                  "CONNEXION_BUTTON_DEFAULT_TEXTFIELD"],
+                  text: MainTextPalettes
+                      .textFr["CONNEXION_BUTTON_DEFAULT_TEXTFIELD"],
                   enumerateCategoriesButton:
-                  EnumerateCategoriesButton
-                      .typeButtonIconOnly,
+                      EnumerateCategoriesButton.typeButtonIconOnly,
                   isIOSPlatform: isIOSPlatform,
-                  methode: () async =>
-                  {
-                    await Future.delayed(const Duration(milliseconds: 1000), (){
-                    Navigator.pushNamed(context, 'qrcode');
-                  })
+                  methode: () async => {
+                    await Future.delayed(const Duration(milliseconds: 1000),
+                        () {
+                      Navigator.pushNamed(context, 'qrcode');
+                    })
                   },
-                  colorBorder:
-                  MainColorPalettes.colorsThemeMultiple[5]!,
+                  colorBorder: MainColorPalettes.colorsThemeMultiple[5]!,
                   backgroundColorButton:
-                  MainColorPalettes.colorsThemeMultiple[10]!,
+                      MainColorPalettes.colorsThemeMultiple[10]!,
                 ),
               ],
-            )
-        ),
+            )),
       );
     } else {
       return ScaffoldComponent(
@@ -116,7 +110,9 @@ class MyPlantPage extends StatelessWidget {
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
             color: MainColorPalettes.colorsThemeMultiple[5],
-            child: GridComponent(isIOSPlatform: isIOSPlatform, debugShowCheckedModeBanner: debugShowCheckedModeBanner)
+            child: GridComponent(
+                isIOSPlatform: isIOSPlatform,
+                debugShowCheckedModeBanner: debugShowCheckedModeBanner)
             // Column(
             //   children: [
             //     SizedBox(
@@ -202,7 +198,7 @@ class MyPlantPage extends StatelessWidget {
             //     ),
             //   ],
             // )
-        ),
+            ),
       );
     }
   }

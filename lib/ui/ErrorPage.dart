@@ -1,12 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:joya/component/BoxShadowComponent.dart';
-import 'package:joya/component/ButtonComponent.dart';
-import 'package:joya/component/ScaffoldComponent.dart';
 import 'package:joya/component/TextFieldComponent.dart';
-import 'package:joya/enum/EnumerateCategoriesButton.dart';
-import 'package:joya/enum/EnumerateCategoriesScaffold.dart';
-import 'package:joya/styles/MainColorPalettes.dart';
-import 'package:joya/styles/MainTextPalettes.dart';
 
 class ErrorPage extends StatelessWidget {
   final bool debugShowCheckedModeBanner;
@@ -20,14 +13,15 @@ class ErrorPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(child: Text('test'),);
+    return Container(
+      child: Text('test'),
+    );
     // return ScaffoldComponent(
     //     enumerateCategoriesScaffold: EnumerateCategoriesScaffold.curvedBar,
     //     child: errorBody(),
     //     isIOSPlatform: isIOSPlatform,
     //     debugShowCheckedModeBanner: debugShowCheckedModeBanner
     // );
-
   }
 
   errorBody() {
@@ -44,26 +38,31 @@ class ErrorPage extends StatelessWidget {
           //       opacity: 0.3),
           // ),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              // BoxShadowComponent(
-              //   text:
-              //       'Data don\'t existed please activate your connection $errorMessage',
-              //   isIOSPlatform: isIOSPlatform,
-              //   numberOfError: 404,
-              // ),
-              // ButtonComponent(
-              //   text : MainTextPalettes.textFr["INSCRIPTION"],
-              //   enumerateCategoriesButton: EnumerateCategoriesButton.typeButtonTextAndIconRight,
-              //   isIOSPlatform: isIOSPlatform,
-              //   methode: null,
-              //   colorBorder: MainColorPalettes.colorsThemeMultiple[5]!,
-              //   backgroundColorButton: MainColorPalettes.colorsThemeMultiple[10]!,
-              // )
-              TextFieldComponent(hiddenText: false,methode: (test)=>{},text: "DATA",isValid: true,isNotValidRenderText: 'test',)
-            ],
-          ));
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          // BoxShadowComponent(
+          //   text:
+          //       'Data don\'t existed please activate your connection $errorMessage',
+          //   isIOSPlatform: isIOSPlatform,
+          //   numberOfError: 404,
+          // ),
+          // ButtonComponent(
+          //   text : MainTextPalettes.textFr["INSCRIPTION"],
+          //   enumerateCategoriesButton: EnumerateCategoriesButton.typeButtonTextAndIconRight,
+          //   isIOSPlatform: isIOSPlatform,
+          //   methode: null,
+          //   colorBorder: MainColorPalettes.colorsThemeMultiple[5]!,
+          //   backgroundColorButton: MainColorPalettes.colorsThemeMultiple[10]!,
+          // )
+          TextFieldComponent(
+            hiddenText: false,
+            methode: (test) => {},
+            text: "DATA",
+            isValid: true,
+            isNotValidRenderText: 'test',
+          )
+        ],
+      ));
     }
   }
 }
-

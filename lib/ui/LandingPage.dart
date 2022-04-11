@@ -2,20 +2,23 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:joya/component/ButtonComponent.dart';
 import 'package:joya/component/ScaffoldComponent.dart';
-import 'package:joya/enum/EnumerateCategoriesButton.dart';
-import 'package:joya/enum/EnumerateCategoriesScaffold.dart';
 import 'package:joya/styles/MainColorPalettes.dart';
 import 'package:joya/styles/MainTextPalettes.dart';
+
+import '../data/enum/EnumerateCategoriesButton.dart';
+import '../data/enum/EnumerateCategoriesScaffold.dart';
+
 // SWITCH BACK
-class LandingPage extends StatelessWidget{
+class LandingPage extends StatelessWidget {
   final bool debugShowCheckedModeBanner;
   final bool isIOSPlatform;
 
-  LandingPage({required this.isIOSPlatform,required this.debugShowCheckedModeBanner});
+  LandingPage(
+      {required this.isIOSPlatform, required this.debugShowCheckedModeBanner});
 
   @override
   Widget build(BuildContext context) {
-    if(this.isIOSPlatform){
+    if (this.isIOSPlatform) {
       return ScaffoldComponent(
           isIOSPlatform: isIOSPlatform,
           debugShowCheckedModeBanner: debugShowCheckedModeBanner,
@@ -40,45 +43,54 @@ class LandingPage extends StatelessWidget{
                     fit: BoxFit.fitWidth,
                   ),
                 ),
-                SizedBox(height: MediaQuery.of(context).size.height / 50,),
-                Text('${MainTextPalettes.textFr["BIENVENUE"]}',
+                SizedBox(
+                  height: MediaQuery.of(context).size.height / 50,
+                ),
+                Text(
+                  '${MainTextPalettes.textFr["BIENVENUE"]}',
                   style: TextStyle(
                       color: MainColorPalettes.colorsThemeMultiple[20],
                       fontSize: 65,
-                      fontFamily: 'DMSans-Bold.ttf'
-                  ),
+                      fontFamily: 'DMSans-Bold.ttf'),
                 ),
                 Text(
                   '${MainTextPalettes.textFr["VOS_PLANTES"]}',
                   style: TextStyle(
                       color: MainColorPalettes.colorsThemeMultiple[20],
                       fontSize: 20,
-                      fontFamily: 'DMSans-Regular.ttf'
-                  ),
+                      fontFamily: 'DMSans-Regular.ttf'),
                 ),
-                SizedBox(height: MediaQuery.of(context).size.height/5,),
-                ButtonComponent(
-                  text : MainTextPalettes.textFr["INSCRIPTION"],
-                  enumerateCategoriesButton: EnumerateCategoriesButton.typeButtonTextOnly,
-                  isIOSPlatform: isIOSPlatform,
-                  methode: () =>{Navigator.pushNamed(context, 'signup')},
-                  colorBorder: MainColorPalettes.colorsThemeMultiple[5]!,
-                  backgroundColorButton: MainColorPalettes.colorsThemeMultiple[10]!,
+                SizedBox(
+                  height: MediaQuery.of(context).size.height / 5,
                 ),
-                SizedBox(height: MediaQuery.of(context).size.height / 50,),
                 ButtonComponent(
-                  text : MainTextPalettes.textFr["CONNEXION_BUTTON_DEFAULT_TEXTFIELD"],
-                  enumerateCategoriesButton: EnumerateCategoriesButton.typeButtonTextOnly,
+                  text: MainTextPalettes.textFr["INSCRIPTION"],
+                  enumerateCategoriesButton:
+                      EnumerateCategoriesButton.typeButtonTextOnly,
                   isIOSPlatform: isIOSPlatform,
-                  methode: () =>{Navigator.pushNamed(context, 'signin')},
+                  methode: () => {Navigator.pushNamed(context, 'signup')},
                   colorBorder: MainColorPalettes.colorsThemeMultiple[5]!,
-                  backgroundColorButton: MainColorPalettes.colorsThemeMultiple[10]!,
+                  backgroundColorButton:
+                      MainColorPalettes.colorsThemeMultiple[10]!,
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height / 50,
+                ),
+                ButtonComponent(
+                  text: MainTextPalettes
+                      .textFr["CONNEXION_BUTTON_DEFAULT_TEXTFIELD"],
+                  enumerateCategoriesButton:
+                      EnumerateCategoriesButton.typeButtonTextOnly,
+                  isIOSPlatform: isIOSPlatform,
+                  methode: () => {Navigator.pushNamed(context, 'signin')},
+                  colorBorder: MainColorPalettes.colorsThemeMultiple[5]!,
+                  backgroundColorButton:
+                      MainColorPalettes.colorsThemeMultiple[10]!,
                 ),
               ],
             ),
-          )
-      );
-    }else{
+          ));
+    } else {
       return ScaffoldComponent(
           isIOSPlatform: isIOSPlatform,
           debugShowCheckedModeBanner: debugShowCheckedModeBanner,
@@ -103,45 +115,53 @@ class LandingPage extends StatelessWidget{
                     fit: BoxFit.fitWidth,
                   ),
                 ),
-                SizedBox(height: MediaQuery.of(context).size.height / 50,),
-                Text('${MainTextPalettes.textFr["BIENVENUE"]}',
+                SizedBox(
+                  height: MediaQuery.of(context).size.height / 50,
+                ),
+                Text(
+                  '${MainTextPalettes.textFr["BIENVENUE"]}',
                   style: TextStyle(
                       color: MainColorPalettes.colorsThemeMultiple[20],
                       fontSize: 65,
-                      fontFamily: 'DMSans-Bold.ttf'
-                  ),
+                      fontFamily: 'DMSans-Bold.ttf'),
                 ),
                 Text(
                   '${MainTextPalettes.textFr["VOS_PLANTES"]}',
                   style: TextStyle(
                       color: MainColorPalettes.colorsThemeMultiple[20],
                       fontSize: 20,
-                      fontFamily: 'DMSans-Regular.ttf'
-                  ),
+                      fontFamily: 'DMSans-Regular.ttf'),
                 ),
-                SizedBox(height: MediaQuery.of(context).size.height/5,),
-                ButtonComponent(
-                  text : MainTextPalettes.textFr["INSCRIPTION"],
-                  enumerateCategoriesButton: EnumerateCategoriesButton.typeButtonTextOnly,
-                  isIOSPlatform: isIOSPlatform,
-                  methode: () =>{Navigator.pushNamed(context, 'signup')},
-                  colorBorder: MainColorPalettes.colorsThemeMultiple[5]!,
-                  backgroundColorButton: MainColorPalettes.colorsThemeMultiple[10]!,
+                SizedBox(
+                  height: MediaQuery.of(context).size.height / 5,
                 ),
-                SizedBox(height: MediaQuery.of(context).size.height / 50,),
                 ButtonComponent(
-                  text : MainTextPalettes.textFr["CONNEXION_BUTTON_DEFAULT_TEXTFIELD"],
-                  enumerateCategoriesButton: EnumerateCategoriesButton.typeButtonTextOnly,
+                  text: MainTextPalettes.textFr["INSCRIPTION"],
+                  enumerateCategoriesButton:
+                      EnumerateCategoriesButton.typeButtonTextOnly,
                   isIOSPlatform: isIOSPlatform,
-                  methode: () =>{Navigator.pushNamed(context, 'signin')},
+                  methode: () => {Navigator.pushNamed(context, 'signup')},
                   colorBorder: MainColorPalettes.colorsThemeMultiple[5]!,
-                  backgroundColorButton: MainColorPalettes.colorsThemeMultiple[10]!,
+                  backgroundColorButton:
+                      MainColorPalettes.colorsThemeMultiple[10]!,
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height / 50,
+                ),
+                ButtonComponent(
+                  text: MainTextPalettes
+                      .textFr["CONNEXION_BUTTON_DEFAULT_TEXTFIELD"],
+                  enumerateCategoriesButton:
+                      EnumerateCategoriesButton.typeButtonTextOnly,
+                  isIOSPlatform: isIOSPlatform,
+                  methode: () => {Navigator.pushNamed(context, 'signin')},
+                  colorBorder: MainColorPalettes.colorsThemeMultiple[5]!,
+                  backgroundColorButton:
+                      MainColorPalettes.colorsThemeMultiple[10]!,
                 ),
               ],
             ),
-          )
-      );
+          ));
     }
   }
-
 }
