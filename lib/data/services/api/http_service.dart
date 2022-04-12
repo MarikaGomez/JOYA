@@ -1,42 +1,44 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
+import 'package:joya/data/services/device/local_storage_service.dart';
 
 class HttpService extends HttpOverrides {
-  final BaseOptions _requestOptionsInit = BaseOptions(connectTimeout: 5000);
+  LocalStorageService localStorageService = LocalStorageService();
 
-  Future<BaseOptions> _setRequestOptionsWithHeaders(
-      {required Map<String, dynamic>? headers}) async {
-    return BaseOptions(
-      connectTimeout: 5000,
-      headers: headers,
-    );
+  final BaseOptions _requestOptionsInit = BaseOptions(
+    connectTimeout: 15000,
+    receiveTimeout: 13000,
+  );
+
+  Future<BaseOptions> setCookies(BaseOptions options) async {
+    var cookies =
+        await localStorageService.getString(LocalStorageService.cookies);
+    if (cookies != null)
+      options.headers["cookies"] = {LocalStorageService.cookies: cookies};
+    return options;
   }
 
-  Future<Dio> _initDio({Map<String, dynamic>? headers}) async {
+  Future<Dio> _initDio() async {
     HttpOverrides.global = this;
     var options = _requestOptionsInit;
-    if (headers != null) {
-      options = await _setRequestOptionsWithHeaders(headers: headers);
-    }
+    options = await setCookies(options);
     return Dio(options);
   }
 
   Future<Response> get({
     required String url,
-    Map<String, dynamic>? headers,
   }) async {
-    Dio dio = await _initDio(headers: headers);
+    Dio dio = await _initDio();
     return await dio.get(url);
   }
 
   Future<Response> post({
     required String url,
-    required FormData data,
-    Map<String, dynamic>? headers,
+    required dynamic data,
     Function(int, int)? onSendProgressCallback,
   }) async {
-    Dio dio = await _initDio(headers: headers);
+    Dio dio = await _initDio();
     return await dio.post(
       url,
       data: data,
@@ -46,11 +48,10 @@ class HttpService extends HttpOverrides {
 
   Future<Response> put({
     required String url,
-    required FormData data,
-    Map<String, dynamic>? headers,
+    required dynamic data,
     Function(int, int)? onSendProgressCallback,
   }) async {
-    Dio dio = await _initDio(headers: headers);
+    Dio dio = await _initDio();
     return await dio.put(
       url,
       data: data,
@@ -60,11 +61,11 @@ class HttpService extends HttpOverrides {
 
   Future<Response> delete({
     required String url,
-    required FormData data,
+    required dynamic data,
     Map<String, dynamic>? headers,
     Function(int, int)? onSendProgressCallback,
   }) async {
-    Dio dio = await _initDio(headers: headers);
+    Dio dio = await _initDio();
     return await dio.delete(
       url,
     );
