@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:joya/bloc/controller/LoginBloc.dart';
 import 'package:joya/styles/MainColorPalettes.dart';
 import 'package:joya/ui/About.dart';
 import 'package:joya/ui/ConfirmationEmail.dart';
@@ -11,6 +12,7 @@ import 'package:joya/ui/MyPlantPage.dart';
 import 'package:joya/ui/QrCode.dart';
 import 'package:joya/ui/QrCodeScan.dart';
 import 'package:joya/ui/StorePage.dart';
+import 'bloc/LoginBloc.dart';
 import 'bloc/bloc_provider.dart';
 import 'bloc/controller/RequestBloc.dart';
 
@@ -37,8 +39,9 @@ class MyApp extends StatelessWidget {
             child: InscriptionPage(
                 isIOSPlatform: isIOS,
                 debugShowCheckedModeBanner: debugShowCheckedModeBanner)),
-        'signin': (BuildContext context) => BlocProvider<RequestBloc>(
-            bloc: RequestBloc(),
+
+        'signin': (BuildContext context) => BlocProvider<LoginBloc>(
+            bloc: LoginBloc(),
             child: Login(
                 isIOSPlatform: isIOS,
                 debugShowCheckedModeBanner: debugShowCheckedModeBanner)),
