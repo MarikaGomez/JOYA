@@ -4,7 +4,6 @@ import 'dart:convert' as convert;
 import 'package:joya/data/repositories/joya/auth.dart';
 import 'package:joya/data/services/api/joya/auth.dart';
 
-
 import 'bloc.dart';
 
 class LoginBloc extends Bloc {
@@ -29,13 +28,13 @@ class LoginBloc extends Bloc {
     _dataInstance[key] = value;
     sink.add(_dataInstance);
   }
-  setIsValidEmail(bool newInstance){
+
+  setIsValidEmail(bool newInstance) {
     _dataInstance["isValidEmail"] = newInstance;
     sink.add(_dataInstance);
   }
 
   login() async {
-    print("salut fdp je te baise ta mere");
     print(_dataInstance["email"]);
     print(_dataInstance["password"]);
     try {
@@ -43,7 +42,7 @@ class LoginBloc extends Bloc {
           email: _dataInstance["email"], password: _dataInstance["password"]);
     } catch (error) {
       // todo show sidebar
-
+      print(error);
     }
   }
 
