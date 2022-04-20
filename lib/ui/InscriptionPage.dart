@@ -6,11 +6,11 @@ import 'package:joya/bloc/controller/RequestBloc.dart';
 import 'package:joya/component/ButtonComponent.dart';
 import 'package:joya/component/ScaffoldComponent.dart';
 import 'package:joya/component/TextFieldComponent.dart';
-import 'package:joya/enum/EnumerateCategoriesButton.dart';
-import 'package:joya/enum/EnumerateCategoriesScaffold.dart';
 import 'package:joya/styles/MainColorPalettes.dart';
 import 'package:joya/styles/MainTextPalettes.dart';
-import 'package:joya/ui/ErrorPage.dart';
+
+import '../data/enum/EnumerateCategoriesButton.dart';
+import '../data/enum/EnumerateCategoriesScaffold.dart';
 
 class InscriptionPage extends StatelessWidget {
   final bool debugShowCheckedModeBanner;
@@ -42,7 +42,7 @@ class InscriptionPage extends StatelessWidget {
                             '${MainTextPalettes.textFr["INSCRIPTION"]}',
                             style: TextStyle(
                                 color:
-                                MainColorPalettes.colorsThemeMultiple[10],
+                                    MainColorPalettes.colorsThemeMultiple[10],
                                 fontSize: 60,
                                 fontFamily: 'DMSans-Bold.ttf'),
                           ),
@@ -54,9 +54,9 @@ class InscriptionPage extends StatelessWidget {
                                 5,
                               ),
                               child: TextFieldComponent(
-                                methode: (test)=>{},
+                                methode: (test) => {},
                                 text:
-                                "${MainTextPalettes.textFr["EMAIL_LABEL_DEFAULT_TEXTFIELD"]}",
+                                    "${MainTextPalettes.textFr["EMAIL_LABEL_DEFAULT_TEXTFIELD"]}",
                                 isValid: true,
                                 isNotValidRenderText: 'test',
                                 hiddenText: false,
@@ -69,9 +69,9 @@ class InscriptionPage extends StatelessWidget {
                                 5,
                               ),
                               child: TextFieldComponent(
-                                methode: (test)=>{},
+                                methode: (test) => {},
                                 text:
-                                "${MainTextPalettes.textFr["NAME_LABEL_DEFAULT_TEXTFIELD"]}",
+                                    "${MainTextPalettes.textFr["NAME_LABEL_DEFAULT_TEXTFIELD"]}",
                                 isValid: true,
                                 isNotValidRenderText: 'test',
                                 hiddenText: false,
@@ -84,9 +84,9 @@ class InscriptionPage extends StatelessWidget {
                                 5,
                               ),
                               child: TextFieldComponent(
-                                methode: (test)=>{},
+                                methode: (test) => {},
                                 text:
-                                "${MainTextPalettes.textFr["SURNAME_LABEL_DEFAULT_TEXTFIELD"]}",
+                                    "${MainTextPalettes.textFr["SURNAME_LABEL_DEFAULT_TEXTFIELD"]}",
                                 isValid: true,
                                 isNotValidRenderText: 'test',
                                 hiddenText: false,
@@ -99,9 +99,9 @@ class InscriptionPage extends StatelessWidget {
                                 5,
                               ),
                               child: TextFieldComponent(
-                                methode: (test)=>{},
+                                methode: (test) => {},
                                 text:
-                                "${MainTextPalettes.textFr["PASSWORD_LABEL_DEFAULT_TEXTFIELD"]}",
+                                    "${MainTextPalettes.textFr["PASSWORD_LABEL_DEFAULT_TEXTFIELD"]}",
                                 isValid: true,
                                 isNotValidRenderText: 'test',
                                 hiddenText: true,
@@ -114,9 +114,9 @@ class InscriptionPage extends StatelessWidget {
                                 15,
                               ),
                               child: TextFieldComponent(
-                                methode: (test)=>{},
+                                methode: (test) => {},
                                 text:
-                                "${MainTextPalettes.textFr["CONFIRMATION_PASSWORD_LABEL_DEFAULT_TEXTFIELD"]}",
+                                    "${MainTextPalettes.textFr["CONFIRMATION_PASSWORD_LABEL_DEFAULT_TEXTFIELD"]}",
                                 isValid: true,
                                 isNotValidRenderText: 'test',
                                 hiddenText: true,
@@ -127,14 +127,14 @@ class InscriptionPage extends StatelessWidget {
                           ButtonComponent(
                             text: MainTextPalettes.textFr["INSCRIPTION"],
                             enumerateCategoriesButton:
-                            EnumerateCategoriesButton.typeButtonTextOnly,
+                                EnumerateCategoriesButton.typeButtonTextOnly,
                             isIOSPlatform: isIOSPlatform,
                             methode: () =>
-                            {Navigator.pushNamed(context, 'confirmEmail')},
+                                {Navigator.pushNamed(context, 'confirmEmail')},
                             colorBorder:
-                            MainColorPalettes.colorsThemeMultiple[5]!,
+                                MainColorPalettes.colorsThemeMultiple[5]!,
                             backgroundColorButton:
-                            MainColorPalettes.colorsThemeMultiple[10]!,
+                                MainColorPalettes.colorsThemeMultiple[10]!,
                           ),
                           SizedBox(
                             height: 15,
@@ -145,7 +145,7 @@ class InscriptionPage extends StatelessWidget {
                                   text: TextSpan(children: [
                                     TextSpan(
                                       text:
-                                      "${MainTextPalettes.textFr["PLUSINFO"]}",
+                                          "${MainTextPalettes.textFr["PLUSINFO"]}",
                                       style: TextStyle(
                                           fontFamily: "DMSans-Regular",
                                           fontSize: 15,
@@ -154,7 +154,7 @@ class InscriptionPage extends StatelessWidget {
                                     ),
                                     TextSpan(
                                       text:
-                                      "\n${MainTextPalettes.textFr["CONDITIONURL"]}",
+                                          "\n${MainTextPalettes.textFr["CONDITIONURL"]}",
                                       style: TextStyle(
                                           fontFamily: "DMSans-Regular",
                                           fontSize: 15,
@@ -167,11 +167,7 @@ class InscriptionPage extends StatelessWidget {
                                     ),
                                   ])))
                         ],
-                      )
-                  )
-              )
-          )
-      );
+                      )))));
     } else {
       return ScaffoldComponent(
           enumerateCategoriesScaffold: EnumerateCategoriesScaffold.noCurvedBar,
@@ -204,7 +200,7 @@ class InscriptionPage extends StatelessWidget {
                                 5,
                               ),
                               child: TextFieldComponent(
-                                methode: (test)=>{},
+                                methode: (test) => {},
                                 text:
                                     "${MainTextPalettes.textFr["EMAIL_LABEL_DEFAULT_TEXTFIELD"]}",
                                 isValid: true,
@@ -219,7 +215,7 @@ class InscriptionPage extends StatelessWidget {
                                 5,
                               ),
                               child: TextFieldComponent(
-                                methode: (test)=>{},
+                                methode: (test) => {},
                                 text:
                                     "${MainTextPalettes.textFr["NAME_LABEL_DEFAULT_TEXTFIELD"]}",
                                 isValid: true,
@@ -234,7 +230,7 @@ class InscriptionPage extends StatelessWidget {
                                 5,
                               ),
                               child: TextFieldComponent(
-                                methode: (test)=>{},
+                                methode: (test) => {},
                                 text:
                                     "${MainTextPalettes.textFr["SURNAME_LABEL_DEFAULT_TEXTFIELD"]}",
                                 isValid: true,
@@ -249,7 +245,7 @@ class InscriptionPage extends StatelessWidget {
                                 5,
                               ),
                               child: TextFieldComponent(
-                                methode: (test)=>{},
+                                methode: (test) => {},
                                 text:
                                     "${MainTextPalettes.textFr["PASSWORD_LABEL_DEFAULT_TEXTFIELD"]}",
                                 isValid: true,
@@ -264,7 +260,7 @@ class InscriptionPage extends StatelessWidget {
                                 15,
                               ),
                               child: TextFieldComponent(
-                                methode: (test)=>{},
+                                methode: (test) => {},
                                 text:
                                     "${MainTextPalettes.textFr["CONFIRMATION_PASSWORD_LABEL_DEFAULT_TEXTFIELD"]}",
                                 isValid: true,
@@ -287,7 +283,7 @@ class InscriptionPage extends StatelessWidget {
                                 MainColorPalettes.colorsThemeMultiple[10]!,
                           ),
                           SizedBox(
-                            height: MediaQuery.of(context).size.height /50,
+                            height: MediaQuery.of(context).size.height / 50,
                           ),
                           Center(
                               child: RichText(
@@ -317,12 +313,7 @@ class InscriptionPage extends StatelessWidget {
                                     ),
                                   ])))
                         ],
-                      )
-                  )
-              )
-          )
-      );
-
+                      )))));
     }
   }
 }

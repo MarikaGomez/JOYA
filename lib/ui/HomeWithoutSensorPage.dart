@@ -1,23 +1,22 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:joya/bloc/bloc_provider.dart';
 import 'package:joya/bloc/controller/RequestBloc.dart';
 import 'package:joya/component/ButtonComponent.dart';
 import 'package:joya/component/ScaffoldComponent.dart';
-import 'package:joya/component/TextFieldComponent.dart';
-import 'package:joya/enum/EnumerateCategoriesButton.dart';
-import 'package:joya/enum/EnumerateCategoriesScaffold.dart';
 import 'package:joya/styles/MainColorPalettes.dart';
 import 'package:joya/styles/MainTextPalettes.dart';
 
+import '../data/enum/EnumerateCategoriesButton.dart';
+import '../data/enum/EnumerateCategoriesScaffold.dart';
 import 'ErrorPage.dart';
 
-class HomeWithoutSensorPage extends StatelessWidget{
+class HomeWithoutSensorPage extends StatelessWidget {
   final bool debugShowCheckedModeBanner;
   final bool isIOSPlatform;
 
-  HomeWithoutSensorPage({required this.isIOSPlatform,required this.debugShowCheckedModeBanner});
+  HomeWithoutSensorPage(
+      {required this.isIOSPlatform, required this.debugShowCheckedModeBanner});
 
   @override
   Widget build(BuildContext context) {
@@ -62,51 +61,49 @@ class HomeWithoutSensorPage extends StatelessWidget{
                       fontSize: 25,
                       fontFamily: 'DMSans-Bold.ttf'),
                 ),
-                SizedBox(height: 15,),
+                SizedBox(
+                  height: 15,
+                ),
                 Center(
                     child: RichText(
                         textAlign: TextAlign.center,
-                        text: TextSpan(
-                            children: [
-                              TextSpan(
-                                text: "\n${MainTextPalettes.textFr["ADDFIRSTPLANT"]}",
-                                style: TextStyle(
-                                    fontFamily: "DMSans-Regular",
-                                    fontSize: 16,
-                                    color: MainColorPalettes.colorsThemeMultiple[20]
-                                ),
-                              ),
-                            ]
-                        )
-                    )
-                ),
+                        text: TextSpan(children: [
+                          TextSpan(
+                            text:
+                                "\n${MainTextPalettes.textFr["ADDFIRSTPLANT"]}",
+                            style: TextStyle(
+                                fontFamily: "DMSans-Regular",
+                                fontSize: 16,
+                                color:
+                                    MainColorPalettes.colorsThemeMultiple[20]),
+                          ),
+                        ]))),
                 Padding(
                   padding: EdgeInsets.fromLTRB(190, 50, 0, 0), // TO DO
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       ButtonComponent(
-                        text: MainTextPalettes.textFr[
-                        "CONNEXION_BUTTON_DEFAULT_TEXTFIELD"],
+                        text: MainTextPalettes
+                            .textFr["CONNEXION_BUTTON_DEFAULT_TEXTFIELD"],
                         enumerateCategoriesButton:
-                        EnumerateCategoriesButton
-                            .typeButtonIconOnly,
+                            EnumerateCategoriesButton.typeButtonIconOnly,
                         isIOSPlatform: isIOSPlatform,
-                        methode: () async =>
-                        { await Future.delayed(const Duration(milliseconds: 1000), (){
-                          Navigator.pushNamed(context, 'qrcode');
-                        })},
-                        colorBorder:
-                        MainColorPalettes.colorsThemeMultiple[5]!,
+                        methode: () async => {
+                          await Future.delayed(
+                              const Duration(milliseconds: 1000), () {
+                            Navigator.pushNamed(context, 'qrcode');
+                          })
+                        },
+                        colorBorder: MainColorPalettes.colorsThemeMultiple[5]!,
                         backgroundColorButton:
-                        MainColorPalettes.colorsThemeMultiple[10]!,
+                            MainColorPalettes.colorsThemeMultiple[10]!,
                       ),
                     ],
                   ),
                 ),
               ],
-            )
-        ),
+            )),
       );
     } else {
       return ScaffoldComponent(
@@ -147,54 +144,49 @@ class HomeWithoutSensorPage extends StatelessWidget{
                       fontSize: 25,
                       fontFamily: 'DMSans-Bold.ttf'),
                 ),
-                SizedBox(height: 15,),
+                SizedBox(
+                  height: 15,
+                ),
                 Center(
                     child: RichText(
                         textAlign: TextAlign.center,
-                        text: TextSpan(
-                            children: [
-                              TextSpan(
-                                text: "\n${MainTextPalettes.textFr["ADDFIRSTPLANT"]}",
-                                style: TextStyle(
-                                    fontFamily: "DMSans-Regular",
-                                    fontSize: 16,
-                                    color: MainColorPalettes.colorsThemeMultiple[20]
-                                ),
-                              ),
-                            ]
-                        )
-                    )
-                ),
+                        text: TextSpan(children: [
+                          TextSpan(
+                            text:
+                                "\n${MainTextPalettes.textFr["ADDFIRSTPLANT"]}",
+                            style: TextStyle(
+                                fontFamily: "DMSans-Regular",
+                                fontSize: 16,
+                                color:
+                                    MainColorPalettes.colorsThemeMultiple[20]),
+                          ),
+                        ]))),
                 Padding(
                   padding: EdgeInsets.fromLTRB(170, 50, 0, 0), // TO DO
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       ButtonComponent(
-                        text: MainTextPalettes.textFr[
-                        "CONNEXION_BUTTON_DEFAULT_TEXTFIELD"],
+                        text: MainTextPalettes
+                            .textFr["CONNEXION_BUTTON_DEFAULT_TEXTFIELD"],
                         enumerateCategoriesButton:
-                        EnumerateCategoriesButton
-                            .typeButtonIconOnly,
+                            EnumerateCategoriesButton.typeButtonIconOnly,
                         isIOSPlatform: isIOSPlatform,
-                        methode: () async =>
-                        {
-                        await Future.delayed(const Duration(milliseconds: 1000), (){
-                          Navigator.pushNamed(context, 'qrcode');
-                        })
-
+                        methode: () async => {
+                          await Future.delayed(
+                              const Duration(milliseconds: 1000), () {
+                            Navigator.pushNamed(context, 'qrcode');
+                          })
                         },
-                        colorBorder:
-                        MainColorPalettes.colorsThemeMultiple[5]!,
+                        colorBorder: MainColorPalettes.colorsThemeMultiple[5]!,
                         backgroundColorButton:
-                        MainColorPalettes.colorsThemeMultiple[10]!,
+                            MainColorPalettes.colorsThemeMultiple[10]!,
                       ),
                     ],
                   ),
                 ),
               ],
-            )
-        ),
+            )),
       );
     }
   }

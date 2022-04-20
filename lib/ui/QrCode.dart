@@ -1,25 +1,16 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:joya/bloc/bloc_provider.dart';
-import 'package:joya/bloc/controller/RequestBloc.dart';
-import 'package:joya/component/ButtonComponent.dart';
 import 'package:joya/component/ScaffoldComponent.dart';
-import 'package:joya/component/TextFieldComponent.dart';
-import 'package:joya/enum/EnumerateCategoriesButton.dart';
-import 'package:joya/enum/EnumerateCategoriesScaffold.dart';
 import 'package:joya/styles/MainColorPalettes.dart';
-import 'package:joya/styles/MainIconsPalettes.dart';
 import 'package:joya/styles/MainTextPalettes.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
-
-import 'ErrorPage.dart';
+import '../data/enum/EnumerateCategoriesScaffold.dart';
 
 class QrCode extends StatelessWidget {
   final bool debugShowCheckedModeBanner;
   final bool isIOSPlatform;
 
-  QrCode({required this.isIOSPlatform, required this.debugShowCheckedModeBanner});
+  QrCode(
+      {required this.isIOSPlatform, required this.debugShowCheckedModeBanner});
 
   @override
   Widget build(BuildContext context) {
@@ -35,8 +26,7 @@ class QrCode extends StatelessWidget {
               child: SingleChildScrollView(
                   child: QrCodeScanPage(
                       debugShowCheckedModeBanner: debugShowCheckedModeBanner,
-                      platformBool: isIOSPlatform
-                  ))));
+                      platformBool: isIOSPlatform))));
     } else {
       return ScaffoldComponent(
           enumerateCategoriesScaffold: EnumerateCategoriesScaffold.curvedBar,
@@ -45,35 +35,33 @@ class QrCode extends StatelessWidget {
           index: 2,
           child: QrCodeScanPage(
               debugShowCheckedModeBanner: debugShowCheckedModeBanner,
-              platformBool: isIOSPlatform
-          )
-      );
+              platformBool: isIOSPlatform));
     }
   }
 }
-
 
 class QrCodeScanPage extends StatefulWidget {
   final bool debugShowCheckedModeBanner;
   final bool platformBool;
 
-  QrCodeScanPage({Key? key,required this.debugShowCheckedModeBanner,required this.platformBool}) : super(key: key);
-
+  QrCodeScanPage(
+      {Key? key,
+      required this.debugShowCheckedModeBanner,
+      required this.platformBool})
+      : super(key: key);
 
   @override
-  State<QrCodeScanPage> createState() => _QrCodeScanPageState(this.platformBool);
-
+  State<QrCodeScanPage> createState() =>
+      _QrCodeScanPageState(this.platformBool);
 }
 
 class _QrCodeScanPageState extends State<QrCodeScanPage> {
-
   final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
   Barcode? result;
   QRViewController? controller;
   final bool platformBool;
 
   _QrCodeScanPageState(bool this.platformBool);
-
 
   // In order to get hot reload to work we need to pause the camera if the platform
   // is android, or resume the camera if the platform is iOS.
@@ -89,47 +77,43 @@ class _QrCodeScanPageState extends State<QrCodeScanPage> {
 
   @override
   Widget build(BuildContext context) => SafeArea(
-    child: Scaffold(
-      body: Stack(
-        alignment: Alignment.center,
-        children: <Widget>[
-          buildQrView(context),
-          Positioned(bottom: MediaQuery.of(context).size.height/10, child: buildResult())
-        ],
-      ),
-    ),
-  );
+        child: Scaffold(
+          body: Stack(
+            alignment: Alignment.center,
+            children: <Widget>[
+              buildQrView(context),
+              Positioned(
+                  bottom: MediaQuery.of(context).size.height / 10,
+                  child: buildResult())
+            ],
+          ),
+        ),
+      );
 
   Widget buildQrView(BuildContext context) => QRView(
-    key: qrKey,
-    onQRViewCreated: _onQRViewCreated,
-    overlay: QrScannerOverlayShape(
-      borderColor: Theme.of(context).highlightColor,
-      borderRadius: 10,
-      borderLength: 20,
-      borderWidth: 10,
-      cutOutSize: MediaQuery.of(context).size.width * 0.8,
-    ),
-  );
-
+        key: qrKey,
+        onQRViewCreated: _onQRViewCreated,
+        overlay: QrScannerOverlayShape(
+          borderColor: Theme.of(context).highlightColor,
+          borderRadius: 10,
+          borderLength: 20,
+          borderWidth: 10,
+          cutOutSize: MediaQuery.of(context).size.width * 0.8,
+        ),
+      );
 
   Widget buildResult() => Container(
-    padding: EdgeInsets.all(12),
-    decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8),
-        color: MainColorPalettes.colorsThemeMultiple[40]
-    ),
-    child: Center(
-      child: (result != null)
-          ? Text(
-          'Data: ${result!.code}',
-          style: const TextStyle(
-              fontSize: 9.0
-          ))
-          : Text('${MainTextPalettes.textFr["SCANMESSAGE"]}'),
-
-    ),
-  );
+        padding: EdgeInsets.all(12),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8),
+            color: MainColorPalettes.colorsThemeMultiple[40]),
+        child: Center(
+          child: (result != null)
+              ? Text('Data: ${result!.code}',
+                  style: const TextStyle(fontSize: 9.0))
+              : Text('${MainTextPalettes.textFr["SCANMESSAGE"]}'),
+        ),
+      );
 
   void _onQRViewCreated(QRViewController controller) {
     this.controller = controller;

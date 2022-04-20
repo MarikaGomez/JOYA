@@ -6,11 +6,11 @@ import 'package:joya/bloc/controller/RequestBloc.dart';
 import 'package:joya/component/ButtonComponent.dart';
 import 'package:joya/component/ScaffoldComponent.dart';
 import 'package:joya/component/TextFieldComponent.dart';
-import 'package:joya/enum/EnumerateCategoriesButton.dart';
-import 'package:joya/enum/EnumerateCategoriesScaffold.dart';
 import 'package:joya/styles/MainColorPalettes.dart';
 import 'package:joya/styles/MainTextPalettes.dart';
-import 'package:joya/ui/ErrorPage.dart';
+
+import '../data/enum/EnumerateCategoriesButton.dart';
+import '../data/enum/EnumerateCategoriesScaffold.dart';
 
 class MyAccountPage extends StatelessWidget {
   final bool debugShowCheckedModeBanner;
@@ -43,7 +43,7 @@ class MyAccountPage extends StatelessWidget {
                             '${MainTextPalettes.textFr["ABOUT_MY_ACCOUNT"]}',
                             style: TextStyle(
                                 color:
-                                MainColorPalettes.colorsThemeMultiple[10],
+                                    MainColorPalettes.colorsThemeMultiple[10],
                                 fontSize: 50,
                                 fontFamily: 'DMSans-Bold.ttf'),
                           ),
@@ -55,9 +55,9 @@ class MyAccountPage extends StatelessWidget {
                                 5,
                               ),
                               child: TextFieldComponent(
-                                methode: (test)=>{},
+                                methode: (test) => {},
                                 text:
-                                "${MainTextPalettes.textFr["EMAIL_LABEL_DEFAULT_TEXTFIELD"]}",
+                                    "${MainTextPalettes.textFr["EMAIL_LABEL_DEFAULT_TEXTFIELD"]}",
                                 isValid: true,
                                 isNotValidRenderText: 'test',
                                 hiddenText: false,
@@ -70,9 +70,9 @@ class MyAccountPage extends StatelessWidget {
                                 5,
                               ),
                               child: TextFieldComponent(
-                                methode: (test)=>{},
+                                methode: (test) => {},
                                 text:
-                                "${MainTextPalettes.textFr["NAME_LABEL_DEFAULT_TEXTFIELD"]}",
+                                    "${MainTextPalettes.textFr["NAME_LABEL_DEFAULT_TEXTFIELD"]}",
                                 isValid: true,
                                 isNotValidRenderText: 'test',
                                 hiddenText: false,
@@ -85,9 +85,9 @@ class MyAccountPage extends StatelessWidget {
                                 5,
                               ),
                               child: TextFieldComponent(
-                                methode: (test)=>{},
+                                methode: (test) => {},
                                 text:
-                                "${MainTextPalettes.textFr["SURNAME_LABEL_DEFAULT_TEXTFIELD"]}",
+                                    "${MainTextPalettes.textFr["SURNAME_LABEL_DEFAULT_TEXTFIELD"]}",
                                 isValid: true,
                                 isNotValidRenderText: 'test',
                                 hiddenText: false,
@@ -100,9 +100,9 @@ class MyAccountPage extends StatelessWidget {
                                 5,
                               ),
                               child: TextFieldComponent(
-                                methode: (test)=>{},
+                                methode: (test) => {},
                                 text:
-                                "${MainTextPalettes.textFr["PASSWORD_LABEL_DEFAULT_TEXTFIELD"]}",
+                                    "${MainTextPalettes.textFr["PASSWORD_LABEL_DEFAULT_TEXTFIELD"]}",
                                 isValid: true,
                                 isNotValidRenderText: 'test',
                                 hiddenText: true,
@@ -115,9 +115,9 @@ class MyAccountPage extends StatelessWidget {
                                 15,
                               ),
                               child: TextFieldComponent(
-                                methode: (test)=>{},
+                                methode: (test) => {},
                                 text:
-                                "${MainTextPalettes.textFr["CONFIRMATION_PASSWORD_LABEL_DEFAULT_TEXTFIELD"]}",
+                                    "${MainTextPalettes.textFr["CONFIRMATION_PASSWORD_LABEL_DEFAULT_TEXTFIELD"]}",
                                 isValid: true,
                                 isNotValidRenderText: 'test',
                                 hiddenText: true,
@@ -125,14 +125,14 @@ class MyAccountPage extends StatelessWidget {
                           ButtonComponent(
                             text: MainTextPalettes.textFr["VALIDER"],
                             enumerateCategoriesButton:
-                            EnumerateCategoriesButton.typeButtonTextOnly,
+                                EnumerateCategoriesButton.typeButtonTextOnly,
                             isIOSPlatform: isIOSPlatform,
                             methode: () =>
-                            {Navigator.pushNamed(context, 'landing')},
+                                {Navigator.pushNamed(context, 'landing')},
                             colorBorder:
-                            MainColorPalettes.colorsThemeMultiple[5]!,
+                                MainColorPalettes.colorsThemeMultiple[5]!,
                             backgroundColorButton:
-                            MainColorPalettes.colorsThemeMultiple[10]!,
+                                MainColorPalettes.colorsThemeMultiple[10]!,
                           ),
                           SizedBox(
                             height: MediaQuery.of(context).size.height / 45,
@@ -140,14 +140,14 @@ class MyAccountPage extends StatelessWidget {
                           ButtonComponent(
                             text: MainTextPalettes.textFr["ABOUTDECO"],
                             enumerateCategoriesButton:
-                            EnumerateCategoriesButton.typeButtonTextOnly,
+                                EnumerateCategoriesButton.typeButtonTextOnly,
                             isIOSPlatform: isIOSPlatform,
                             methode: () =>
-                            {Navigator.pushNamed(context, 'signin')},
+                                {Navigator.pushNamed(context, 'signin')},
                             colorBorder:
-                            MainColorPalettes.colorsThemeMultiple[5]!,
+                                MainColorPalettes.colorsThemeMultiple[5]!,
                             backgroundColorButton:
-                            MainColorPalettes.colorsThemeMultiple[30]!,
+                                MainColorPalettes.colorsThemeMultiple[30]!,
                           ),
                           SizedBox(
                             height: MediaQuery.of(context).size.height / 65,
@@ -158,7 +158,7 @@ class MyAccountPage extends StatelessWidget {
                                   text: TextSpan(children: [
                                     TextSpan(
                                       text:
-                                      "\n${MainTextPalettes.textFr["DELETE_ACCOUNT"]}",
+                                          "\n${MainTextPalettes.textFr["DELETE_ACCOUNT"]}",
                                       style: TextStyle(
                                           fontFamily: "DMSans-Regular",
                                           fontSize: 15,
@@ -166,23 +166,20 @@ class MyAccountPage extends StatelessWidget {
                                               .colorsThemeMultiple[30]),
                                       recognizer: TapGestureRecognizer()
                                         ..onTap = () {
-                                          Navigator.pushNamed(context, 'landing');
+                                          Navigator.pushNamed(
+                                              context, 'landing');
                                         },
                                     ),
                                   ])))
                         ],
-                      )
-                  )
-              )
-          )
-      );
+                      )))));
     } else {
       return ScaffoldComponent(
           enumerateCategoriesScaffold: EnumerateCategoriesScaffold.noCurvedBar,
           isIOSPlatform: isIOSPlatform,
           debugShowCheckedModeBanner: debugShowCheckedModeBanner,
           child: Container(
-            color: MainColorPalettes.colorsThemeMultiple[5],
+              color: MainColorPalettes.colorsThemeMultiple[5],
               height: double.infinity,
               width: double.infinity,
               child: SingleChildScrollView(
@@ -197,7 +194,7 @@ class MyAccountPage extends StatelessWidget {
                             '${MainTextPalettes.textFr["ABOUT_MY_ACCOUNT"]}',
                             style: TextStyle(
                                 color:
-                                MainColorPalettes.colorsThemeMultiple[10],
+                                    MainColorPalettes.colorsThemeMultiple[10],
                                 fontSize: 50,
                                 fontFamily: 'DMSans-Bold.ttf'),
                           ),
@@ -209,9 +206,9 @@ class MyAccountPage extends StatelessWidget {
                                 5,
                               ),
                               child: TextFieldComponent(
-                                methode: (test)=>{},
+                                methode: (test) => {},
                                 text:
-                                "${MainTextPalettes.textFr["EMAIL_LABEL_DEFAULT_TEXTFIELD"]}",
+                                    "${MainTextPalettes.textFr["EMAIL_LABEL_DEFAULT_TEXTFIELD"]}",
                                 isValid: true,
                                 isNotValidRenderText: 'test',
                                 hiddenText: false,
@@ -224,9 +221,9 @@ class MyAccountPage extends StatelessWidget {
                                 5,
                               ),
                               child: TextFieldComponent(
-                                methode: (test)=>{},
+                                methode: (test) => {},
                                 text:
-                                "${MainTextPalettes.textFr["NAME_LABEL_DEFAULT_TEXTFIELD"]}",
+                                    "${MainTextPalettes.textFr["NAME_LABEL_DEFAULT_TEXTFIELD"]}",
                                 isValid: true,
                                 isNotValidRenderText: 'test',
                                 hiddenText: false,
@@ -239,9 +236,9 @@ class MyAccountPage extends StatelessWidget {
                                 5,
                               ),
                               child: TextFieldComponent(
-                                methode: (test)=>{},
+                                methode: (test) => {},
                                 text:
-                                "${MainTextPalettes.textFr["SURNAME_LABEL_DEFAULT_TEXTFIELD"]}",
+                                    "${MainTextPalettes.textFr["SURNAME_LABEL_DEFAULT_TEXTFIELD"]}",
                                 isValid: true,
                                 isNotValidRenderText: 'test',
                                 hiddenText: false,
@@ -254,9 +251,9 @@ class MyAccountPage extends StatelessWidget {
                                 5,
                               ),
                               child: TextFieldComponent(
-                                methode: (test)=>{},
+                                methode: (test) => {},
                                 text:
-                                "${MainTextPalettes.textFr["PASSWORD_LABEL_DEFAULT_TEXTFIELD"]}",
+                                    "${MainTextPalettes.textFr["PASSWORD_LABEL_DEFAULT_TEXTFIELD"]}",
                                 isValid: true,
                                 isNotValidRenderText: 'test',
                                 hiddenText: true,
@@ -269,9 +266,9 @@ class MyAccountPage extends StatelessWidget {
                                 15,
                               ),
                               child: TextFieldComponent(
-                                methode: (test)=>{},
+                                methode: (test) => {},
                                 text:
-                                "${MainTextPalettes.textFr["CONFIRMATION_PASSWORD_LABEL_DEFAULT_TEXTFIELD"]}",
+                                    "${MainTextPalettes.textFr["CONFIRMATION_PASSWORD_LABEL_DEFAULT_TEXTFIELD"]}",
                                 isValid: true,
                                 isNotValidRenderText: 'test',
                                 hiddenText: true,
@@ -279,14 +276,14 @@ class MyAccountPage extends StatelessWidget {
                           ButtonComponent(
                             text: MainTextPalettes.textFr["VALIDER"],
                             enumerateCategoriesButton:
-                            EnumerateCategoriesButton.typeButtonTextOnly,
+                                EnumerateCategoriesButton.typeButtonTextOnly,
                             isIOSPlatform: isIOSPlatform,
                             methode: () =>
-                            {Navigator.pushNamed(context, 'confirmEmail')},
+                                {Navigator.pushNamed(context, 'confirmEmail')},
                             colorBorder:
-                            MainColorPalettes.colorsThemeMultiple[5]!,
+                                MainColorPalettes.colorsThemeMultiple[5]!,
                             backgroundColorButton:
-                            MainColorPalettes.colorsThemeMultiple[10]!,
+                                MainColorPalettes.colorsThemeMultiple[10]!,
                           ),
                           SizedBox(
                             height: MediaQuery.of(context).size.height / 45,
@@ -294,14 +291,14 @@ class MyAccountPage extends StatelessWidget {
                           ButtonComponent(
                             text: MainTextPalettes.textFr["ABOUTDECO"],
                             enumerateCategoriesButton:
-                            EnumerateCategoriesButton.typeButtonTextOnly,
+                                EnumerateCategoriesButton.typeButtonTextOnly,
                             isIOSPlatform: isIOSPlatform,
                             methode: () =>
-                            {Navigator.pushNamed(context, 'landing')},
+                                {Navigator.pushNamed(context, 'landing')},
                             colorBorder:
-                            MainColorPalettes.colorsThemeMultiple[5]!,
+                                MainColorPalettes.colorsThemeMultiple[5]!,
                             backgroundColorButton:
-                            MainColorPalettes.colorsThemeMultiple[30]!,
+                                MainColorPalettes.colorsThemeMultiple[30]!,
                           ),
                           SizedBox(
                             height: MediaQuery.of(context).size.height / 65,
@@ -312,7 +309,7 @@ class MyAccountPage extends StatelessWidget {
                                   text: TextSpan(children: [
                                     TextSpan(
                                       text:
-                                      "\n${MainTextPalettes.textFr["DELETE_ACCOUNT"]}",
+                                          "\n${MainTextPalettes.textFr["DELETE_ACCOUNT"]}",
                                       style: TextStyle(
                                           fontFamily: "DMSans-Regular",
                                           fontSize: 15,
@@ -320,16 +317,13 @@ class MyAccountPage extends StatelessWidget {
                                               .colorsThemeMultiple[30]),
                                       recognizer: TapGestureRecognizer()
                                         ..onTap = () {
-                                          Navigator.pushNamed(context, 'landing');
+                                          Navigator.pushNamed(
+                                              context, 'landing');
                                         },
                                     ),
                                   ])))
                         ],
-                      )
-                  )
-              )
-          )
-      );
+                      )))));
     }
   }
 }

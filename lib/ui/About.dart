@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:joya/component/ButtonComponent.dart';
 import 'package:joya/component/ScaffoldComponent.dart';
-import 'package:joya/enum/EnumerateCategoriesButton.dart';
-import 'package:joya/enum/EnumerateCategoriesScaffold.dart';
 import 'package:joya/styles/MainColorPalettes.dart';
 import 'package:joya/styles/MainTextPalettes.dart';
+
+import '../data/enum/EnumerateCategoriesButton.dart';
+import '../data/enum/EnumerateCategoriesScaffold.dart';
 
 class About extends StatelessWidget {
   final bool debugShowCheckedModeBanner;
@@ -28,7 +29,7 @@ class About extends StatelessWidget {
             child: Column(
               children: [
                 SizedBox(
-                  height: MediaQuery.of(context).size.height /50,
+                  height: MediaQuery.of(context).size.height / 50,
                 ),
                 Text(
                   '${MainTextPalettes.textFr["ABOUT"]}',
@@ -38,88 +39,85 @@ class About extends StatelessWidget {
                       fontFamily: 'DMSans-Bold.ttf'),
                 ),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height /30,
+                  height: MediaQuery.of(context).size.height / 30,
                 ),
                 ButtonComponent(
                   text: MainTextPalettes.textFr["ABOUTPRENIUM"],
                   enumerateCategoriesButton:
-                  EnumerateCategoriesButton.typeButtonTextAndIconAndOpacity,
+                      EnumerateCategoriesButton.typeButtonTextAndIconAndOpacity,
                   isIOSPlatform: isIOSPlatform,
-                  methode: () =>
-                  {Navigator.pushNamed(context, '')},
-                  colorBorder:
-                  MainColorPalettes.colorsThemeMultiple[5]!,
+                  methode: () => {Navigator.pushNamed(context, '')},
+                  colorBorder: MainColorPalettes.colorsThemeMultiple[5]!,
                   backgroundColorButton:
-                  MainColorPalettes.colorsThemeMultiple[5]!,
+                      MainColorPalettes.colorsThemeMultiple[5]!,
                 ),
-                SizedBox(height: MediaQuery.of(context).size.width/25,),
+                SizedBox(
+                  height: MediaQuery.of(context).size.width / 25,
+                ),
                 ButtonComponent(
                   text: MainTextPalettes.textFr["ABOUTNOTIF"],
                   enumerateCategoriesButton:
-                  EnumerateCategoriesButton.typeButtonTextAndIconAndOpacity,
+                      EnumerateCategoriesButton.typeButtonTextAndIconAndOpacity,
                   isIOSPlatform: isIOSPlatform,
-                  methode: () =>
-                  {Navigator.pushNamed(context, '')},
-                  colorBorder:
-                  MainColorPalettes.colorsThemeMultiple[5]!,
+                  methode: () => {Navigator.pushNamed(context, '')},
+                  colorBorder: MainColorPalettes.colorsThemeMultiple[5]!,
                   backgroundColorButton:
-                  MainColorPalettes.colorsThemeMultiple[5]!,
+                      MainColorPalettes.colorsThemeMultiple[5]!,
                 ),
-                SizedBox(height: MediaQuery.of(context).size.width/25,),
+                SizedBox(
+                  height: MediaQuery.of(context).size.width / 25,
+                ),
                 ButtonComponent(
                   text: MainTextPalettes.textFr["ABOUT_MY_ACCOUNT"],
                   enumerateCategoriesButton:
-                  EnumerateCategoriesButton.typeButtonTextAndIconAndOpacity,
+                      EnumerateCategoriesButton.typeButtonTextAndIconAndOpacity,
                   isIOSPlatform: isIOSPlatform,
-                  methode: () =>
-                  {Navigator.pushNamed(context, 'myAccount')},
-                  colorBorder:
-                  MainColorPalettes.colorsThemeMultiple[5]!,
+                  methode: () => {Navigator.pushNamed(context, 'myAccount')},
+                  colorBorder: MainColorPalettes.colorsThemeMultiple[5]!,
                   backgroundColorButton:
-                  MainColorPalettes.colorsThemeMultiple[5]!,
+                      MainColorPalettes.colorsThemeMultiple[5]!,
                 ),
-                SizedBox(height: MediaQuery.of(context).size.width/25,),
+                SizedBox(
+                  height: MediaQuery.of(context).size.width / 25,
+                ),
                 ButtonComponent(
                   text: MainTextPalettes.textFr["ABOUT_SETTING"],
                   enumerateCategoriesButton:
-                  EnumerateCategoriesButton.typeButtonTextAndIconAndOpacity,
+                      EnumerateCategoriesButton.typeButtonTextAndIconAndOpacity,
                   isIOSPlatform: isIOSPlatform,
-                  methode: () =>
-                  {Navigator.pushNamed(context, '')},
-                  colorBorder:
-                  MainColorPalettes.colorsThemeMultiple[5]!,
+                  methode: () => {Navigator.pushNamed(context, '')},
+                  colorBorder: MainColorPalettes.colorsThemeMultiple[5]!,
                   backgroundColorButton:
-                  MainColorPalettes.colorsThemeMultiple[5]!,
+                      MainColorPalettes.colorsThemeMultiple[5]!,
                 ),
-                SizedBox(height: MediaQuery.of(context).size.width/25,),
+                SizedBox(
+                  height: MediaQuery.of(context).size.width / 25,
+                ),
                 ButtonComponent(
                   text: MainTextPalettes.textFr["ABOUT_HELP"],
                   enumerateCategoriesButton:
-                  EnumerateCategoriesButton.typeButtonTextAndIconAndOpacity,
+                      EnumerateCategoriesButton.typeButtonTextAndIconAndOpacity,
                   isIOSPlatform: isIOSPlatform,
-                  methode: () =>
-                  {Navigator.pushNamed(context, '')},
-                  colorBorder:
-                  MainColorPalettes.colorsThemeMultiple[5]!,
+                  methode: () => {Navigator.pushNamed(context, '')},
+                  colorBorder: MainColorPalettes.colorsThemeMultiple[5]!,
                   backgroundColorButton:
-                  MainColorPalettes.colorsThemeMultiple[5]!,
+                      MainColorPalettes.colorsThemeMultiple[5]!,
                 ),
-                SizedBox(height: MediaQuery.of(context).size.width/25,),
+                SizedBox(
+                  height: MediaQuery.of(context).size.width / 25,
+                ),
                 ButtonComponent(
                   text: MainTextPalettes.textFr["ABOUT_JOYA"],
                   enumerateCategoriesButton:
-                  EnumerateCategoriesButton.typeButtonTextAndIconAndOpacity,
+                      EnumerateCategoriesButton.typeButtonTextAndIconAndOpacity,
                   isIOSPlatform: isIOSPlatform,
-                  methode: () =>
-                  {Navigator.pushNamed(context, '')},
-                  colorBorder:
-                  MainColorPalettes.colorsThemeMultiple[5]!,
+                  methode: () => {Navigator.pushNamed(context, '')},
+                  colorBorder: MainColorPalettes.colorsThemeMultiple[5]!,
                   backgroundColorButton:
-                  MainColorPalettes.colorsThemeMultiple[5]!,
+                      MainColorPalettes.colorsThemeMultiple[5]!,
                 ),
               ],
-            )
-        ),
+            )),
       );
     } else {
       return ScaffoldComponent(
@@ -134,7 +132,7 @@ class About extends StatelessWidget {
             child: Column(
               children: [
                 SizedBox(
-                  height: MediaQuery.of(context).size.height /30,
+                  height: MediaQuery.of(context).size.height / 30,
                 ),
                 Text(
                   '${MainTextPalettes.textFr["ABOUT"]}',
@@ -143,87 +141,86 @@ class About extends StatelessWidget {
                       fontSize: 50,
                       fontFamily: 'DMSans-Bold.ttf'),
                 ),
-                SizedBox(height: MediaQuery.of(context).size.width/25,),
+                SizedBox(
+                  height: MediaQuery.of(context).size.width / 25,
+                ),
                 ButtonComponent(
                   text: MainTextPalettes.textFr["ABOUTPRENIUM"],
                   enumerateCategoriesButton:
-                  EnumerateCategoriesButton.typeButtonTextAndIconAndOpacity,
+                      EnumerateCategoriesButton.typeButtonTextAndIconAndOpacity,
                   isIOSPlatform: isIOSPlatform,
-                  methode: () =>
-                  {Navigator.pushNamed(context, '')},
-                  colorBorder:
-                  MainColorPalettes.colorsThemeMultiple[5]!,
+                  methode: () => {Navigator.pushNamed(context, '')},
+                  colorBorder: MainColorPalettes.colorsThemeMultiple[5]!,
                   backgroundColorButton:
-                  MainColorPalettes.colorsThemeMultiple[5]!,
+                      MainColorPalettes.colorsThemeMultiple[5]!,
                 ),
-                SizedBox(height: MediaQuery.of(context).size.width/25,),
+                SizedBox(
+                  height: MediaQuery.of(context).size.width / 25,
+                ),
                 ButtonComponent(
                   text: MainTextPalettes.textFr["ABOUTNOTIF"],
                   enumerateCategoriesButton:
-                  EnumerateCategoriesButton.typeButtonTextAndIconAndOpacity,
+                      EnumerateCategoriesButton.typeButtonTextAndIconAndOpacity,
                   isIOSPlatform: isIOSPlatform,
-                  methode: () =>
-                  {Navigator.pushNamed(context, '')},
-                  colorBorder:
-                  MainColorPalettes.colorsThemeMultiple[5]!,
+                  methode: () => {Navigator.pushNamed(context, '')},
+                  colorBorder: MainColorPalettes.colorsThemeMultiple[5]!,
                   backgroundColorButton:
-                  MainColorPalettes.colorsThemeMultiple[5]!,
+                      MainColorPalettes.colorsThemeMultiple[5]!,
                 ),
-                SizedBox(height: MediaQuery.of(context).size.width/25,),
+                SizedBox(
+                  height: MediaQuery.of(context).size.width / 25,
+                ),
                 ButtonComponent(
                   text: MainTextPalettes.textFr["ABOUT_MY_ACCOUNT"],
                   enumerateCategoriesButton:
-                  EnumerateCategoriesButton.typeButtonTextAndIconAndOpacity,
+                      EnumerateCategoriesButton.typeButtonTextAndIconAndOpacity,
                   isIOSPlatform: isIOSPlatform,
-                  methode: () =>
-                  {Navigator.pushNamed(context, 'myAccount')},
-                  colorBorder:
-                  MainColorPalettes.colorsThemeMultiple[5]!,
+                  methode: () => {Navigator.pushNamed(context, 'myAccount')},
+                  colorBorder: MainColorPalettes.colorsThemeMultiple[5]!,
                   backgroundColorButton:
-                  MainColorPalettes.colorsThemeMultiple[5]!,
+                      MainColorPalettes.colorsThemeMultiple[5]!,
                 ),
-                SizedBox(height: MediaQuery.of(context).size.width/25,),
+                SizedBox(
+                  height: MediaQuery.of(context).size.width / 25,
+                ),
                 ButtonComponent(
                   text: MainTextPalettes.textFr["ABOUT_SETTING"],
                   enumerateCategoriesButton:
-                  EnumerateCategoriesButton.typeButtonTextAndIconAndOpacity,
+                      EnumerateCategoriesButton.typeButtonTextAndIconAndOpacity,
                   isIOSPlatform: isIOSPlatform,
-                  methode: () =>
-                  {Navigator.pushNamed(context, '')},
-                  colorBorder:
-                  MainColorPalettes.colorsThemeMultiple[5]!,
+                  methode: () => {Navigator.pushNamed(context, '')},
+                  colorBorder: MainColorPalettes.colorsThemeMultiple[5]!,
                   backgroundColorButton:
-                  MainColorPalettes.colorsThemeMultiple[5]!,
+                      MainColorPalettes.colorsThemeMultiple[5]!,
                 ),
-                SizedBox(height: MediaQuery.of(context).size.width/25,),
+                SizedBox(
+                  height: MediaQuery.of(context).size.width / 25,
+                ),
                 ButtonComponent(
                   text: MainTextPalettes.textFr["ABOUT_HELP"],
                   enumerateCategoriesButton:
-                  EnumerateCategoriesButton.typeButtonTextAndIconAndOpacity,
+                      EnumerateCategoriesButton.typeButtonTextAndIconAndOpacity,
                   isIOSPlatform: isIOSPlatform,
-                  methode: () =>
-                  {Navigator.pushNamed(context, '')},
-                  colorBorder:
-                  MainColorPalettes.colorsThemeMultiple[5]!,
+                  methode: () => {Navigator.pushNamed(context, '')},
+                  colorBorder: MainColorPalettes.colorsThemeMultiple[5]!,
                   backgroundColorButton:
-                  MainColorPalettes.colorsThemeMultiple[5]!,
+                      MainColorPalettes.colorsThemeMultiple[5]!,
                 ),
-                SizedBox(height: MediaQuery.of(context).size.width/25,),
+                SizedBox(
+                  height: MediaQuery.of(context).size.width / 25,
+                ),
                 ButtonComponent(
                   text: MainTextPalettes.textFr["ABOUT_JOYA"],
                   enumerateCategoriesButton:
-                  EnumerateCategoriesButton.typeButtonTextAndIconAndOpacity,
+                      EnumerateCategoriesButton.typeButtonTextAndIconAndOpacity,
                   isIOSPlatform: isIOSPlatform,
-                  methode: () =>
-                  {Navigator.pushNamed(context, '')},
-                  colorBorder:
-                  MainColorPalettes.colorsThemeMultiple[5]!,
+                  methode: () => {Navigator.pushNamed(context, '')},
+                  colorBorder: MainColorPalettes.colorsThemeMultiple[5]!,
                   backgroundColorButton:
-                  MainColorPalettes.colorsThemeMultiple[5]!,
+                      MainColorPalettes.colorsThemeMultiple[5]!,
                 ),
               ],
-            )
-        ),
+            )),
       );
     }
   }
