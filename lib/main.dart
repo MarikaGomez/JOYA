@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:joya/bloc/controller/LoginBloc.dart';
+import 'package:joya/data/repositories/joya/auth.dart';
+import 'package:joya/data/services/api/joya/auth.dart';
 import 'package:joya/styles/MainColorPalettes.dart';
 import 'package:joya/ui/About.dart';
 import 'package:joya/ui/ConfirmationEmail.dart';
@@ -22,63 +23,82 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   bool debugShowCheckedModeBanner = false;
 
+  AuthRepository authRepository = AuthRepository(authService: AuthService());
+
   @override
   Widget build(BuildContext context) {
-    // Boolean get Device Platform Android or iOS
     bool isIOS = Theme.of(context).platform == TargetPlatform.iOS;
-    return MaterialApp(
-      color: MainColorPalettes.colorsThemeMultiple[5],
-      debugShowCheckedModeBanner: debugShowCheckedModeBanner,
-      initialRoute: 'landing',
-      routes: <String, WidgetBuilder>{
-        'landing': (BuildContext context) => LandingPage(
-            isIOSPlatform: isIOS,
-            debugShowCheckedModeBanner: debugShowCheckedModeBanner),
-        'signup': (BuildContext context) => BlocProvider<RequestBloc>(
-            bloc: RequestBloc(),
-            child: InscriptionPage(
-                isIOSPlatform: isIOS,
-                debugShowCheckedModeBanner: debugShowCheckedModeBanner)),
+    var isLogged = true;
+    checkLoginStatus() async {
+      try {
+        await authRepository.getCurrentUser();
+      } catch (e) {
+        isLogged = false;
+      }
+    }
 
-        'signin': (BuildContext context) => BlocProvider<LoginBloc>(
-            bloc: LoginBloc(),
-            child: Login(
-                isIOSPlatform: isIOS,
-                debugShowCheckedModeBanner: debugShowCheckedModeBanner)),
-        "confirmEmail": (BuildContext context) => ConfirmationEmail(
-            isIOSPlatform: isIOS,
-            debugShowCheckedModeBanner: debugShowCheckedModeBanner),
-        "about": (BuildContext context) => About(
-            isIOSPlatform: isIOS,
-            debugShowCheckedModeBanner: debugShowCheckedModeBanner),
-        "qrcode": (BuildContext context) => QrCode(
-            isIOSPlatform: isIOS,
-            debugShowCheckedModeBanner: debugShowCheckedModeBanner),
-        'qrcodeScan': (BuildContext context) => BlocProvider<RequestBloc>(
-            bloc: RequestBloc(),
-            child: QrCodeScan(
-                isIOSPlatform: isIOS,
-                debugShowCheckedModeBanner: debugShowCheckedModeBanner)),
-        'homeWithoutSensor': (BuildContext context) =>
-            BlocProvider<RequestBloc>(
-                bloc: RequestBloc(),
-                child: HomeWithoutSensorPage(
-                    isIOSPlatform: isIOS,
-                    debugShowCheckedModeBanner: debugShowCheckedModeBanner)),
-        "myPlant": (BuildContext context) => MyPlantPage(
-            isIOSPlatform: isIOS,
-            debugShowCheckedModeBanner: debugShowCheckedModeBanner),
-        'myAccount': (BuildContext context) => BlocProvider<RequestBloc>(
-            bloc: RequestBloc(),
-            child: MyAccountPage(
-                isIOSPlatform: isIOS,
-                debugShowCheckedModeBanner: debugShowCheckedModeBanner)),
-        'store': (BuildContext context) => BlocProvider<RequestBloc>(
-            bloc: RequestBloc(),
-            child: StorePage(
-                isIOSPlatform: isIOS,
-                debugShowCheckedModeBanner: debugShowCheckedModeBanner)),
-      },
-    );
+    return FutureBuilder(
+        future: checkLoginStatus(),
+        builder: (context, snapshot) {
+          // Boolean get Device Platform Android or iOS
+          return MaterialApp(
+            color: MainColorPalettes.colorsThemeMultiple[5],
+            debugShowCheckedModeBanner: debugShowCheckedModeBanner,
+            initialRoute: 'landing',
+            routes: <String, WidgetBuilder>{
+              'landing': (BuildContext context) => LandingPage(
+                  isIOSPlatform: isIOS,
+                  debugShowCheckedModeBanner: debugShowCheckedModeBanner),
+              'signup': (BuildContext context) => BlocProvider<RequestBloc>(
+                  bloc: RequestBloc(),
+                  child: InscriptionPage(
+                      isIOSPlatform: isIOS,
+                      debugShowCheckedModeBanner: debugShowCheckedModeBanner)),
+              'signin': (BuildContext context) => BlocProvider<LoginBloc>(
+                  bloc: LoginBloc(context: context),
+                  child: Login(
+                      isIOSPlatform: isIOS,
+                      debugShowCheckedModeBanner: debugShowCheckedModeBanner)),
+              "confirmEmail": (BuildContext context) => ConfirmationEmail(
+                  isIOSPlatform: isIOS,
+                  debugShowCheckedModeBanner: debugShowCheckedModeBanner),
+              "about": (BuildContext context) => About(
+                  isIOSPlatform: isIOS,
+                  debugShowCheckedModeBanner: debugShowCheckedModeBanner),
+              "qrcode": (BuildContext context) => QrCode(
+                  isIOSPlatform: isIOS,
+                  debugShowCheckedModeBanner: debugShowCheckedModeBanner),
+              'qrcodeScan': (BuildContext context) => BlocProvider<RequestBloc>(
+                  bloc: RequestBloc(),
+                  child: QrCodeScan(
+                      isIOSPlatform: isIOS,
+                      debugShowCheckedModeBanner: debugShowCheckedModeBanner)),
+              'homeWithoutSensor': (BuildContext context) =>
+                  BlocProvider<RequestBloc>(
+                      bloc: RequestBloc(),
+                      child: HomeWithoutSensorPage(
+                          isIOSPlatform: isIOS,
+                          debugShowCheckedModeBanner:
+                              debugShowCheckedModeBanner)),
+              "myPlant": (BuildContext context) => MyPlantPage(
+                  isIOSPlatform: isIOS,
+                  debugShowCheckedModeBanner: debugShowCheckedModeBanner),
+              'myAccount': (BuildContext context) => BlocProvider<RequestBloc>(
+                    bloc: RequestBloc(),
+                    child: MyAccountPage(
+                      isIOSPlatform: isIOS,
+                      debugShowCheckedModeBanner: debugShowCheckedModeBanner,
+                    ),
+                  ),
+              'store': (BuildContext context) => BlocProvider<RequestBloc>(
+                    bloc: RequestBloc(),
+                    child: StorePage(
+                      isIOSPlatform: isIOS,
+                      debugShowCheckedModeBanner: debugShowCheckedModeBanner,
+                    ),
+                  ),
+            },
+          );
+        });
   }
 }

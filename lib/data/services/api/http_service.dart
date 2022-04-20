@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:dio/dio.dart';
@@ -7,67 +8,93 @@ class HttpService extends HttpOverrides {
   LocalStorageService localStorageService = LocalStorageService();
 
   final BaseOptions _requestOptionsInit = BaseOptions(
-    connectTimeout: 15000,
-    receiveTimeout: 13000,
+    connectTimeout: 5000,
+    receiveTimeout: 3000,
   );
 
   Future<BaseOptions> setCookies(BaseOptions options) async {
+    //TODO bien set les cookies
     var cookies =
         await localStorageService.getString(LocalStorageService.cookies);
-    if (cookies != null)
-      options.headers["cookies"] = {LocalStorageService.cookies: cookies};
+    if (cookies != null) {
+      Map<String, dynamic> map = {
+        LocalStorageService.cookies: cookies,
+      };
+      options.headers["cookies"] = map;
+    }
     return options;
   }
 
   Future<Dio> _initDio() async {
     HttpOverrides.global = this;
-    var options = _requestOptionsInit;
+    BaseOptions options = _requestOptionsInit;
     options = await setCookies(options);
+
     return Dio(options);
   }
 
-  Future<Response> get({
+  Future<dynamic> get({
     required String url,
   }) async {
-    Dio dio = await _initDio();
-    return await dio.get(url);
+    try {
+      Dio dio = await _initDio();
+      var response = await dio.get(url);
+      return response;
+    } on DioError {
+      rethrow;
+    }
   }
 
-  Future<Response> post({
-    required String url,
-    required dynamic data,
-    Function(int, int)? onSendProgressCallback,
-  }) async {
-    Dio dio = await _initDio();
-    return await dio.post(
-      url,
-      data: data,
-      onSendProgress: onSendProgressCallback,
-    );
-  }
-
-  Future<Response> put({
+  Future<dynamic> post({
     required String url,
     required dynamic data,
     Function(int, int)? onSendProgressCallback,
   }) async {
-    Dio dio = await _initDio();
-    return await dio.put(
-      url,
-      data: data,
-      onSendProgress: onSendProgressCallback,
-    );
+    try {
+      Dio dio = await _initDio();
+      var response = await dio.post(
+        url,
+        data: data,
+        onSendProgress: onSendProgressCallback,
+      );
+      return response;
+    } on DioError {
+      rethrow;
+    }
   }
 
-  Future<Response> delete({
+  Future<dynamic> put({
+    required String url,
+    required dynamic data,
+    Function(int, int)? onSendProgressCallback,
+  }) async {
+    try {
+      Dio dio = await _initDio();
+      var response = await dio.put(
+        url,
+        data: data,
+        onSendProgress: onSendProgressCallback,
+      );
+      return response;
+    } on DioError {
+      rethrow;
+    }
+  }
+
+  Future<dynamic> delete({
     required String url,
     required dynamic data,
     Map<String, dynamic>? headers,
     Function(int, int)? onSendProgressCallback,
   }) async {
-    Dio dio = await _initDio();
-    return await dio.delete(
-      url,
-    );
+    try {
+      Dio dio = await _initDio();
+      var response = await dio.delete(
+        url,
+      );
+      return response;
+    } on DioError {
+      rethrow;
+    }
   }
 }
