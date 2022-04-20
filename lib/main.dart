@@ -28,18 +28,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     bool isIOS = Theme.of(context).platform == TargetPlatform.iOS;
-
+    var isLogged = true;
     checkLoginStatus() async {
       try {
-        authRepository.getCurrentUser();
-      } on Exception catch (e) {
-        Navigator.of(context).pushAndRemoveUntil(
-            MaterialPageRoute(
-              builder: (BuildContext context) => LandingPage(
-                  isIOSPlatform: isIOS,
-                  debugShowCheckedModeBanner: debugShowCheckedModeBanner),
-            ),
-            (route) => false);
+        await authRepository.getCurrentUser();
+      } catch (e) {
+        isLogged = false;
       }
     }
 
@@ -61,7 +55,7 @@ class MyApp extends StatelessWidget {
                       isIOSPlatform: isIOS,
                       debugShowCheckedModeBanner: debugShowCheckedModeBanner)),
               'signin': (BuildContext context) => BlocProvider<LoginBloc>(
-                  bloc: LoginBloc(),
+                  bloc: LoginBloc(context: context),
                   child: Login(
                       isIOSPlatform: isIOS,
                       debugShowCheckedModeBanner: debugShowCheckedModeBanner)),
@@ -92,14 +86,16 @@ class MyApp extends StatelessWidget {
               'myAccount': (BuildContext context) => BlocProvider<RequestBloc>(
                     bloc: RequestBloc(),
                     child: MyAccountPage(
-                        isIOSPlatform: isIOS,
-                        debugShowCheckedModeBanner: debugShowCheckedModeBanner),
+                      isIOSPlatform: isIOS,
+                      debugShowCheckedModeBanner: debugShowCheckedModeBanner,
+                    ),
                   ),
               'store': (BuildContext context) => BlocProvider<RequestBloc>(
                     bloc: RequestBloc(),
                     child: StorePage(
-                        isIOSPlatform: isIOS,
-                        debugShowCheckedModeBanner: debugShowCheckedModeBanner),
+                      isIOSPlatform: isIOS,
+                      debugShowCheckedModeBanner: debugShowCheckedModeBanner,
+                    ),
                   ),
             },
           );

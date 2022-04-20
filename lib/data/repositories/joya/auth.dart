@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:joya/data/app_error.dart';
 import 'package:joya/data/services/api/joya/auth.dart';
 
@@ -17,13 +18,13 @@ class AuthRepository {
     }
   }
 
-  Future<User> getCurrentUser() async {
+  Future<User?> getCurrentUser() async {
     try {
       return await _authService.getAuthuser();
     } on Exception catch (error) {
       rethrow;
     } on Error catch (error) {
-      rethrow;
+      debugPrint(error.toString());
     }
   }
 }

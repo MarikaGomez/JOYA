@@ -5,11 +5,11 @@ import 'package:joya/data/models/user.dart';
 import 'package:joya/data/services/api/http_service.dart';
 import 'package:joya/data/services/device/local_storage_service.dart';
 
+import '../../../../common/variables.dart';
+
 class AuthService {
   HttpService _httpService = HttpService();
   LocalStorageService _localStorageService = LocalStorageService();
-
-  static const JOYA_URL = "http://10.95.33.154:5000/api/";
 
   Future<void> login({required String email, required String password}) async {
     try {
