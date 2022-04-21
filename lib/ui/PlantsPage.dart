@@ -9,11 +9,11 @@ import 'package:joya/styles/MainTextPalettes.dart';
 import '../data/enum/EnumerateCategoriesButton.dart';
 import '../data/enum/EnumerateCategoriesScaffold.dart';
 
-class MyPlantPage extends StatelessWidget {
+class PlantsPage extends StatelessWidget {
   final bool debugShowCheckedModeBanner;
   final bool isIOSPlatform;
 
-  MyPlantPage(
+  PlantsPage(
       {required this.debugShowCheckedModeBanner, required this.isIOSPlatform});
 
   @override

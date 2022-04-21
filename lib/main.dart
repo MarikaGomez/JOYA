@@ -9,7 +9,7 @@ import 'package:joya/ui/InscriptionPage.dart';
 import 'package:joya/ui/LandingPage.dart';
 import 'package:joya/ui/Login.dart';
 import 'package:joya/ui/MyAccountPage.dart';
-import 'package:joya/ui/MyPlantPage.dart';
+import 'package:joya/ui/PlantsPage.dart';
 import 'package:joya/ui/QrCode.dart';
 import 'package:joya/ui/QrCodeScan.dart';
 import 'package:joya/ui/StorePage.dart';
@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
           return MaterialApp(
             color: MainColorPalettes.colorsThemeMultiple[5],
             debugShowCheckedModeBanner: debugShowCheckedModeBanner,
-            initialRoute: isLogged ? "homeWithoutSensor" : 'landing',
+            initialRoute: isLogged ? "myPlant" : 'landing',
             routes: <String, WidgetBuilder>{
               'landing': (BuildContext context) => LandingPage(
                   isIOSPlatform: isIOS,
@@ -81,7 +81,7 @@ class MyApp extends StatelessWidget {
                           isIOSPlatform: isIOS,
                           debugShowCheckedModeBanner:
                               debugShowCheckedModeBanner)),
-              "myPlant": (BuildContext context) => MyPlantPage(
+              "myPlant": (BuildContext context) => PlantsPage(
                   isIOSPlatform: isIOS,
                   debugShowCheckedModeBanner: debugShowCheckedModeBanner),
               'myAccount': (BuildContext context) => BlocProvider<RequestBloc>(
