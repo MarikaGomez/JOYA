@@ -32,7 +32,8 @@ class MyApp extends StatelessWidget {
     checkLoginStatus() async {
       try {
         await authRepository.getCurrentUser();
-      } catch (e) {
+      } catch (error) {
+        debugPrint("Error on get current user ${error}");
         isLogged = false;
       }
     }
@@ -44,7 +45,7 @@ class MyApp extends StatelessWidget {
           return MaterialApp(
             color: MainColorPalettes.colorsThemeMultiple[5],
             debugShowCheckedModeBanner: debugShowCheckedModeBanner,
-            initialRoute: 'landing',
+            initialRoute: isLogged ? "homeWithoutSensor" : 'landing',
             routes: <String, WidgetBuilder>{
               'landing': (BuildContext context) => LandingPage(
                   isIOSPlatform: isIOS,
