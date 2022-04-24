@@ -6,7 +6,7 @@ part of 'sensor.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Sensor _$SensorFromJson(Map<String, dynamic> json) => Sensor(
+Sensor _$SensorModelFromJson(Map<String, dynamic> json) => Sensor(
       id: json['id'] as String,
       name: json['name'] as String,
       plant: Plant.fromJson(json['plant'] as Map<String, dynamic>),
@@ -15,7 +15,7 @@ Sensor _$SensorFromJson(Map<String, dynamic> json) => Sensor(
       user: User.fromJson(json['user'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$SensorToJson(Sensor instance) => <String, dynamic>{
+Map<String, dynamic> _$SensorModelToJson(Sensor instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'plant': instance.plant,

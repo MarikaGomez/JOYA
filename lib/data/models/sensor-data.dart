@@ -21,7 +21,7 @@ class SensorData {
       required this.fertility});
 
   factory SensorData.fromJson(Map<String, dynamic> json) =>
-      _$SensorDataModelFromJson(json);
+      _$SensorDataFromJson(json);
 
-  Map<String, dynamic> toJson() => _$SensorDataModelToJson(this);
+  Map<String, dynamic> toJson() => _$SensorDataToJson(this);
 }
