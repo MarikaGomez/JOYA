@@ -6,10 +6,12 @@ import 'package:joya/component/TextFieldComponent.dart';
 import 'package:joya/styles/MainColorPalettes.dart';
 import 'package:joya/styles/MainTextPalettes.dart';
 
+import '../bloc/PlantsBloc.dart';
+import '../bloc/bloc_provider.dart';
 import '../data/enum/EnumerateCategoriesButton.dart';
 import '../data/enum/EnumerateCategoriesScaffold.dart';
 
-class PlantsPage extends StatelessWidget {
+class PlantsPage extends StatefulWidget {
   final bool debugShowCheckedModeBanner;
   final bool isIOSPlatform;
 
@@ -17,12 +19,23 @@ class PlantsPage extends StatelessWidget {
       {required this.debugShowCheckedModeBanner, required this.isIOSPlatform});
 
   @override
+  State<PlantsPage> createState() => _PlantsPageState();
+}
+
+class _PlantsPageState extends State<PlantsPage> {
+  @override
+  void initState() {
+    super.initState();
+    BlocProvider.of<PlantsBloc>(context)?.fetchSensors();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    if (isIOSPlatform) {
+    if (widget.isIOSPlatform) {
       return ScaffoldComponent(
         enumerateCategoriesScaffold: EnumerateCategoriesScaffold.curvedBar,
-        isIOSPlatform: isIOSPlatform,
-        debugShowCheckedModeBanner: debugShowCheckedModeBanner,
+        isIOSPlatform: widget.isIOSPlatform,
+        debugShowCheckedModeBanner: widget.debugShowCheckedModeBanner,
         index: 1,
         child: Container(
             width: MediaQuery.of(context).size.width,
@@ -86,7 +99,7 @@ class PlantsPage extends StatelessWidget {
                       .textFr["CONNEXION_BUTTON_DEFAULT_TEXTFIELD"],
                   enumerateCategoriesButton:
                       EnumerateCategoriesButton.typeButtonIconOnly,
-                  isIOSPlatform: isIOSPlatform,
+                  isIOSPlatform: widget.isIOSPlatform,
                   methode: () async => {
                     await Future.delayed(const Duration(milliseconds: 1000),
                         () {
@@ -103,16 +116,16 @@ class PlantsPage extends StatelessWidget {
     } else {
       return ScaffoldComponent(
         enumerateCategoriesScaffold: EnumerateCategoriesScaffold.curvedBar,
-        isIOSPlatform: isIOSPlatform,
-        debugShowCheckedModeBanner: debugShowCheckedModeBanner,
+        isIOSPlatform: widget.isIOSPlatform,
+        debugShowCheckedModeBanner: widget.debugShowCheckedModeBanner,
         index: 1,
         child: Container(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
             color: MainColorPalettes.colorsThemeMultiple[5],
             child: GridComponent(
-                isIOSPlatform: isIOSPlatform,
-                debugShowCheckedModeBanner: debugShowCheckedModeBanner)
+                isIOSPlatform: widget.isIOSPlatform,
+                debugShowCheckedModeBanner: widget.debugShowCheckedModeBanner)
             // Column(
             //   children: [
             //     SizedBox(
