@@ -11,7 +11,8 @@ class AuthService {
   HttpService _httpService = HttpService();
   LocalStorageService _localStorageService = LocalStorageService();
 
-  Future<void> login({required String email, required String password}) async {
+  Future<String?> login(
+      {required String email, required String password}) async {
     try {
       var data = {"email": email, "password": password};
       var responseData =
@@ -21,6 +22,7 @@ class AuthService {
         LocalStorageService.cookies,
         responseData.toString(),
       );
+      return responseData.toString();
     } on Exception {
       rethrow;
     } on Error catch (error) {

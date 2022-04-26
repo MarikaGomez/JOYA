@@ -14,6 +14,7 @@ import '../data/enum/EnumerateCategoriesScaffold.dart';
 class PlantsPage extends StatefulWidget {
   final bool debugShowCheckedModeBanner;
   final bool isIOSPlatform;
+  static String pageName = "plants";
 
   PlantsPage(
       {required this.debugShowCheckedModeBanner, required this.isIOSPlatform});

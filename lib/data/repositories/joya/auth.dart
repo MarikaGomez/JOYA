@@ -10,9 +10,10 @@ class AuthRepository {
   const AuthRepository({required AuthService authService})
       : _authService = authService;
 
-  void login({required String email, required String password}) async {
+  Future<String?> login(
+      {required String email, required String password}) async {
     try {
-      await _authService.login(email: email, password: password);
+      return await _authService.login(email: email, password: password);
     } on Exception catch (error) {
       print(AppError(error).message);
     }

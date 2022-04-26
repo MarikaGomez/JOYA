@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:joya/data/repositories/joya/auth.dart';
 import 'package:joya/data/services/api/joya/auth.dart';
+import 'package:joya/pages/login/cubit/login_page.dart';
 import 'package:joya/styles/MainColorPalettes.dart';
 import 'package:joya/ui/About.dart';
 import 'package:joya/ui/ConfirmationEmail.dart';
@@ -45,16 +46,12 @@ class MyApp extends StatelessWidget {
           return MaterialApp(
             color: MainColorPalettes.colorsThemeMultiple[5],
             debugShowCheckedModeBanner: debugShowCheckedModeBanner,
-            initialRoute: isLogged ? "myPlant" : 'landing',
+            initialRoute: LoginPage2.pageName,
             routes: <String, WidgetBuilder>{
               'landing': (BuildContext context) => LandingPage(
                   isIOSPlatform: isIOS,
                   debugShowCheckedModeBanner: debugShowCheckedModeBanner),
-              'signup': (BuildContext context) => BlocProvider<RequestBloc>(
-                  bloc: RequestBloc(),
-                  child: InscriptionPage(
-                      isIOSPlatform: isIOS,
-                      debugShowCheckedModeBanner: debugShowCheckedModeBanner)),
+              LoginPage2.pageName: (BuildContext context) => LoginPage2(),
               'signin': (BuildContext context) => BlocProvider<LoginBloc>(
                   bloc: LoginBloc(context: context),
                   child: Login(
@@ -81,7 +78,7 @@ class MyApp extends StatelessWidget {
                           isIOSPlatform: isIOS,
                           debugShowCheckedModeBanner:
                               debugShowCheckedModeBanner)),
-              "myPlant": (BuildContext context) => PlantsPage(
+              PlantsPage.pageName: (BuildContext context) => PlantsPage(
                   isIOSPlatform: isIOS,
                   debugShowCheckedModeBanner: debugShowCheckedModeBanner),
               'myAccount': (BuildContext context) => BlocProvider<RequestBloc>(
