@@ -73,11 +73,9 @@ class _SensorsState extends State<SensorsView> {
                                     .read<SensorsCubit>()
                                     .setSearchField(data);
                               },
-                              text:
-                                  "${MainTextPalettes.textFr["PASSWORD_LABEL_DEFAULT_TEXTFIELD"]}",
+                              text: "${MainTextPalettes.textFr["SEARCH"]}",
                               //isValid: snapshot.data["isValidEmail"],
-                              isNotValidRenderText:
-                                  "${MainTextPalettes.textFr["ERROR_PASSWORD"]}",
+                              isNotValidRenderText: "",
                               hiddenText: false,
                               isValid: true,
                             ),
@@ -90,9 +88,27 @@ class _SensorsState extends State<SensorsView> {
                             itemBuilder: (context, index) {
                               var sensor =
                                   context.read<SensorsCubit>().sensors[index];
-                              return ListTile(
-                                title: Text(
-                                    "${sensor.serial_number.toString()} - ${sensor.name.toString()} "),
+                              return Row(
+                                children: [
+                                  Expanded(
+                                    child: ListTile(
+                                      title: Text(
+                                          "${sensor.serial_number.toString()} - ${sensor.name.toString()} "),
+                                    ),
+                                  ),
+                                  Expanded(
+                                      child: CircleAvatar(
+                                    backgroundColor: context
+                                            .read<SensorsCubit>()
+                                            .isInDanger(sensor)
+                                        ? Colors.red
+                                        : context
+                                                .read<SensorsCubit>()
+                                                .isInWarnning(sensor)
+                                            ? Colors.orange
+                                            : Colors.green,
+                                  ))
+                                ],
                               );
                             },
                           ),

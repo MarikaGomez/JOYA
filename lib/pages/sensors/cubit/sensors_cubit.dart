@@ -77,4 +77,31 @@ class SensorsCubit extends Cubit<SensorsState> {
       ),
     );
   }
+
+  bool isInWarnning(Sensor sensor) {
+    var sensorDataHumidity = sensor.sensorData?.humidity;
+
+    if (sensorDataHumidity != null) {
+      var absolutValueBeetweenMaxAndMin =
+          (sensor.plant.humidity_needs.max - sensor.plant.humidity_needs.min)
+              .abs();
+      if ((sensor.plant.humidity_needs.max - sensorDataHumidity).abs() >
+              absolutValueBeetweenMaxAndMin + 2 ||
+          (sensor.plant.humidity_needs.min - sensorDataHumidity).abs() >
+              absolutValueBeetweenMaxAndMin + 2) return true;
+    }
+    return false;
+  }
+
+  bool isInDanger(Sensor sensor) {
+    var sensorDataHumidity = sensor.sensorData?.humidity;
+
+    if (sensorDataHumidity != null) {
+      if (sensor.plant.humidity_needs.max.abs() >
+              sensor.plant.humidity_needs.max + 2 ||
+          sensor.plant.humidity_needs.min.abs() >
+              sensor.plant.humidity_needs.min + 2) return true;
+    }
+    return false;
+  }
 }
