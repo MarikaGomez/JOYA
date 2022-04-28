@@ -26,264 +26,260 @@ class Login extends StatelessWidget {
     final bloc = BlocProvider.of<LoginBloc>(context);
     if (this.isIOSPlatform) {
       return ScaffoldComponent(
-          enumerateCategoriesScaffold: EnumerateCategoriesScaffold.noCurvedBar,
-          isIOSPlatform: isIOSPlatform,
-          debugShowCheckedModeBanner: debugShowCheckedModeBanner,
-          child: Container(
-              height: double.infinity,
-              width: double.infinity,
-              child: StreamBuilder<Map<String, dynamic>>(
-                  stream: bloc?.stream,
-                  builder:
-                      (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
-                    if (snapshot.data == null) {
-                      return ErrorPage(
-                          errorMessage: 'Data is Null',
-                          debugShowCheckedModeBanner:
-                              debugShowCheckedModeBanner,
-                          isIOSPlatform: isIOSPlatform);
-                    } else if (snapshot.hasData) {
-                      return SingleChildScrollView(
-                        child: Container(
-                          child: Column(
-                            children: [
-                              SizedBox(
-                                height: MediaQuery.of(context).size.height / 10,
-                              ),
-                              Text(
-                                '${MainTextPalettes.textFr["CONNEXION_BUTTON_DEFAULT_TEXTFIELD"]}',
-                                style: TextStyle(
-                                    color: MainColorPalettes
-                                        .colorsThemeMultiple[10],
-                                    fontSize: 60,
-                                    fontFamily: 'DMSans-Bold.ttf'),
-                              ),
-                              Padding(
-                                  padding: EdgeInsets.fromLTRB(
-                                    MediaQuery.of(context).size.height / 25,
-                                    MediaQuery.of(context).size.height / 15,
-                                    MediaQuery.of(context).size.height / 25,
-                                    5,
-                                  ),
-                                  child: TextFieldComponent(
-                                    methode: (data) async {
-                                      if (data.isValidEmail()) {
-                                        bloc?.setIsValidEmail(
-                                            data.isValidEmail());
-                                        bloc?.setByKey("email", data);
-                                      } else {
-                                        bloc?.setIsValidEmail(
-                                            data.isValidEmail());
-                                      }
+        enumerateCategoriesScaffold: EnumerateCategoriesScaffold.noCurvedBar,
+        isIOSPlatform: isIOSPlatform,
+        debugShowCheckedModeBanner: debugShowCheckedModeBanner,
+        child: Container(
+          height: double.infinity,
+          width: double.infinity,
+          child: StreamBuilder<Map<String, dynamic>>(
+            stream: bloc?.stream,
+            builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+              if (snapshot.data == null) {
+                return ErrorPage(
+                    errorMessage: 'Data is Null',
+                    debugShowCheckedModeBanner: debugShowCheckedModeBanner,
+                    isIOSPlatform: isIOSPlatform);
+              } else if (snapshot.hasData) {
+                return SingleChildScrollView(
+                  child: Container(
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height / 10,
+                        ),
+                        Text(
+                          '${MainTextPalettes.textFr["CONNEXION_BUTTON_DEFAULT_TEXTFIELD"]}',
+                          style: TextStyle(
+                              color: MainColorPalettes.colorsThemeMultiple[10],
+                              fontSize: 60,
+                              fontFamily: 'DMSans-Bold.ttf'),
+                        ),
+                        Padding(
+                            padding: EdgeInsets.fromLTRB(
+                              MediaQuery.of(context).size.height / 25,
+                              MediaQuery.of(context).size.height / 15,
+                              MediaQuery.of(context).size.height / 25,
+                              5,
+                            ),
+                            child: TextFieldComponent(
+                              methode: (data) async {
+                                if (data.isValidEmail()) {
+                                  bloc?.setIsValidEmail(data.isValidEmail());
+                                  bloc?.setByKey("email", data);
+                                } else {
+                                  bloc?.setIsValidEmail(data.isValidEmail());
+                                }
+                              },
+                              text:
+                                  "${MainTextPalettes.textFr["EMAIL_LABEL_DEFAULT_TEXTFIELD"]}",
+                              isValid: snapshot.data["isValidEmail"],
+                              isNotValidRenderText:
+                                  "${MainTextPalettes.textFr["ERROR_EMAIL"]}",
+                              hiddenText: false,
+                            )),
+                        Padding(
+                            padding: EdgeInsets.fromLTRB(
+                              MediaQuery.of(context).size.height / 25,
+                              MediaQuery.of(context).size.height / 50,
+                              MediaQuery.of(context).size.height / 25,
+                              5,
+                            ),
+                            child: TextFieldComponent(
+                              methode: (data) async {
+                                bloc?.setByKey("password", data);
+                              },
+                              text:
+                                  "${MainTextPalettes.textFr["PASSWORD_LABEL_DEFAULT_TEXTFIELD"]}",
+                              isValid: true,
+                              isNotValidRenderText: 'test',
+                              hiddenText: true,
+                            )),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height / 25,
+                        ),
+                        ButtonComponent(
+                          text: MainTextPalettes
+                              .textFr["CONNEXION_BUTTON_DEFAULT_TEXTFIELD"],
+                          enumerateCategoriesButton: EnumerateCategoriesButton
+                              .typeButtonTextAndIconRight,
+                          isIOSPlatform: isIOSPlatform,
+                          methode: () async {
+                            bloc?.login();
+                          },
+                          colorBorder:
+                              MainColorPalettes.colorsThemeMultiple[5]!,
+                          backgroundColorButton:
+                              MainColorPalettes.colorsThemeMultiple[10]!,
+                        ),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height / 25,
+                        ),
+                        Center(
+                          child: RichText(
+                            textAlign: TextAlign.center,
+                            text: TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: "\n${MainTextPalettes.textFr["RECUP"]}",
+                                  style: TextStyle(
+                                      fontFamily: "DMSans-Regular",
+                                      fontSize: 15,
+                                      color: MainColorPalettes
+                                          .colorsThemeMultiple[10]),
+                                  recognizer: TapGestureRecognizer()
+                                    ..onTap = () {
+                                      Navigator.pushNamed(context, 'about');
                                     },
-                                    text:
-                                        "${MainTextPalettes.textFr["EMAIL_LABEL_DEFAULT_TEXTFIELD"]}",
-                                    isValid: snapshot.data["isValidEmail"],
-                                    isNotValidRenderText:
-                                        "${MainTextPalettes.textFr["ERROR_EMAIL"]}",
-                                    hiddenText: false,
-                                  )),
-                              Padding(
-                                  padding: EdgeInsets.fromLTRB(
-                                    MediaQuery.of(context).size.height / 25,
-                                    MediaQuery.of(context).size.height / 50,
-                                    MediaQuery.of(context).size.height / 25,
-                                    5,
-                                  ),
-                                  child: TextFieldComponent(
-                                    methode: (data) async {
-                                      bloc?.setByKey("password", data);
-                                    },
-                                    text:
-                                        "${MainTextPalettes.textFr["PASSWORD_LABEL_DEFAULT_TEXTFIELD"]}",
-                                    isValid: true,
-                                    isNotValidRenderText: 'test',
-                                    hiddenText: true,
-                                  )),
-                              SizedBox(
-                                height: MediaQuery.of(context).size.height / 25,
-                              ),
-                              ButtonComponent(
-                                text: MainTextPalettes.textFr[
-                                    "CONNEXION_BUTTON_DEFAULT_TEXTFIELD"],
-                                enumerateCategoriesButton:
-                                    EnumerateCategoriesButton
-                                        .typeButtonTextAndIconRight,
-                                isIOSPlatform: isIOSPlatform,
-                                methode: () async {
-                                  bloc?.login();
-                                },
-                                colorBorder:
-                                    MainColorPalettes.colorsThemeMultiple[5]!,
-                                backgroundColorButton:
-                                    MainColorPalettes.colorsThemeMultiple[10]!,
-                              ),
-                              SizedBox(
-                                height: MediaQuery.of(context).size.height / 25,
-                              ),
-                              Center(
-                                  child: RichText(
-                                      textAlign: TextAlign.center,
-                                      text: TextSpan(children: [
-                                        TextSpan(
-                                          text:
-                                              "\n${MainTextPalettes.textFr["RECUP"]}",
-                                          style: TextStyle(
-                                              fontFamily: "DMSans-Regular",
-                                              fontSize: 15,
-                                              color: MainColorPalettes
-                                                  .colorsThemeMultiple[10]),
-                                          recognizer: TapGestureRecognizer()
-                                            ..onTap = () {
-                                              Navigator.pushNamed(
-                                                  context, 'about');
-                                            },
-                                        ),
-                                      ])))
-                            ],
+                                ),
+                              ],
+                            ),
                           ),
                         ),
-                      );
-                    } else {
-                      return ErrorPage(
-                          errorMessage: 'Data is Null',
-                          debugShowCheckedModeBanner:
-                              debugShowCheckedModeBanner,
-                          isIOSPlatform: isIOSPlatform);
-                    }
-                  })));
+                      ],
+                    ),
+                  ),
+                );
+              } else {
+                return ErrorPage(
+                  errorMessage: 'Data is Null',
+                  debugShowCheckedModeBanner: debugShowCheckedModeBanner,
+                  isIOSPlatform: isIOSPlatform,
+                );
+              }
+            },
+          ),
+        ),
+      );
     } else {
       return ScaffoldComponent(
-          enumerateCategoriesScaffold: EnumerateCategoriesScaffold.noCurvedBar,
-          isIOSPlatform: isIOSPlatform,
-          debugShowCheckedModeBanner: debugShowCheckedModeBanner,
-          child: Container(
-              height: double.infinity,
-              width: double.infinity,
-              child: StreamBuilder<Map<String, dynamic>>(
-                  stream: bloc?.stream,
-                  builder:
-                      (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
-                    if (snapshot.data == null) {
-                      return ErrorPage(
-                          errorMessage: 'Data is Null',
-                          debugShowCheckedModeBanner:
-                              debugShowCheckedModeBanner,
-                          isIOSPlatform: isIOSPlatform);
-                    } else if (snapshot.hasData) {
-                      return SingleChildScrollView(
-                        child: Container(
-                          child: Column(
-                            children: [
-                              SizedBox(
-                                height: MediaQuery.of(context).size.height / 10,
-                              ),
-                              Text(
-                                '${MainTextPalettes.textFr["CONNEXION_BUTTON_DEFAULT_TEXTFIELD"]}',
-                                style: TextStyle(
-                                    color: MainColorPalettes
-                                        .colorsThemeMultiple[10],
-                                    fontSize: 60,
-                                    fontFamily: 'DMSans-Bold.ttf'),
-                              ),
-                              Padding(
-                                  padding: EdgeInsets.fromLTRB(
-                                    MediaQuery.of(context).size.height / 25,
-                                    MediaQuery.of(context).size.height / 15,
-                                    MediaQuery.of(context).size.height / 25,
-                                    5,
-                                  ),
-                                  child: TextFieldComponent(
-                                    methode: (data) {
-                                      bloc?.setIsValidEmail(
-                                          data.isValidEmail());
-
-                                      if (data.isValidEmail()) {
-                                        bloc?.setIsValidEmail(
-                                            data.isValidEmail());
-                                        bloc?.setByKey("email", data);
-                                      } else {
-                                        bloc?.setIsValidEmail(
-                                            data.isValidEmail());
-                                      }
-                                    },
-                                    text:
-                                        "${MainTextPalettes.textFr["EMAIL_LABEL_DEFAULT_TEXTFIELD"]}",
-                                    isValid: snapshot.data["isValidEmail"],
-                                    isNotValidRenderText:
-                                        "${MainTextPalettes.textFr["BOOLISVALIDMAIL"]}",
-                                    hiddenText: false,
-                                  )),
-                              Padding(
-                                  padding: EdgeInsets.fromLTRB(
-                                    MediaQuery.of(context).size.height / 25,
-                                    MediaQuery.of(context).size.height / 50,
-                                    MediaQuery.of(context).size.height / 25,
-                                    5,
-                                  ),
-                                  child: TextFieldComponent(
-                                    methode: (data) async {
-                                      bloc?.setByKey("password", data);
-                                    },
-                                    text:
-                                        "${MainTextPalettes.textFr["PASSWORD_LABEL_DEFAULT_TEXTFIELD"]}",
-                                    isValid: true,
-                                    isNotValidRenderText: 'test',
-                                    hiddenText: true,
-                                  )),
-                              SizedBox(
-                                height: MediaQuery.of(context).size.height / 25,
-                              ),
-                              Text("${snapshot.data}"),
-                              ButtonComponent(
-                                text: MainTextPalettes.textFr[
-                                    "CONNEXION_BUTTON_DEFAULT_TEXTFIELD"],
-                                enumerateCategoriesButton:
-                                    EnumerateCategoriesButton
-                                        .typeButtonTextAndIconRight,
-                                isIOSPlatform: isIOSPlatform,
-                                methode: () async {
-                                  bloc?.login();
-                                },
-                                colorBorder:
-                                    MainColorPalettes.colorsThemeMultiple[5]!,
-                                backgroundColorButton:
-                                    MainColorPalettes.colorsThemeMultiple[10]!,
-                              ),
-                              SizedBox(
-                                height: MediaQuery.of(context).size.height / 25,
-                              ),
-                              Center(
-                                  child: RichText(
-                                      textAlign: TextAlign.center,
-                                      text: TextSpan(children: [
-                                        TextSpan(
-                                          text:
-                                              "\n${MainTextPalettes.textFr["RECUP"]}",
-                                          style: TextStyle(
-                                              fontFamily: "DMSans-Regular",
-                                              fontSize: 15,
-                                              color: MainColorPalettes
-                                                  .colorsThemeMultiple[10]),
-                                          recognizer: TapGestureRecognizer()
-                                            ..onTap = () {
-                                              Navigator.pushNamed(
-                                                  context, 'signin');
-                                            },
-                                        ),
-                                      ])))
-                            ],
-                          ),
+        enumerateCategoriesScaffold: EnumerateCategoriesScaffold.noCurvedBar,
+        isIOSPlatform: isIOSPlatform,
+        debugShowCheckedModeBanner: debugShowCheckedModeBanner,
+        child: Container(
+          height: double.infinity,
+          width: double.infinity,
+          child: StreamBuilder<Map<String, dynamic>>(
+            stream: bloc?.stream,
+            builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+              if (snapshot.data == null) {
+                return ErrorPage(
+                    errorMessage: 'Data is Null',
+                    debugShowCheckedModeBanner: debugShowCheckedModeBanner,
+                    isIOSPlatform: isIOSPlatform);
+              } else if (snapshot.hasData) {
+                return SingleChildScrollView(
+                  child: Container(
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height / 10,
                         ),
-                      );
-                    } else {
-                      return ErrorPage(
-                          errorMessage: 'Data is Null',
-                          debugShowCheckedModeBanner:
-                              debugShowCheckedModeBanner,
-                          isIOSPlatform: isIOSPlatform);
-                    }
-                  })));
+                        Text(
+                          '${MainTextPalettes.textFr["CONNEXION_BUTTON_DEFAULT_TEXTFIELD"]}',
+                          style: TextStyle(
+                              color: MainColorPalettes.colorsThemeMultiple[10],
+                              fontSize: 60,
+                              fontFamily: 'DMSans-Bold.ttf'),
+                        ),
+                        Padding(
+                            padding: EdgeInsets.fromLTRB(
+                              MediaQuery.of(context).size.height / 25,
+                              MediaQuery.of(context).size.height / 15,
+                              MediaQuery.of(context).size.height / 25,
+                              5,
+                            ),
+                            child: TextFieldComponent(
+                              methode: (data) {
+                                bloc?.setIsValidEmail(data.isValidEmail());
+
+                                if (data.isValidEmail()) {
+                                  bloc?.setIsValidEmail(data.isValidEmail());
+                                  bloc?.setByKey("email", data);
+                                } else {
+                                  bloc?.setIsValidEmail(data.isValidEmail());
+                                }
+                              },
+                              text:
+                                  "${MainTextPalettes.textFr["EMAIL_LABEL_DEFAULT_TEXTFIELD"]}",
+                              isValid: snapshot.data["isValidEmail"],
+                              isNotValidRenderText:
+                                  "${MainTextPalettes.textFr["BOOLISVALIDMAIL"]}",
+                              hiddenText: false,
+                            )),
+                        Padding(
+                            padding: EdgeInsets.fromLTRB(
+                              MediaQuery.of(context).size.height / 25,
+                              MediaQuery.of(context).size.height / 50,
+                              MediaQuery.of(context).size.height / 25,
+                              5,
+                            ),
+                            child: TextFieldComponent(
+                              methode: (data) async {
+                                bloc?.setByKey("password", data);
+                              },
+                              text:
+                                  "${MainTextPalettes.textFr["PASSWORD_LABEL_DEFAULT_TEXTFIELD"]}",
+                              isValid: true,
+                              isNotValidRenderText: 'test',
+                              hiddenText: true,
+                            )),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height / 25,
+                        ),
+                        Text("${snapshot.data}"),
+                        ButtonComponent(
+                          text: MainTextPalettes
+                              .textFr["CONNEXION_BUTTON_DEFAULT_TEXTFIELD"],
+                          enumerateCategoriesButton: EnumerateCategoriesButton
+                              .typeButtonTextAndIconRight,
+                          isIOSPlatform: isIOSPlatform,
+                          methode: () async {
+                            bloc?.login();
+                          },
+                          colorBorder:
+                              MainColorPalettes.colorsThemeMultiple[5]!,
+                          backgroundColorButton:
+                              MainColorPalettes.colorsThemeMultiple[10]!,
+                        ),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height / 25,
+                        ),
+                        Center(
+                          child: RichText(
+                            textAlign: TextAlign.center,
+                            text: TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: "\n${MainTextPalettes.textFr["RECUP"]}",
+                                  style: TextStyle(
+                                      fontFamily: "DMSans-Regular",
+                                      fontSize: 15,
+                                      color: MainColorPalettes
+                                          .colorsThemeMultiple[10]),
+                                  recognizer: TapGestureRecognizer()
+                                    ..onTap = () {
+                                      Navigator.pushNamed(context, 'signin');
+                                    },
+                                ),
+                              ],
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                );
+              } else {
+                return ErrorPage(
+                    errorMessage: 'Data is Null',
+                    debugShowCheckedModeBanner: debugShowCheckedModeBanner,
+                    isIOSPlatform: isIOSPlatform);
+              }
+            },
+          ),
+        ),
+      );
     }
   }
 }

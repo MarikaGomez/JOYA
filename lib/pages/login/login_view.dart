@@ -1,19 +1,11 @@
 import 'dart:async';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:joya/common/utils/navigation.dart';
 import 'package:joya/common/utils/snackbar.dart';
 import 'package:joya/pages/login/cubit/login_cubit.dart';
-import 'package:joya/pages/login/cubit/login_page.dart';
 import 'package:joya/pages/login/widgets/action_buttons.dart';
 import 'package:joya/pages/login/widgets/login_form_fields.dart';
-
-import '../../component/ButtonComponent.dart';
-import '../../component/TextFieldComponent.dart';
-import '../../data/enum/EnumerateCategoriesButton.dart';
-import '../../styles/MainColorPalettes.dart';
-import '../../styles/MainTextPalettes.dart';
 import '../../ui/PlantsPage.dart';
 
 class LoginView2 extends StatefulWidget {

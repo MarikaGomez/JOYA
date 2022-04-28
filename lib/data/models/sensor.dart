@@ -1,3 +1,4 @@
+import 'package:joya/data/models/sensor-data.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:joya/data/models/plant.dart';
 import 'package:joya/data/models/user.dart';
@@ -11,18 +12,19 @@ class Sensor {
   String? location;
   String serial_number;
   User user;
+  SensorData? sensorData;
 
   Sensor({
     required this.id,
     required this.name,
     required this.plant,
-    this.location = "",
+    this.location,
     required this.serial_number,
     required this.user,
+    this.sensorData,
   });
 
-  factory Sensor.fromJson(Map<String, dynamic> json) =>
-      _$SensorModelFromJson(json);
+  factory Sensor.fromJson(Map<String, dynamic> json) => _$SensorFromJson(json);
 
-  Map<String, dynamic> toJson() => _$SensorModelToJson(this);
+  Map<String, dynamic> toJson() => _$SensorToJson(this);
 }

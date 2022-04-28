@@ -23,7 +23,6 @@ class LoginCubit extends Cubit<LoginState> {
       }
       emit(LoginLoaded());
     } catch (err) {
-      emit(LoginError(message: "erreur serveur"));
       print("$err");
     }
   }
