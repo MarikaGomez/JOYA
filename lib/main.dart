@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:joya/data/repositories/joya/auth.dart';
 import 'package:joya/data/services/api/joya/auth.dart';
 import 'package:joya/pages/login/cubit/login_page.dart';
+import 'package:joya/pages/sensors/cubit/sensors_page.dart';
+import 'package:joya/pages/sensors/sensors_view.dart';
 import 'package:joya/styles/MainColorPalettes.dart';
 import 'package:joya/ui/About.dart';
 import 'package:joya/ui/ConfirmationEmail.dart';
@@ -46,7 +48,7 @@ class MyApp extends StatelessWidget {
           return MaterialApp(
             color: MainColorPalettes.colorsThemeMultiple[5],
             debugShowCheckedModeBanner: debugShowCheckedModeBanner,
-            initialRoute: LoginPage2.pageName,
+            initialRoute: isLogged ? SensorsPage.pageName : LoginPage2.pageName,
             routes: <String, WidgetBuilder>{
               'landing': (BuildContext context) => LandingPage(
                   isIOSPlatform: isIOS,
@@ -78,9 +80,7 @@ class MyApp extends StatelessWidget {
                           isIOSPlatform: isIOS,
                           debugShowCheckedModeBanner:
                               debugShowCheckedModeBanner)),
-              PlantsPage.pageName: (BuildContext context) => PlantsPage(
-                  isIOSPlatform: isIOS,
-                  debugShowCheckedModeBanner: debugShowCheckedModeBanner),
+              SensorsPage.pageName: (BuildContext context) => SensorsPage(),
               'myAccount': (BuildContext context) => BlocProvider<RequestBloc>(
                     bloc: RequestBloc(),
                     child: MyAccountPage(
