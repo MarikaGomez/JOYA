@@ -57,7 +57,7 @@ class _SensorState extends State<SensorView> {
                           Center(child: Text(state.sensor.plant.name)),
                           Center(
                               child: Text(
-                                  "${state.sensor.serial_number} ${state.sensor.name}"))
+                                  "${state.sensor.serial_number} - ${state.sensor.name}"))
                         ],
                       ),
                     ),
