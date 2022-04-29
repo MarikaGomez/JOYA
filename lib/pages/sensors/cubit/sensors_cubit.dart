@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:joya/data/repositories/joya/sensor.dart';
-import 'package:meta/meta.dart';
+import 'package:joya/pages/plant/cubit/sensor_detail_page.dart';
 
 import '../../../data/models/sensor.dart';
 part 'sensors_state.dart';
@@ -28,6 +28,17 @@ class SensorsCubit extends Cubit<SensorsState> {
       print("error on get sensors : $err");
       return emit(SensorsLoaded(sensors: []));
     }
+  }
+
+  void navigateToDetailPage(BuildContext context, String id) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => SensorPage(
+          sensorId: id,
+        ),
+      ),
+    );
   }
 
   void setSensors(List<Sensor> sensorsData) {

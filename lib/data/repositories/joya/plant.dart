@@ -17,4 +17,14 @@ class PlantRepository {
       debugPrint(error.toString());
     }
   }
+
+  Future<Plant?> findOne(String id) async {
+    try {
+      return await _plantService.findOne(id);
+    } on Exception {
+      rethrow;
+    } on Error catch (error) {
+      debugPrint(error.toString());
+    }
+  }
 }

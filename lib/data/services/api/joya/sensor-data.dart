@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:joya/data/services/api/http_service.dart';
 import '../../../../common/variables.dart';
@@ -9,13 +10,12 @@ class SensorDataService {
 
   Future<List<SensorData>?> fetch(String serialNumber) async {
     try {
-      var responseData =
+      Response responseData =
           await _httpService.get(url: JOYA_URL + "sensors-data/$serialNumber");
-      if (responseData == null) return [];
-      var responseArray = jsonDecode(responseData) as List;
-      var sensorsData = responseArray
-          .map((sensorData) =>
-              SensorData.fromJson(json.decode(sensorData.toString())))
+      if (responseData.data == null) return [];
+
+      var sensorsData = (responseData.data as List)
+          .map((data) => SensorData.fromJson(data))
           .toList();
       return sensorsData;
     } on Exception {

@@ -6,6 +6,7 @@ import 'package:joya/common/utils/snackbar.dart';
 import 'package:joya/pages/login/cubit/login_cubit.dart';
 import 'package:joya/pages/login/widgets/action_buttons.dart';
 import 'package:joya/pages/login/widgets/login_form_fields.dart';
+import 'package:joya/pages/sensors/cubit/sensors_page.dart';
 import '../../ui/PlantsPage.dart';
 
 class LoginView2 extends StatefulWidget {
@@ -36,7 +37,7 @@ class _LoginView2State extends State<LoginView2> {
   void updateUI(LoginState state) {
     debugPrint(state.runtimeType.toString());
     if (state is LoginSuccess) {
-      navigationPushByName(context, PlantsPage.pageName);
+      navigationPushByName(context, SensorsPage.pageName);
     } else if (state is LoginError) {
       showWarningSnackbar(context, state.message);
     }

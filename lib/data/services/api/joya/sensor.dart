@@ -26,4 +26,16 @@ class SensorService {
       debugPrint("$error");
     }
   }
+
+  Future<Sensor?> findOne(String id) async {
+    try {
+      var responseData = await _httpService.get(url: JOYA_URL + "sensors/$id");
+      if (responseData == null) throw ErrorDescription("unknown sensor id");
+      return Sensor.fromJson(json.decode(responseData.toString()));
+    } on Exception {
+      rethrow;
+    } on Error catch (error) {
+      debugPrint("$error");
+    }
+  }
 }

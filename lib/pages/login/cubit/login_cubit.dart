@@ -19,10 +19,11 @@ class LoginCubit extends Cubit<LoginState> {
     try {
       var user = await authRepository.getCurrentUser();
       if (user != null) {
-        emit(LoginSuccess());
+        return emit(LoginSuccess());
       }
       emit(LoginLoaded());
     } catch (err) {
+      emit(LoginLoaded());
       print("$err");
     }
   }

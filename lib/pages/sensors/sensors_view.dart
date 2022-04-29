@@ -92,6 +92,12 @@ class _SensorsState extends State<SensorsView> {
                                 children: [
                                   Expanded(
                                     child: ListTile(
+                                      onTap: () {
+                                        context
+                                            .read<SensorsCubit>()
+                                            .navigateToDetailPage(
+                                                context, sensor.id);
+                                      },
                                       title: Text(
                                           "${sensor.serial_number.toString()} - ${sensor.name.toString()} "),
                                     ),

@@ -8,11 +8,9 @@ import 'package:joya/styles/MainColorPalettes.dart';
 import 'package:joya/ui/About.dart';
 import 'package:joya/ui/ConfirmationEmail.dart';
 import 'package:joya/ui/HomeWithoutSensorPage.dart';
-import 'package:joya/ui/InscriptionPage.dart';
 import 'package:joya/ui/LandingPage.dart';
 import 'package:joya/ui/Login.dart';
 import 'package:joya/ui/MyAccountPage.dart';
-import 'package:joya/ui/PlantsPage.dart';
 import 'package:joya/ui/QrCode.dart';
 import 'package:joya/ui/QrCodeScan.dart';
 import 'package:joya/ui/StorePage.dart';
@@ -31,24 +29,27 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     bool isIOS = Theme.of(context).platform == TargetPlatform.iOS;
-    var isLogged = true;
-    checkLoginStatus() async {
+    Future<bool> checkLoginStatus() async {
       try {
-        await authRepository.getCurrentUser();
+        var authUser = await authRepository.getCurrentUser();
+        if (authUser != null) return true;
+        return false;
       } catch (error) {
         debugPrint("Error on get current user ${error}");
-        isLogged = false;
+        return false;
       }
     }
 
     return FutureBuilder(
         future: checkLoginStatus(),
         builder: (context, snapshot) {
+          print("${snapshot.hasData} data");
           // Boolean get Device Platform Android or iOS
           return MaterialApp(
             color: MainColorPalettes.colorsThemeMultiple[5],
             debugShowCheckedModeBanner: debugShowCheckedModeBanner,
-            initialRoute: isLogged ? SensorsPage.pageName : LoginPage2.pageName,
+            initialRoute:
+                snapshot.hasData ? SensorsPage.pageName : LoginPage2.pageName,
             routes: <String, WidgetBuilder>{
               'landing': (BuildContext context) => LandingPage(
                   isIOSPlatform: isIOS,
