@@ -25,7 +25,8 @@ class SensorsCubit extends Cubit<SensorsState> {
       }
       emit(SensorsLoaded(sensors: []));
     } catch (err) {
-      print("$err");
+      print("error on get sensors : $err");
+      return emit(SensorsLoaded(sensors: []));
     }
   }
 

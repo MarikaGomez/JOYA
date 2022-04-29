@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:joya/data/repositories/joya/sensor.dart';
 import 'package:joya/data/services/api/joya/sensor.dart';
 import 'package:joya/pages/sensors/cubit/sensors_cubit.dart';
-
 import '../sensors_view.dart';
 
 class SensorsPage extends StatelessWidget {
