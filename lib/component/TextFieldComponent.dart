@@ -27,28 +27,22 @@ class TextFieldComponent extends StatelessWidget {
       children: [
         Container(
             decoration: BoxDecoration(
+              border: Border.all(
+                width: 1.0,
+                color: isValid
+                    ? Colors.grey
+                    : MainColorPalettes.colorsThemeMultiple[30]!
+              ),
               borderRadius: BorderRadius.all(Radius.circular(
                   MainTextFieldPalettes.simpleTextfield["RADIUS"])),
-              color: isValid
-                  ? MainColorPalettes.colorsThemeMultiple[5]!
-                  : MainColorPalettes.colorsThemeMultiple[30]!.withOpacity(0.5),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.5),
-                  spreadRadius: 5,
-                  blurRadius: 7,
-                  offset: const Offset(0, 3), // shadow direction: bottom right
-                )
-              ],
             ),
             child: TextField(
+              textInputAction: TextInputAction.done,
               onChanged: methode,
               obscureText: hiddenText,
               decoration: InputDecoration(
-                labelText: '$text',
-                filled: true,
-                alignLabelWithHint: true,
-                labelStyle: TextStyle(
+                hintText: '$text',
+                hintStyle: TextStyle(
                   color: isValid
                       ? MainColorPalettes.colorsThemeMultiple[20]!
                       : MainColorPalettes.colorsThemeMultiple[30]!,
@@ -57,7 +51,6 @@ class TextFieldComponent extends StatelessWidget {
                   fontFamily: 'DMSans-Regular',
                   fontSize: MediaQuery.of(context).size.width / 20,
                 ),
-                fillColor: MainColorPalettes.colorsThemeMultiple[5]!,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(
                       MainTextFieldPalettes.simpleTextfield["RADIUS"])),
@@ -68,14 +61,17 @@ class TextFieldComponent extends StatelessWidget {
                     borderSide: BorderSide(
                         color: isValid
                             ? MainColorPalettes.colorsThemeMultiple[5]!
-                            : MainColorPalettes.colorsThemeMultiple[30]!)),
+                            : MainColorPalettes.colorsThemeMultiple[30]!)
+                ),
                 focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.all(Radius.circular(
                         MainTextFieldPalettes.simpleTextfield["RADIUS"])),
                     borderSide: BorderSide(
                         color: isValid
                             ? MainColorPalettes.colorsThemeMultiple[5]!
-                            : MainColorPalettes.colorsThemeMultiple[30]!)),
+                            : MainColorPalettes.colorsThemeMultiple[30]!
+                    )
+                ),
               ),
             )),
         errorInstanceTextWidget()

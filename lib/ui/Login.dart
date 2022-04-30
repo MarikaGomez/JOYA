@@ -44,24 +44,19 @@ class Login extends StatelessWidget {
                 return SingleChildScrollView(
                   child: Container(
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height / 10,
-                        ),
+                        SizedBox(height: 10),
                         Text(
                           '${MainTextPalettes.textFr["CONNEXION_BUTTON_DEFAULT_TEXTFIELD"]}',
                           style: TextStyle(
                               color: MainColorPalettes.colorsThemeMultiple[10],
-                              fontSize: 60,
+                              fontSize: 28,
+                              fontWeight: FontWeight.w700,
                               fontFamily: 'DMSans-Bold.ttf'),
                         ),
                         Padding(
-                            padding: EdgeInsets.fromLTRB(
-                              MediaQuery.of(context).size.height / 25,
-                              MediaQuery.of(context).size.height / 15,
-                              MediaQuery.of(context).size.height / 25,
-                              5,
-                            ),
+                            padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
                             child: TextFieldComponent(
                               methode: (data) async {
                                 if (data.isValidEmail()) {
@@ -72,32 +67,25 @@ class Login extends StatelessWidget {
                                 }
                               },
                               text:
-                                  "${MainTextPalettes.textFr["EMAIL_LABEL_DEFAULT_TEXTFIELD"]}",
+                              "${MainTextPalettes.textFr["EMAIL_LABEL_DEFAULT_TEXTFIELD"]}",
                               isValid: snapshot.data["isValidEmail"],
                               isNotValidRenderText:
-                                  "${MainTextPalettes.textFr["ERROR_EMAIL"]}",
+                              "${MainTextPalettes.textFr["ERROR_EMAIL"]}",
                               hiddenText: false,
                             )),
                         Padding(
-                            padding: EdgeInsets.fromLTRB(
-                              MediaQuery.of(context).size.height / 25,
-                              MediaQuery.of(context).size.height / 50,
-                              MediaQuery.of(context).size.height / 25,
-                              5,
-                            ),
+                            padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
                             child: TextFieldComponent(
                               methode: (data) async {
                                 bloc?.setByKey("password", data);
                               },
                               text:
-                                  "${MainTextPalettes.textFr["PASSWORD_LABEL_DEFAULT_TEXTFIELD"]}",
+                              "${MainTextPalettes.textFr["PASSWORD_LABEL_DEFAULT_TEXTFIELD"]}",
                               isValid: true,
                               isNotValidRenderText: 'test',
                               hiddenText: true,
                             )),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height / 25,
-                        ),
+                        SizedBox(height: 10),
                         ButtonComponent(
                           text: MainTextPalettes
                               .textFr["CONNEXION_BUTTON_DEFAULT_TEXTFIELD"],
@@ -108,13 +96,11 @@ class Login extends StatelessWidget {
                             bloc?.login();
                           },
                           colorBorder:
-                              MainColorPalettes.colorsThemeMultiple[5]!,
+                          MainColorPalettes.colorsThemeMultiple[10]!,
                           backgroundColorButton:
-                              MainColorPalettes.colorsThemeMultiple[10]!,
+                          MainColorPalettes.colorsThemeMultiple[10]!,
                         ),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height / 25,
-                        ),
+                        SizedBox(height: 20),
                         Center(
                           child: RichText(
                             textAlign: TextAlign.center,
@@ -171,24 +157,18 @@ class Login extends StatelessWidget {
                 return SingleChildScrollView(
                   child: Container(
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height / 10,
-                        ),
                         Text(
                           '${MainTextPalettes.textFr["CONNEXION_BUTTON_DEFAULT_TEXTFIELD"]}',
                           style: TextStyle(
                               color: MainColorPalettes.colorsThemeMultiple[10],
-                              fontSize: 60,
+                              fontSize: 28,
+                              fontWeight: FontWeight.w700,
                               fontFamily: 'DMSans-Bold.ttf'),
                         ),
                         Padding(
-                            padding: EdgeInsets.fromLTRB(
-                              MediaQuery.of(context).size.height / 25,
-                              MediaQuery.of(context).size.height / 15,
-                              MediaQuery.of(context).size.height / 25,
-                              5,
-                            ),
+                            padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
                             child: TextFieldComponent(
                               methode: (data) {
                                 bloc?.setIsValidEmail(data.isValidEmail());
@@ -201,32 +181,25 @@ class Login extends StatelessWidget {
                                 }
                               },
                               text:
-                                  "${MainTextPalettes.textFr["EMAIL_LABEL_DEFAULT_TEXTFIELD"]}",
+                              "${MainTextPalettes.textFr["EMAIL_LABEL_DEFAULT_TEXTFIELD"]}",
                               isValid: snapshot.data["isValidEmail"],
                               isNotValidRenderText:
-                                  "${MainTextPalettes.textFr["BOOLISVALIDMAIL"]}",
+                              "${MainTextPalettes.textFr["BOOLISVALIDMAIL"]}",
                               hiddenText: false,
                             )),
                         Padding(
-                            padding: EdgeInsets.fromLTRB(
-                              MediaQuery.of(context).size.height / 25,
-                              MediaQuery.of(context).size.height / 50,
-                              MediaQuery.of(context).size.height / 25,
-                              5,
-                            ),
+                            padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
                             child: TextFieldComponent(
                               methode: (data) async {
                                 bloc?.setByKey("password", data);
                               },
                               text:
-                                  "${MainTextPalettes.textFr["PASSWORD_LABEL_DEFAULT_TEXTFIELD"]}",
+                              "${MainTextPalettes.textFr["PASSWORD_LABEL_DEFAULT_TEXTFIELD"]}",
                               isValid: true,
                               isNotValidRenderText: 'test',
                               hiddenText: true,
                             )),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height / 25,
-                        ),
+                        SizedBox(height: 10),
                         Text("${snapshot.data}"),
                         ButtonComponent(
                           text: MainTextPalettes
@@ -238,12 +211,9 @@ class Login extends StatelessWidget {
                             bloc?.login();
                           },
                           colorBorder:
-                              MainColorPalettes.colorsThemeMultiple[5]!,
+                          MainColorPalettes.colorsThemeMultiple[10]!,
                           backgroundColorButton:
-                              MainColorPalettes.colorsThemeMultiple[10]!,
-                        ),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height / 25,
+                          MainColorPalettes.colorsThemeMultiple[10]!,
                         ),
                         Center(
                           child: RichText(

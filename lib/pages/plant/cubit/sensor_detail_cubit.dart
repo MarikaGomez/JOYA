@@ -18,10 +18,10 @@ class SensorCubit extends Cubit<SensorState> {
       if (responseData != null) {
         return emit(SensorLoaded(sensor: responseData));
       }
-      emit(SensorError(message: "Sensore introuvable"));
+      emit(SensorError(message: "Capteur introuvable"));
     } catch (err) {
       print("error on get Sensor : $err");
-      emit(SensorError(message: "Sensore introuvable"));
+      emit(SensorError(message: "Capteur introuvable"));
     }
   }
 }

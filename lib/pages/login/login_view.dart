@@ -6,8 +6,10 @@ import 'package:joya/common/utils/snackbar.dart';
 import 'package:joya/pages/login/cubit/login_cubit.dart';
 import 'package:joya/pages/login/widgets/action_buttons.dart';
 import 'package:joya/pages/login/widgets/login_form_fields.dart';
+import 'package:joya/pages/scan/scan_view.dart';
 import 'package:joya/pages/sensors/cubit/sensors_page.dart';
-import '../../ui/PlantsPage.dart';
+
+import '../scan/cubit/scan_page.dart';
 
 class LoginView2 extends StatefulWidget {
   const LoginView2({
@@ -37,7 +39,7 @@ class _LoginView2State extends State<LoginView2> {
   void updateUI(LoginState state) {
     debugPrint(state.runtimeType.toString());
     if (state is LoginSuccess) {
-      navigationPushByName(context, SensorsPage.pageName);
+      navigationPushByName(context, QrCodeScanPage2.pageName);
     } else if (state is LoginError) {
       showWarningSnackbar(context, state.message);
     }
@@ -57,33 +59,28 @@ class _LoginView2State extends State<LoginView2> {
                   strokeWidth: 1.5,
                 )
               : Scaffold(
-                  body: Container(
-                    height: double.infinity,
-                    width: double.infinity,
-                    child: SingleChildScrollView(
-                      child: Container(
+                  resizeToAvoidBottomInset: true,
+                  body: SafeArea(
+                    child: Padding(
+                      padding: EdgeInsets.all(0),
+                      child: SingleChildScrollView(
                         child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            SizedBox(
-                              height: MediaQuery.of(context).size.height / 10,
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: LoginFormFields(
+                                email: context.read<LoginCubit>().email,
+                                password: context.read<LoginCubit>().password,
+                                isValidEmail:
+                                    context.read<LoginCubit>().isValidEmail,
+                                isValidPassword:
+                                    context.read<LoginCubit>().isValidPassword,
+                                setEmail: context.read<LoginCubit>().setEmail,
+                                setPassword: context.read<LoginCubit>().setPassword,
+                              ),
                             ),
-                            LoginFormFields(
-                              email: context.read<LoginCubit>().email,
-                              password: context.read<LoginCubit>().password,
-                              isValidEmail:
-                                  context.read<LoginCubit>().isValidEmail,
-                              isValidPassword:
-                                  context.read<LoginCubit>().isValidPassword,
-                              setEmail: context.read<LoginCubit>().setEmail,
-                              setPassword:
-                                  context.read<LoginCubit>().setPassword,
-                            ),
-                            SizedBox(
-                              height: MediaQuery.of(context).size.height / 25,
-                            ),
-                            SizedBox(
-                              height: MediaQuery.of(context).size.height / 25,
-                            ),
+                            SizedBox(height: MediaQuery.of(context).size.height / 25),
                             ActionButtonsLogin(
                               loginState: state,
                               submit: context.read<LoginCubit>().login,

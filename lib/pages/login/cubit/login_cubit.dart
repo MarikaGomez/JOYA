@@ -34,9 +34,9 @@ class LoginCubit extends Cubit<LoginState> {
       isSubmit = true;
       var res = await authRepository.login(email: email, password: password);
       if (res != null) return emit(LoginSuccess());
-      emit(LoginError(message: "identifiants invalides"));
+      emit(LoginError(message: "Identifiants invalides"));
     } catch (error) {
-      emit(LoginError(message: "identifiants invalides"));
+      emit(LoginError(message: "Identifiants invalides"));
     }
   }
 

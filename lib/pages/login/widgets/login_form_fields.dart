@@ -25,20 +25,21 @@ class LoginFormFields extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text(
-          '${MainTextPalettes.textFr["CONNEXION_BUTTON_DEFAULT_TEXTFIELD"]}',
-          style: TextStyle(
-              color: MainColorPalettes.colorsThemeMultiple[10],
-              fontSize: 60,
-              fontFamily: 'DMSans-Bold.ttf'),
-        ),
+        SizedBox(height: MediaQuery.of(context).size.height / 10),
         Padding(
-          padding: EdgeInsets.fromLTRB(
-            MediaQuery.of(context).size.height / 25,
-            MediaQuery.of(context).size.height / 15,
-            MediaQuery.of(context).size.height / 25,
-            5,
+          padding: const EdgeInsets.all(8.0),
+          child: Text(
+            '${MainTextPalettes.textFr["CONNEXION_BUTTON_DEFAULT_TEXTFIELD"]}',
+            style: TextStyle(
+                color: MainColorPalettes.colorsThemeMultiple[10],
+                fontSize: 38,
+                fontWeight: FontWeight.w700,
+                fontFamily: 'DMSans-Bold.ttf'),
           ),
+        ),
+        SizedBox(height: MediaQuery.of(context).size.height / 25),
+        Padding(
+          padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
           child: TextFieldComponent(
             methode: (data) async {
               setEmail(data);
@@ -51,12 +52,7 @@ class LoginFormFields extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: EdgeInsets.fromLTRB(
-            MediaQuery.of(context).size.height / 25,
-            MediaQuery.of(context).size.height / 50,
-            MediaQuery.of(context).size.height / 25,
-            5,
-          ),
+          padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
           child: TextFieldComponent(
             methode: (data) async {
               setPassword(data);
@@ -66,7 +62,7 @@ class LoginFormFields extends StatelessWidget {
             //isValid: snapshot.data["isValidEmail"],
             isNotValidRenderText:
                 "${MainTextPalettes.textFr["ERROR_PASSWORD"]}",
-            hiddenText: false,
+            hiddenText: true,
             isValid: isValidPassword(),
           ),
         ),
