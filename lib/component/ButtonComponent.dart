@@ -131,7 +131,6 @@ class ButtonComponent extends StatelessWidget {
                     fontSize: MediaQuery.of(context).size.width / 18,
                     color: MainColorPalettes.colorsThemeMultiple[5]),
               ),
-              MainIconsPalettes.iconButtons["NEXT"]
             ],
           )),
     );

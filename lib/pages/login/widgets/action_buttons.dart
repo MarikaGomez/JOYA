@@ -24,15 +24,16 @@ class ActionButtonsLogin extends StatelessWidget {
                 text: MainTextPalettes
                     .textFr["CONNEXION_BUTTON_DEFAULT_TEXTFIELD"],
                 enumerateCategoriesButton:
-                    EnumerateCategoriesButton.typeButtonTextAndIconRight,
+                    EnumerateCategoriesButton.typeButtonTextOnly,
                 isIOSPlatform: false,
                 methode: () async {
                   submit();
                 },
-                colorBorder: MainColorPalettes.colorsThemeMultiple[5]!,
+                colorBorder: MainColorPalettes.colorsThemeMultiple[10]!,
                 backgroundColorButton:
                     MainColorPalettes.colorsThemeMultiple[10]!,
               ),
+        SizedBox(height: MediaQuery.of(context).size.height / 15),
         Center(
           child: RichText(
             textAlign: TextAlign.center,

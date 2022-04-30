@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:joya/common/utils/snackbar.dart';
 import '../../component/TextFieldComponent.dart';
+import '../../styles/MainColorPalettes.dart';
 import '../../styles/MainTextPalettes.dart';
 import 'cubit/sensors_cubit.dart';
 
@@ -60,13 +61,20 @@ class _SensorsState extends State<SensorsView> {
                       physics: ScrollPhysics(),
                       child: Column(
                         children: <Widget>[
+                          SizedBox(height: MediaQuery.of(context).size.height / 25),
                           Padding(
-                            padding: EdgeInsets.fromLTRB(
-                              MediaQuery.of(context).size.height / 25,
-                              MediaQuery.of(context).size.height / 50,
-                              MediaQuery.of(context).size.height / 25,
-                              5,
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              '${MainTextPalettes.textFr["MY_PLANT"]}',
+                              style: TextStyle(
+                                  color: MainColorPalettes.colorsThemeMultiple[10],
+                                  fontSize: 28,
+                                  fontWeight: FontWeight.w700,
+                                  fontFamily: 'DMSans-Bold.ttf'),
                             ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
                             child: TextFieldComponent(
                               methode: (data) async {
                                 context
@@ -74,7 +82,6 @@ class _SensorsState extends State<SensorsView> {
                                     .setSearchField(data);
                               },
                               text: "${MainTextPalettes.textFr["SEARCH"]}",
-                              //isValid: snapshot.data["isValidEmail"],
                               isNotValidRenderText: "",
                               hiddenText: false,
                               isValid: true,
