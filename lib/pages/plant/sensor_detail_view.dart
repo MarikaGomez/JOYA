@@ -28,7 +28,8 @@ class _SensorState extends State<SensorView> {
 
   void updateUI(SensorState state) {
     debugPrint(state.runtimeType.toString());
-    if (state is SensorSuccess) {} else if (state is SensorLoaded) {
+    if (state is SensorSuccess) {
+    } else if (state is SensorLoaded) {
       //print("${state.Sensor.toList()} Sensor");
     } else if (state is SensorError) {
       showWarningSnackbar(context, state.message);
@@ -46,20 +47,16 @@ class _SensorState extends State<SensorView> {
         builder: (context, state) {
           const Key centerKey = ValueKey<String>('Sensor');
           return state is SensorLoaded
-          ? Column(
+              ? Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Container(
-                height: MediaQuery
-                    .of(context)
-                    .size
-                    .height / 2,
+                height: MediaQuery.of(context).size.height / 2,
                 decoration: BoxDecoration(
                   color: Color.fromRGBO(35, 162, 92, 1),
                   borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(50),
-                      bottomRight: Radius.circular(50)
-                  ),
+                      bottomRight: Radius.circular(50)),
                   boxShadow: [
                     BoxShadow(
                       color: Colors.grey.withOpacity(0.5),
@@ -75,7 +72,9 @@ class _SensorState extends State<SensorView> {
                   ),
                 ),
               ),
-              const SizedBox(height: 20.0,),
+              const SizedBox(
+                height: 20.0,
+              ),
               Padding(
                 padding: const EdgeInsets.symmetric(
                     horizontal: 16, vertical: 8),
@@ -92,14 +91,14 @@ class _SensorState extends State<SensorView> {
                             style: const TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 16.0,
-                            ),),
+                            ),
+                          ),
                         ),
                         Text(
-                          "[" + state.sensor.name + "]",
+                          "[Localisation]",
                           style: const TextStyle(
                               fontWeight: FontWeight.normal,
-                              fontSize: 16.0
-                          ),
+                              fontSize: 16.0),
                         ),
                       ],
                     ),
@@ -129,16 +128,13 @@ class _SensorState extends State<SensorView> {
                           width: 50,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(50),
-                            border: Border.all(
-                                color: Colors.grey
-                            ),
+                            border: Border.all(color: Colors.grey),
                           ),
                           child: IconButton(
-                            onPressed: (() =>
-                                popup(
-                                    "Taux de luminosité : 10000 LUX",
-                                    "Minimum : 500 LUX",
-                                    "Maximum : 30000 LUX")),
+                            onPressed: (() => popup(
+                                "Taux de luminosité : 10000 LUX",
+                                "Minimum : 500 LUX",
+                                "Maximum : 30000 LUX")),
                             icon: const Icon(
                               Icons.wb_sunny_outlined,
                               color: Colors.amber,
@@ -153,17 +149,13 @@ class _SensorState extends State<SensorView> {
                           width: 50,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(50),
-                            border: Border.all(
-                                color: Colors.grey
-                            ),
+                            border: Border.all(color: Colors.grey),
                           ),
                           child: IconButton(
-                            onPressed: (() =>
-                                popup(
-                                    "Taux d'humidité du sol : 22 %",
-                                    "Minimum : 15 %",
-                                    "Maximum : 60 %"
-                                )),
+                            onPressed: (() => popup(
+                                "Taux d'humidité du sol : 22 %",
+                                "Minimum : 15 %",
+                                "Maximum : 60 %")),
                             icon: const Icon(
                               Icons.water_drop,
                               color: Colors.blue,
@@ -178,17 +170,13 @@ class _SensorState extends State<SensorView> {
                           width: 50,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(50),
-                            border: Border.all(
-                                color: Colors.grey
-                            ),
+                            border: Border.all(color: Colors.grey),
                           ),
                           child: IconButton(
-                            onPressed: (() =>
-                                popup(
-                                    "Fertilité du sol : 580 µS/cm",
-                                    "Minimum : 200 µS/cm",
-                                    "Maximum : 1300 µS/cm"
-                                )),
+                            onPressed: (() => popup(
+                                "Fertilité du sol : 580 µS/cm",
+                                "Minimum : 200 µS/cm",
+                                "Maximum : 1300 µS/cm")),
                             icon: const Icon(
                               Icons.compost,
                               color: Colors.brown,
@@ -203,17 +191,13 @@ class _SensorState extends State<SensorView> {
                           width: 50,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(50),
-                            border: Border.all(
-                                color: Colors.grey
-                            ),
+                            border: Border.all(color: Colors.grey),
                           ),
                           child: IconButton(
-                            onPressed: (() =>
-                                popup(
-                                    "Température : 21.5 °C",
-                                    "Minimum : 10.0 °C",
-                                    "Maximum : 32.0°C"
-                                )),
+                            onPressed: (() => popup(
+                                "Température : 21.5 °C",
+                                "Minimum : 10.0 °C",
+                                "Maximum : 32.0°C")),
                             icon: const Icon(
                               Icons.thermostat,
                               color: Colors.teal,
@@ -229,34 +213,34 @@ class _SensorState extends State<SensorView> {
                 ),
               ),
             ],
-          ) : Container();
+          )
+              : Container();
         },
       ),
     );
   }
 
   Future<Null> popup(rate, min, max) async {
-    double height = MediaQuery
-        .of(context)
-        .size
-        .width * 0.75;
-    return showDialog(context: context, builder: (BuildContext context) {
-      return SimpleDialog(
-        contentPadding: EdgeInsets.all(20.0),
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+    double height = MediaQuery.of(context).size.width * 0.75;
+    return showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return SimpleDialog(
+            contentPadding: EdgeInsets.all(20.0),
             children: [
-              Text(rate),
-              SizedBox(height: 4.0),
-              Text(min),
-              SizedBox(height: 4.0),
-              Text(max),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(rate),
+                  SizedBox(height: 4.0),
+                  Text(min),
+                  SizedBox(height: 4.0),
+                  Text(max),
+                ],
+              ),
             ],
-          ),
-        ],
-      );
-    });
+          );
+        });
   }
 }
 

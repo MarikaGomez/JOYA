@@ -5,17 +5,7 @@ import 'package:joya/pages/login/cubit/login_page.dart';
 import 'package:joya/pages/scan/cubit/scan_page.dart';
 import 'package:joya/pages/sensors/cubit/sensors_page.dart';
 import 'package:joya/styles/MainColorPalettes.dart';
-import 'package:joya/ui/About.dart';
-import 'package:joya/ui/ConfirmationEmail.dart';
-import 'package:joya/ui/HomeWithoutSensorPage.dart';
 import 'package:joya/ui/LandingPage.dart';
-import 'package:joya/ui/Login.dart';
-import 'package:joya/ui/MyAccountPage.dart';
-import 'package:joya/ui/QrCodeScan.dart';
-import 'package:joya/ui/StorePage.dart';
-import 'bloc/LoginBloc.dart';
-import 'bloc/bloc_provider.dart';
-import 'bloc/controller/RequestBloc.dart';
 
 void main() => runApp(MyApp());
 
@@ -48,7 +38,7 @@ class MyApp extends StatelessWidget {
             color: MainColorPalettes.colorsThemeMultiple[5],
             debugShowCheckedModeBanner: debugShowCheckedModeBanner,
             initialRoute:
-                snapshot.hasData ? SensorsPage.pageName : ScanPage.pageName,
+                snapshot.hasData ? SensorsPage.pageName : LoginPage2.pageName,
             routes: <String, WidgetBuilder>{
               'landing': (BuildContext context) => LandingPage(
                   isIOSPlatform: isIOS,

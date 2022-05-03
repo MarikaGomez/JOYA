@@ -8,20 +8,6 @@ class ScanInitial extends ScanState {
   List<Object?> get props => throw UnimplementedError();
 }
 
-class ScanLoadingSubmit extends ScanState {
-  ScanLoadingSubmit();
-
-  @override
-  List<Object?> get props => throw UnimplementedError();
-}
-
-class ScanLoaded extends ScanState {
-  ScanLoaded();
-
-  @override
-  List<Object?> get props => throw UnimplementedError();
-}
-
 class ScanSuccess extends ScanState {
   String result;
   ScanSuccess({required this.result});

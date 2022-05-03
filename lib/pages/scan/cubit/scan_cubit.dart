@@ -2,10 +2,8 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:meta/meta.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import '../../../data/services/api/joya/sensor.dart';
-
 part 'scan_state.dart';
 
 class ScanCubit extends Cubit<ScanState> {
@@ -22,8 +20,8 @@ class ScanCubit extends Cubit<ScanState> {
     controller.scannedDataStream.listen((scanData) {
       String result = scanData.code.toString();
       if (result != null) {
-        print(result);
         disposeController();
+        print(result);
         return emit(ScanSuccess(result: result));
       }
       emit(ScanError(message: "Une erreur est survenue."));

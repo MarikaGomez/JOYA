@@ -1,9 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:joya/pages/plant/cubit/sensor_detail_page.dart';
 import 'package:joya/pages/scan/cubit/scan_cubit.dart';
-import 'package:joya/pages/scan/widgets/add_sensor_form_fields.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import '../../styles/MainTextPalettes.dart';
 import '../sensors/cubit/sensors_page.dart';
