@@ -24,12 +24,12 @@ class Plant {
 
   Plant(
       {required this.id,
-      required this.name,
-      required this.type,
-      required this.fertility_needs,
-      required this.humidity_needs,
-      required this.luminosity_needs,
-      required this.temperature_needs});
+        required this.name,
+        required this.type,
+        required this.fertility_needs,
+        required this.humidity_needs,
+        required this.luminosity_needs,
+        required this.temperature_needs});
 
   factory Plant.fromJson(Map<String, dynamic> json) => _$PlantFromJson(json);
 

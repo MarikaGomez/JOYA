@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:joya/data/repositories/wiki/wiki_plant.dart';
+import 'package:joya/data/repositories/wiki/wiki-plant.dart';
 import '../../../data/models/sensor.dart';
 import '../../../data/repositories/joya/sensor.dart';
 

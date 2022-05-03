@@ -1,30 +1,41 @@
-import 'package:flutter/foundation.dart';
-import '../../models/plant.dart';
-import '../../services/api/joya/plant.dart';
+import 'dart:convert';
+import 'package:dio/dio.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:joya/data/models/plant.dart';
+import 'package:joya/data/services/api/http_service.dart';
 
-class PlantRepository {
-  final PlantService _plantService;
+import '../../../../common/variables.dart';
 
-  const PlantRepository({required PlantService plantService})
-      : _plantService = plantService;
+class PlantService {
+  HttpService _httpService = HttpService();
 
   Future<List<Plant>?> fetch() async {
     try {
-      return await _plantService.fetch();
-    } on Exception {
+      Response responseData = await _httpService.get(url: JOYA_URL + "plants");
+      if (responseData.data == null) return [];
+
+      var plants = (responseData.data as List)
+          .map((plant) => Plant.fromJson(plant))
+          .toList();
+      return plants;
+    } on Exception catch (err) {
+      debugPrint(" error$err");
+
       rethrow;
     } on Error catch (error) {
-      debugPrint(error.toString());
+      debugPrint("$error");
     }
   }
 
   Future<Plant?> findOne(String id) async {
     try {
-      return await _plantService.findOne(id);
+      var responseData = await _httpService.get(url: JOYA_URL + "plants/$id");
+      if (responseData == null) throw ErrorDescription("unknown plant id");
+      return Plant.fromJson(json.decode(responseData.toString()));
     } on Exception {
       rethrow;
     } on Error catch (error) {
-      debugPrint(error.toString());
+      debugPrint("$error");
     }
   }
 }

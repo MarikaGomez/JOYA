@@ -30,9 +30,10 @@ class MainTextPalettes {
     "ADDFIRSTPLANT":"Ajoutez votre première plante en appuyant sur le bouton de scanner.",
 
     "MY_PLANT":"Mes plantes",
-    "CONFIG_PLANT":"Configurer mon capteur",
     "NAME_PLANT":"Nom de ma plante",
     "PLANT_TYPE": "Nom scientifique de ma plante",
+    "CONFIG_NETWORK":"Configurer mon réseau",
+    "CONFIG_PLANT":"Configurer mon capteur",
     "MY_NETWORK":"Nom du réseau",
     "LOCALISATION_PLANT":"Localisation de ma plante",
     "CONNECT_PLANT":"Connecter ma plante",

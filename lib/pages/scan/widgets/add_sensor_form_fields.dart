@@ -46,7 +46,7 @@ class _AddSensorFieldsState extends State<AddSensorFields> {
                       Padding(
                         padding: EdgeInsets.all(8.0),
                         child: Text(
-                          '${MainTextPalettes.textFr["CONFIG_PLANT"]}',
+                          '${MainTextPalettes.textFr["CONFIG_NETWORK"]}',
                           style: TextStyle(
                             fontWeight: FontWeight.w700,
                             fontFamily: 'DMSans-Bold.ttf',
