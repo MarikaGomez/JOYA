@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:joya/common/utils/snackbar.dart';
+import 'package:joya/component/ItemsComponent.dart';
 import '../../component/TextFieldComponent.dart';
 import '../../styles/MainColorPalettes.dart';
 import '../../styles/MainTextPalettes.dart';
@@ -61,20 +62,24 @@ class _SensorsState extends State<SensorsView> {
                       physics: ScrollPhysics(),
                       child: Column(
                         children: <Widget>[
-                          SizedBox(height: MediaQuery.of(context).size.height / 25),
+                          SizedBox(
+                              height: MediaQuery.of(context).size.height / 15),
                           Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 8, horizontal: 16),
                             child: Text(
                               '${MainTextPalettes.textFr["MY_PLANT"]}',
                               style: TextStyle(
-                                  color: MainColorPalettes.colorsThemeMultiple[10],
+                                  color:
+                                      MainColorPalettes.colorsThemeMultiple[10],
                                   fontSize: 28,
                                   fontWeight: FontWeight.w700,
                                   fontFamily: 'DMSans-Bold.ttf'),
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                            padding: EdgeInsets.symmetric(
+                                vertical: 8, horizontal: 16),
                             child: TextFieldComponent(
                               methode: (data) async {
                                 context
@@ -87,7 +92,7 @@ class _SensorsState extends State<SensorsView> {
                               isValid: true,
                             ),
                           ),
-                          ListView.builder(
+                          GridView.builder(
                             scrollDirection: Axis.vertical,
                             shrinkWrap: true,
                             itemCount:
@@ -95,35 +100,48 @@ class _SensorsState extends State<SensorsView> {
                             itemBuilder: (context, index) {
                               var sensor =
                                   context.read<SensorsCubit>().sensors[index];
-                              return Row(
-                                children: [
-                                  Expanded(
-                                    child: ListTile(
-                                      onTap: () {
-                                        context
+                              return ItemComponent(
+                                id: sensor.id,
+                                name: sensor.name.toString(),
+                                serial_number: sensor.serial_number.toString(),
+                                backgroundColor: context
+                                        .read<SensorsCubit>()
+                                        .isInDanger(sensor)
+                                    ? Colors.red
+                                    : context
                                             .read<SensorsCubit>()
-                                            .navigateToDetailPage(
-                                                context, sensor.id);
-                                      },
-                                      title: Text(
-                                          "${sensor.serial_number.toString()} - ${sensor.name.toString()} "),
-                                    ),
-                                  ),
-                                  Expanded(
-                                      child: CircleAvatar(
-                                    backgroundColor: context
-                                            .read<SensorsCubit>()
-                                            .isInDanger(sensor)
-                                        ? Colors.red
-                                        : context
-                                                .read<SensorsCubit>()
-                                                .isInWarnning(sensor)
-                                            ? Colors.orange
-                                            : Colors.green,
-                                  ))
-                                ],
+                                            .isInWarnning(sensor)
+                                        ? Colors.orange
+                                        : Colors.green,
                               );
+                              // Expanded(
+                              //   child: ListTile(
+                              //     onTap: () {
+                              //       context
+                              //           .read<SensorsCubit>()
+                              //           .navigateToDetailPage(
+                              //               context, sensor.id);
+                              //     },
+                              //     title: Text(
+                              //         "${sensor.serial_number.toString()} - ${sensor.name.toString()} "),
+                              //   ),
+                              // ),
+                              // Expanded(
+                              //     child: CircleAvatar(
+                              //   backgroundColor: context
+                              //           .read<SensorsCubit>()
+                              //           .isInDanger(sensor)
+                              //       ? Colors.red
+                              //       : context
+                              //               .read<SensorsCubit>()
+                              //               .isInWarnning(sensor)
+                              //           ? Colors.orange
+                              //           : Colors.green,
+                              // ))
                             },
+                            gridDelegate:
+                                const SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: 2),
                           ),
                         ],
                       ),

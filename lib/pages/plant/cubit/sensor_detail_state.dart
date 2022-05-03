@@ -17,7 +17,8 @@ class SensorSearchState extends SensorState {
 
 class SensorLoaded extends SensorState {
   final Sensor sensor;
-  SensorLoaded({required this.sensor});
+  final String description;
+  SensorLoaded({required this.sensor, required this.description});
 
   @override
   List<Sensor> get props => [sensor];

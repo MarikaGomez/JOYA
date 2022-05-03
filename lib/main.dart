@@ -3,9 +3,7 @@ import 'package:joya/data/repositories/joya/auth.dart';
 import 'package:joya/data/services/api/joya/auth.dart';
 import 'package:joya/pages/login/cubit/login_page.dart';
 import 'package:joya/pages/scan/cubit/scan_page.dart';
-import 'package:joya/pages/scan/scan_view.dart';
 import 'package:joya/pages/sensors/cubit/sensors_page.dart';
-import 'package:joya/pages/sensors/sensors_view.dart';
 import 'package:joya/styles/MainColorPalettes.dart';
 import 'package:joya/ui/About.dart';
 import 'package:joya/ui/ConfirmationEmail.dart';
@@ -13,7 +11,6 @@ import 'package:joya/ui/HomeWithoutSensorPage.dart';
 import 'package:joya/ui/LandingPage.dart';
 import 'package:joya/ui/Login.dart';
 import 'package:joya/ui/MyAccountPage.dart';
-import 'package:joya/ui/QrCode.dart';
 import 'package:joya/ui/QrCodeScan.dart';
 import 'package:joya/ui/StorePage.dart';
 import 'bloc/LoginBloc.dart';
@@ -57,48 +54,49 @@ class MyApp extends StatelessWidget {
                   isIOSPlatform: isIOS,
                   debugShowCheckedModeBanner: debugShowCheckedModeBanner),
               LoginPage2.pageName: (BuildContext context) => LoginPage2(),
-              QrCodeScanPage2.pageName: (BuildContext context) => QrCodeScanPage2(),
-              'signin': (BuildContext context) => BlocProvider<LoginBloc>(
-                  bloc: LoginBloc(context: context),
-                  child: Login(
-                      isIOSPlatform: isIOS,
-                      debugShowCheckedModeBanner: debugShowCheckedModeBanner)),
-              "confirmEmail": (BuildContext context) => ConfirmationEmail(
-                  isIOSPlatform: isIOS,
-                  debugShowCheckedModeBanner: debugShowCheckedModeBanner),
-              "about": (BuildContext context) => About(
-                  isIOSPlatform: isIOS,
-                  debugShowCheckedModeBanner: debugShowCheckedModeBanner),
-              // "qrcode": (BuildContext context) => QrCode(
+              ScanPage.pageName: (BuildContext context) => ScanPage(),
+              SensorsPage.pageName: (BuildContext context) => SensorsPage(),
+              // 'signin': (BuildContext context) => BlocProvider<LoginBloc>(
+              //     bloc: LoginBloc(context: context),
+              //     child: Login(
+              //         isIOSPlatform: isIOS,
+              //         debugShowCheckedModeBanner: debugShowCheckedModeBanner)),
+              // "confirmEmail": (BuildContext context) => ConfirmationEmail(
               //     isIOSPlatform: isIOS,
               //     debugShowCheckedModeBanner: debugShowCheckedModeBanner),
-              'qrcodeScan': (BuildContext context) => BlocProvider<RequestBloc>(
-                  bloc: RequestBloc(),
-                  child: QrCodeScan(
-                      isIOSPlatform: isIOS,
-                      debugShowCheckedModeBanner: debugShowCheckedModeBanner)),
-              'homeWithoutSensor': (BuildContext context) =>
-                  BlocProvider<RequestBloc>(
-                      bloc: RequestBloc(),
-                      child: HomeWithoutSensorPage(
-                          isIOSPlatform: isIOS,
-                          debugShowCheckedModeBanner:
-                              debugShowCheckedModeBanner)),
-              SensorsPage.pageName: (BuildContext context) => SensorsPage(),
-              'myAccount': (BuildContext context) => BlocProvider<RequestBloc>(
-                    bloc: RequestBloc(),
-                    child: MyAccountPage(
-                      isIOSPlatform: isIOS,
-                      debugShowCheckedModeBanner: debugShowCheckedModeBanner,
-                    ),
-                  ),
-              'store': (BuildContext context) => BlocProvider<RequestBloc>(
-                    bloc: RequestBloc(),
-                    child: StorePage(
-                      isIOSPlatform: isIOS,
-                      debugShowCheckedModeBanner: debugShowCheckedModeBanner,
-                    ),
-                  ),
+              // "about": (BuildContext context) => About(
+              //     isIOSPlatform: isIOS,
+              //     debugShowCheckedModeBanner: debugShowCheckedModeBanner),
+              // // "qrcode": (BuildContext context) => QrCode(
+              // //     isIOSPlatform: isIOS,
+              // //     debugShowCheckedModeBanner: debugShowCheckedModeBanner),
+              // 'qrcodeScan': (BuildContext context) => BlocProvider<RequestBloc>(
+              //     bloc: RequestBloc(),
+              //     child: QrCodeScan(
+              //         isIOSPlatform: isIOS,
+              //         debugShowCheckedModeBanner: debugShowCheckedModeBanner)),
+              // 'homeWithoutSensor': (BuildContext context) =>
+              //     BlocProvider<RequestBloc>(
+              //         bloc: RequestBloc(),
+              //         child: HomeWithoutSensorPage(
+              //             isIOSPlatform: isIOS,
+              //             debugShowCheckedModeBanner:
+              //                 debugShowCheckedModeBanner)),
+              //
+              // 'myAccount': (BuildContext context) => BlocProvider<RequestBloc>(
+              //       bloc: RequestBloc(),
+              //       child: MyAccountPage(
+              //         isIOSPlatform: isIOS,
+              //         debugShowCheckedModeBanner: debugShowCheckedModeBanner,
+              //       ),
+              //     ),
+              // 'store': (BuildContext context) => BlocProvider<RequestBloc>(
+              //       bloc: RequestBloc(),
+              //       child: StorePage(
+              //         isIOSPlatform: isIOS,
+              //         debugShowCheckedModeBanner: debugShowCheckedModeBanner,
+              //       ),
+              //     ),
             },
           );
         });

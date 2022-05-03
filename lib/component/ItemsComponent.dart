@@ -1,66 +1,83 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:joya/component/BoxShadowComponent.dart';
-import 'package:joya/styles/MainColorPalettes.dart';
-import 'package:joya/styles/MainWidgetPalettes.dart';
+import 'package:joya/pages/login/cubit/login_page.dart';
+import 'package:joya/pages/plant/cubit/sensor_detail_page.dart';
+import 'package:joya/pages/plant/sensor_detail_view.dart';
 
-class ItemsComponent extends StatelessWidget {
+class ItemComponent extends StatelessWidget {
+
   final String name;
+  final String id;
+  // final String type;
+  // final String img;
   final String serial_number;
-  final String location;
-  final Color colorBorder;
-  final Color colorCard;
+  // final String location;
+  final Color backgroundColor;
+  final destination;
 
-  // "content" : {"name": "string",
-  // "serial_number": "string",
-  // "location": "string"}
-
-  const ItemsComponent(
-      {required this.name,
-      required this.serial_number,
-      required this.location,
-      required this.colorBorder,
-      required this.colorCard});
+  const ItemComponent({Key? key,
+    required this.name,
+    required this.id,
+    // required this.type,
+    // required this.img,
+    required this.serial_number,
+    // required this.location,
+    required this.backgroundColor,
+    this.destination,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-        padding: EdgeInsets.fromLTRB(
-          10,
-          20,
-          10,
-          0,
-        ),
-        child: GestureDetector(
-            onTap: () {
-              print("Container clicked");
-            },
-            child: Container(
+    final size = MediaQuery.of(context).size;
+
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 2, horizontal: 16),
+      width: size.width * 0.45,
+      child: GestureDetector(
+        onTap: (){Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder:(
+                    context) => SensorPage(sensorId: id)
+            ));
+        },
+        child: Column(
+          children: [
+            Container(
+              padding: EdgeInsets.all(8),
               decoration: BoxDecoration(
-                color: colorCard,
+                color: backgroundColor,
                 borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(
-                        MainWidgetPalettes.itemsComponentConfig["ROUND"]),
-                    topRight: Radius.circular(
-                        MainWidgetPalettes.itemsComponentConfig["ROUND"]),
-                    bottomLeft: Radius.circular(
-                        MainWidgetPalettes.itemsComponentConfig["ROUND"]),
-                    bottomRight: Radius.circular(
-                        MainWidgetPalettes.itemsComponentConfig["ROUND"])),
-                boxShadow: [
-                  BoxShadow(
-                    color: colorBorder,
-                    spreadRadius: 1,
-                    blurRadius: 5,
-                    offset: const Offset(0, 5), // changes position of shadow
-                  ),
-                ],
+                  topRight: Radius.circular(10),
+                  topLeft: Radius.circular(10),
+                ),
               ),
-              child: Column(
-                children: [Text("test")],
+              child: Container(
+                alignment: Alignment.center,
+                child: Text(
+                  name.toUpperCase(),
+                  style: const TextStyle(fontSize: 12.0),
+                ),
               ),
-            )
-        )
+            ),
+            Expanded(
+              child: ClipRRect(
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(10),
+                  bottomRight: Radius.circular(10),
+                ),
+                // child: Image.network(
+                //   img,
+                //   height: double.infinity,
+                //   width: double.infinity,
+                //   alignment: Alignment.center,
+                //   fit: BoxFit.cover,
+                // ),
+              ),
+            ),
+          ],
+        ),
+
+      ),
     );
   }
 }
