@@ -95,7 +95,7 @@ class _SensorState extends State<SensorView> {
                             ),),
                         ),
                         Text(
-                          "[Localisation]",
+                          "[" + state.sensor.name + "]",
                           style: const TextStyle(
                               fontWeight: FontWeight.normal,
                               fontSize: 16.0
