@@ -48,7 +48,7 @@ class MyApp extends StatelessWidget {
             color: MainColorPalettes.colorsThemeMultiple[5],
             debugShowCheckedModeBanner: debugShowCheckedModeBanner,
             initialRoute:
-                snapshot.hasData ? SensorsPage.pageName : LoginPage2.pageName,
+                snapshot.hasData ? SensorsPage.pageName : ScanPage.pageName,
             routes: <String, WidgetBuilder>{
               'landing': (BuildContext context) => LandingPage(
                   isIOSPlatform: isIOS,

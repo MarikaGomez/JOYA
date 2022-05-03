@@ -23,10 +23,11 @@ class ScanLoaded extends ScanState {
 }
 
 class ScanSuccess extends ScanState {
-  ScanSuccess();
+  String result;
+  ScanSuccess({required this.result});
 
   @override
-  List<Object?> get props => throw UnimplementedError();
+  List<String> get props => [result];
 }
 
 class ScanError extends ScanState {

@@ -22,7 +22,7 @@ class ScanPage extends StatelessWidget {
       ],
       child: BlocProvider(
         create: (context) => ScanCubit(sensorService: SensorService()),
-        child: QrCodeScan2(),
+        child: QrCodeScan(),
       ),
     );
   }
