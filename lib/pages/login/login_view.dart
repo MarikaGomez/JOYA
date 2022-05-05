@@ -76,10 +76,13 @@ class _LoginView2State extends State<LoginView2> {
                                 isValidPassword:
                                     context.read<LoginCubit>().isValidPassword,
                                 setEmail: context.read<LoginCubit>().setEmail,
-                                setPassword: context.read<LoginCubit>().setPassword,
+                                setPassword:
+                                    context.read<LoginCubit>().setPassword,
                               ),
                             ),
-                            SizedBox(height: MediaQuery.of(context).size.height / 25),
+                            SizedBox(
+                                height:
+                                    MediaQuery.of(context).size.height / 25),
                             ActionButtonsLogin(
                               loginState: state,
                               submit: context.read<LoginCubit>().login,
