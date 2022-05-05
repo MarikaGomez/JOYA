@@ -1,5 +1,4 @@
-const JOYA_URL = "https://lejeunedeveloppeur.fr/api/";
+const JOYA_URL = "http://192.168.43.6:5000/api/";
 
 const WIKI_URL =
     "https://fr.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=";
-

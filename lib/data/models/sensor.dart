@@ -7,11 +7,11 @@ part 'sensor.g.dart';
 @JsonSerializable()
 class Sensor {
   String id;
-  String name;
-  Plant plant;
+  String? name;
+  Plant? plant;
   String? location;
   String serial_number;
-  User user;
+  User? user;
   SensorData? sensorData;
 
   Sensor({

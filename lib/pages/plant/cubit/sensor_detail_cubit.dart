@@ -19,7 +19,7 @@ class SensorCubit extends Cubit<SensorState> {
   void fetchSensor(String id) async {
     try {
       var responseData = await sensorRepository.findOne(id);
-      var plantName = responseData?.plant.name;
+      var plantName = responseData?.plant?.name;
       String? plantDescription = await wikiPlantRepository
           .fetchOneDdescriptionByTitle(plantName != null ? plantName : "");
       if (responseData != null) {

@@ -74,14 +74,14 @@ class SensorsCubit extends Cubit<SensorsState> {
     List<Sensor> sensorFilterBySn = [];
 
     allSensorsCopy.forEach((sensor) {
-      if (sensor.serial_number.contains(searchField))
-        sensorFilterBySn.add(sensor);
-      if (sensor.name.contains(searchField)) sensorFilterByName.add(sensor);
+      var sensorName = sensor.name;
+      if (sensorName != null) {
+        if (sensor.serial_number.contains(searchField))
+          sensorFilterBySn.add(sensor);
+        if (sensorName.contains(searchField)) sensorFilterByName.add(sensor);
+      }
     });
-    print("length ${removeDuplicateSensorsInList([
-          ...sensorFilterBySn,
-          ...sensorFilterByName
-        ]).length}");
+
     emit(
       SensorsLoaded(
         sensors: removeDuplicateSensorsInList(
@@ -92,14 +92,15 @@ class SensorsCubit extends Cubit<SensorsState> {
 
   bool isInWarnning(Sensor sensor) {
     var sensorDataHumidity = sensor.sensorData?.humidity;
-
+    var sensorPlant = sensor.plant;
+    if (sensorPlant == null) return false;
     if (sensorDataHumidity != null) {
       var absolutValueBeetweenMaxAndMin =
-          (sensor.plant.humidity_needs.max - sensor.plant.humidity_needs.min)
+          (sensorPlant.humidity_needs.max - sensorPlant.humidity_needs.min)
               .abs();
-      if ((sensor.plant.humidity_needs.max - sensorDataHumidity).abs() >
+      if ((sensorPlant.humidity_needs.max - sensorDataHumidity).abs() >
               absolutValueBeetweenMaxAndMin + 2 ||
-          (sensor.plant.humidity_needs.min - sensorDataHumidity).abs() >
+          (sensorPlant.humidity_needs.min - sensorDataHumidity).abs() >
               absolutValueBeetweenMaxAndMin + 2) return true;
     }
     return false;
@@ -107,12 +108,13 @@ class SensorsCubit extends Cubit<SensorsState> {
 
   bool isInDanger(Sensor sensor) {
     var sensorDataHumidity = sensor.sensorData?.humidity;
-
+    var sensorPlant = sensor.plant;
+    if (sensorPlant == null) return false;
     if (sensorDataHumidity != null) {
-      if (sensor.plant.humidity_needs.max.abs() >
-              sensor.plant.humidity_needs.max + 2 ||
-          sensor.plant.humidity_needs.min.abs() >
-              sensor.plant.humidity_needs.min + 2) return true;
+      if (sensorPlant.humidity_needs.max.abs() >
+              sensorPlant.humidity_needs.max + 2 ||
+          sensorPlant.humidity_needs.min.abs() >
+              sensorPlant.humidity_needs.min + 2) return true;
     }
     return false;
   }

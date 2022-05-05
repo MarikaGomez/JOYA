@@ -8,11 +8,15 @@ part of 'sensor.dart';
 
 Sensor _$SensorFromJson(Map<String, dynamic> json) => Sensor(
       id: json['id'] as String,
-      name: json['name'] as String,
-      plant: Plant.fromJson(json['plant'] as Map<String, dynamic>),
+      name: json['name'] as String?,
+      plant: json['plant'] == null
+          ? null
+          : Plant.fromJson(json['plant'] as Map<String, dynamic>),
       location: json['location'] as String?,
       serial_number: json['serial_number'] as String,
-      user: User.fromJson(json['user'] as Map<String, dynamic>),
+      user: json['user'] == null
+          ? null
+          : User.fromJson(json['user'] as Map<String, dynamic>),
       sensorData: json['sensorData'] == null
           ? null
           : SensorData.fromJson(json['sensorData'] as Map<String, dynamic>),

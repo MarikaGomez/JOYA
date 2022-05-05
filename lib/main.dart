@@ -32,7 +32,6 @@ class MyApp extends StatelessWidget {
     return FutureBuilder(
         future: checkLoginStatus(),
         builder: (context, snapshot) {
-          print("${snapshot.hasData} data");
           // Boolean get Device Platform Android or iOS
           return MaterialApp(
             color: MainColorPalettes.colorsThemeMultiple[5],
