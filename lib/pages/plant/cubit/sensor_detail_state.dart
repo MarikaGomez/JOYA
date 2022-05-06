@@ -31,6 +31,19 @@ class SensorSuccess extends SensorState {
   List<Object?> get props => [];
 }
 
+class SensorLoading extends SensorState {
+  SensorLoading();
+
+  @override
+  List<Object?> get props => [];
+}
+
+class SensorSocketLoading extends SensorState {
+  SensorSocketLoading();
+  @override
+  List<Object?> get props => [];
+}
+
 class SensorError extends SensorState {
   final String message;
   SensorError({required this.message});

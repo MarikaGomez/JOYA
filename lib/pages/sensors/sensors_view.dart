@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:joya/common/utils/snackbar.dart';
-import 'package:joya/component/ItemsComponent.dart';
+import 'package:joya/pages/sensors/widgets/ItemsComponent.dart';
 import '../../component/TextFieldComponent.dart';
 import '../../styles/MainColorPalettes.dart';
 import '../../styles/MainTextPalettes.dart';
@@ -103,7 +103,7 @@ class _SensorsState extends State<SensorsView> {
                               return ItemComponent(
                                 id: sensor.id,
                                 name: sensor.name.toString(),
-                                serial_number: sensor.serial_number.toString(),
+                                serial_number: sensor.serial_number,
                                 backgroundColor: context
                                         .read<SensorsCubit>()
                                         .isInDanger(sensor)

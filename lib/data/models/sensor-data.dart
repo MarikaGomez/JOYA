@@ -4,21 +4,19 @@ part 'sensor-data.g.dart';
 @JsonSerializable()
 class SensorData {
   String id;
-  String name;
   String serial_number;
   int luminosity;
   int temperature;
   int humidity;
-  int fertility;
+  int soil_fertillity;
 
   SensorData(
       {required this.id,
-      required this.name,
       required this.serial_number,
       required this.luminosity,
       required this.temperature,
       required this.humidity,
-      required this.fertility});
+      required this.soil_fertillity});
 
   factory SensorData.fromJson(Map<String, dynamic> json) =>
       _$SensorDataFromJson(json);

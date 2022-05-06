@@ -30,11 +30,13 @@ class SensorsCubit extends Cubit<SensorsState> {
     }
   }
 
-  void navigateToDetailPage(BuildContext context, String id) {
+  void navigateToDetailPage(
+      BuildContext context, String id, String serialNumber) {
     Navigator.push(
       context,
       MaterialPageRoute(
         builder: (context) => SensorPage(
+          serialNumber: serialNumber,
           sensorId: id,
         ),
       ),

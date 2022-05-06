@@ -38,7 +38,7 @@ class _LoginView2State extends State<LoginView2> {
   void updateUI(LoginState state) {
     debugPrint(state.runtimeType.toString());
     if (state is LoginSuccess) {
-      navigationPushByName(context, ScanPage.pageName);
+      navigationPushByName(context, SensorsPage.pageName);
     } else if (state is LoginError) {
       showWarningSnackbar(context, state.message);
     }

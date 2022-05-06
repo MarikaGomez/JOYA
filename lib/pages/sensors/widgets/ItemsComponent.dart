@@ -37,7 +37,8 @@ class ItemComponent extends StatelessWidget {
           Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (context) => SensorPage(sensorId: id)));
+                  builder: (context) =>
+                      SensorPage(sensorId: id, serialNumber: serial_number)));
         },
         child: Column(
           children: [
@@ -53,7 +54,7 @@ class ItemComponent extends StatelessWidget {
               child: Container(
                 alignment: Alignment.center,
                 child: Text(
-                  name.toUpperCase(),
+                  " ${name.toUpperCase()} - $serial_number",
                   style: const TextStyle(fontSize: 12.0),
                 ),
               ),

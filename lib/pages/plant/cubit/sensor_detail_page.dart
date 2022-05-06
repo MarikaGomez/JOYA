@@ -5,12 +5,16 @@ import 'package:joya/data/repositories/wiki/wiki-plant.dart';
 import 'package:joya/pages/plant/cubit/sensor_detail_cubit.dart';
 import '../../../data/services/api/joya/sensor.dart';
 import '../../../data/services/api/wikipedia/wiki-plant.dart';
+import '../../../data/services/socket/web_socket.dart';
 import '../sensor_detail_view.dart';
 
 class SensorPage extends StatelessWidget {
   static String pageName = "Sensor";
   final String sensorId;
-  const SensorPage({Key? key, required this.sensorId}) : super(key: key);
+  final String serialNumber;
+  const SensorPage(
+      {Key? key, required this.sensorId, required this.serialNumber})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +25,9 @@ class SensorPage extends StatelessWidget {
         ),
         RepositoryProvider<WikiPlantRepository>(
             create: (context) => WikiPlantRepository(
-                serviceWikipediaPlant: ServiceWikipediaPlant()))
+                serviceWikipediaPlant: ServiceWikipediaPlant())),
+        RepositoryProvider<StreamSocketService>(
+            create: (context) => StreamSocketService())
       ],
       child: BlocProvider(
         create: (context) => SensorCubit(
@@ -29,6 +35,7 @@ class SensorPage extends StatelessWidget {
           wikiPlantRepository: context.read<WikiPlantRepository>(),
         ),
         child: SensorView(
+          serialNumber: serialNumber,
           sensorId: sensorId,
         ),
       ),
