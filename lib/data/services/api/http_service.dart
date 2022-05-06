@@ -13,7 +13,6 @@ class HttpService extends HttpOverrides {
   );
 
   Future<BaseOptions> setCookies(BaseOptions options) async {
-    //TODO bien set les cookies
     var cookies =
         await localStorageService.getString(LocalStorageService.cookies);
     if (cookies != null) {

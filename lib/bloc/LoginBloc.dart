@@ -35,7 +35,7 @@ class LoginBloc extends Bloc {
 
   login() async {
     try {
-      _authRepository.login(
+      await _authRepository.login(
           email: _dataInstance["email"], password: _dataInstance["password"]);
       var user = await _authRepository.getCurrentUser();
       if (user != null) {
