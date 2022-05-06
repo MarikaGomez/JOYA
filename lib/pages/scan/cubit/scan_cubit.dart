@@ -61,8 +61,6 @@ class ScanCubit extends Cubit<ScanState> {
   }
 
   List<DropdownMenuItem<String>> getPlantItemsDropDown() {
-    plants.forEach((e) => print("palnt ${e.id} ${e.name}"));
-
     return plants
         .map((e) =>
             DropdownMenuItem(key: Key(e.id), child: Text(e.name), value: e.id))

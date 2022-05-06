@@ -31,10 +31,9 @@ class _SensorsState extends State<SensorsView> {
   }
 
   void updateUI(SensorsState state) {
-    debugPrint(state.runtimeType.toString());
+    //debugPrint(state.runtimeType.toString());
     if (state is SensorsSuccess) {
     } else if (state is SensorsLoaded) {
-      print("${state.sensors.toList()} sensors");
       context.read<SensorsCubit>().setSensors(state.sensors);
     } else if (state is SensorsError) {
       showWarningSnackbar(context, state.message);

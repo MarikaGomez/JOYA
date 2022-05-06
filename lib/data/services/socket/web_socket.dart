@@ -16,7 +16,6 @@ class StreamSocketService {
 
 //STEP2: Add this function in main function in main.dart file and add incoming data to the stream
   void connectAndListen(String serialNumber) {
-    print("laaaaaaaaaaaaaa $serialNumber");
     IO.Socket socket = IO.io('http://192.168.43.6:5000',
         OptionBuilder().setTransports(['websocket']).build());
 
@@ -29,7 +28,6 @@ class StreamSocketService {
   }
 
   void res(dynamic data) {
-    print("$data   in resssssssssssss");
     this.addResponse;
   }
 }
