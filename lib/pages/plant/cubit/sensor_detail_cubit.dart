@@ -19,10 +19,15 @@ class SensorCubit extends Cubit<SensorState> {
   Sensor? sensor;
   String description = "";
   Socket? socketCubit;
+  bool isDispose = false;
   SensorCubit({
     required this.sensorRepository,
     required this.wikiPlantRepository,
   }) : super(SensorInitial());
+
+  void setIsDisposed(bool value) {
+    isDispose = value;
+  }
 
   void fetchSensor(String id) async {
     try {
@@ -49,17 +54,17 @@ class SensorCubit extends Cubit<SensorState> {
     socket.connect();
     socket.on(
         "connect", (data) => print("socket is connected ${socket.connected}"));
-    socket.on(serialNumber, (data) => {res(data)});
+    socket.on(serialNumber, (data) => {updateSensorData(data)});
     socket.onDisconnect((_) => print('disconnect'));
     socketCubit = socket;
   }
 
-  void res(dynamic data) {
-    emit(SensorSocketLoading());
+  void updateSensorData(dynamic data) {
+    if (isDispose) return;
 
+    emit(SensorSocketLoading());
     try {
       SensorData newSensorData = SensorData.fromJson(data);
-      print("${newSensorData.humidity} iciiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii");
       if (sensor != null) {
         sensor?.sensorData = newSensorData;
         emit(SensorLoaded(sensor: sensor!, description: description));

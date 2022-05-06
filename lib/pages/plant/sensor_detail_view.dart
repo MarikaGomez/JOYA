@@ -25,11 +25,6 @@ class _SensorState extends State<SensorView> {
     super.initState();
   }
 
-  @override
-  void dispose() {
-    super.dispose();
-  }
-
   void updateUI(SensorState state) {
     debugPrint("${state.runtimeType.toString()} sensor socket");
     if (state is SensorSuccess) {
@@ -58,6 +53,7 @@ class _SensorState extends State<SensorView> {
               ? new WillPopScope(
                   onWillPop: () async {
                     context.read<SensorCubit>().disposeSocket();
+                    context.read<SensorCubit>().setIsDisposed(true);
                     return true;
                   },
                   child: SingleChildScrollView(
@@ -196,7 +192,7 @@ class _SensorState extends State<SensorView> {
                                           ),
                                           child: IconButton(
                                             onPressed: (() => popup(
-                                                "Taux d'humidité du sol : 22 %",
+                                                "Taux d'humidité du sol : ${sensor.sensorData?.humidity} %",
                                                 "Minimum : 15 %",
                                                 "Maximum : 60 %")),
                                             icon: const Icon(
@@ -227,7 +223,7 @@ class _SensorState extends State<SensorView> {
                                           child: Expanded(
                                             child: IconButton(
                                               onPressed: (() => popup(
-                                                  "Fertilité du sol : 580 µS/cm",
+                                                  "Fertilité du sol : ${sensor.sensorData?.soil_fertillity} µS/cm",
                                                   "Minimum : 200 µS/cm",
                                                   "Maximum : 1300 µS/cm")),
                                               icon: const Icon(
@@ -260,7 +256,7 @@ class _SensorState extends State<SensorView> {
                                           child: Expanded(
                                             child: IconButton(
                                               onPressed: (() => popup(
-                                                  "Température : 21.5 °C",
+                                                  "Température :  ${sensor.sensorData?.temperature} °C",
                                                   "Minimum : 10.0 °C",
                                                   "Maximum : 32.0°C")),
                                               icon: const Icon(
