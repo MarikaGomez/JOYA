@@ -124,8 +124,8 @@ class _PlantsPageState extends State<PlantsPage> {
           height: MediaQuery.of(context).size.height,
           color: MainColorPalettes.colorsThemeMultiple[5],
           // child: GridComponent(
-          //     isIOSPlatform: widget.isIOSPlatform,
-          //     debugShowCheckedModeBanner: widget.debugShowCheckedModeBanner)
+          //     isIOSPlatform: widgets.isIOSPlatform,
+          //     debugShowCheckedModeBanner: widgets.debugShowCheckedModeBanner)
           // Column(
           //   children: [
           //     SizedBox(

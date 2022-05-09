@@ -10,7 +10,7 @@ import 'package:joya/ui/LandingPage.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+  // This widgets is the root of your application.
   bool debugShowCheckedModeBanner = false;
 
   AuthRepository authRepository = AuthRepository(authService: AuthService());

@@ -4,12 +4,7 @@ import 'package:joya/pages/plant/cubit/sensor_detail_page.dart';
 class ItemComponent extends StatelessWidget {
   final String name;
   final String id;
-
-  // final String type;
-  // final String img;
   final String serial_number;
-
-  // final String location;
   final Color backgroundColor;
   final destination;
 
@@ -17,10 +12,7 @@ class ItemComponent extends StatelessWidget {
     Key? key,
     required this.name,
     required this.id,
-    // required this.type,
-    // required this.img,
     required this.serial_number,
-    // required this.location,
     required this.backgroundColor,
     this.destination,
   }) : super(key: key);
