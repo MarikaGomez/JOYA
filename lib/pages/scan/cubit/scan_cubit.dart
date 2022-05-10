@@ -74,7 +74,7 @@ class ScanCubit extends Cubit<ScanState> {
       Sensor? sensorResponse;
       if (result != null) return emit(ScanSuccessScanQRCode(result: result));
       emit(ScanError(
-          message: "Une erreur est survenue.Le QCode n'est pas valide"));
+          message: "Une erreur est survenue. Le QR Code n'est pas valide."));
     });
   }
 
@@ -92,7 +92,7 @@ class ScanCubit extends Cubit<ScanState> {
       }
     } catch (err) {
       return emit(ScanError(
-          message: "Une erreur est survenue.Le QCode n'est pas valide"));
+          message: "Une erreur est survenue. Le QR Code n'est pas valide."));
     }
   }
 
@@ -107,10 +107,10 @@ class ScanCubit extends Cubit<ScanState> {
           plant_id: plantID,
           location: location));
       if (res != null) return emit(ScanSuccessSubmit());
-      emit(ScanError(message: "champs invalides"));
+      emit(ScanError(message: "Champs invalides."));
     } catch (error) {
       print("error on create sensors : $error");
-      emit(ScanError(message: "champs  invalides"));
+      emit(ScanError(message: "Champs  invalides."));
     }
   }
 

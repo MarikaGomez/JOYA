@@ -1,6 +1,5 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:joya/pages/plant/cubit/sensor_detail_page.dart';
 import 'package:joya/pages/scan/cubit/scan_page.dart';
 import 'package:joya/pages/sensors/cubit/sensors_page.dart';
 import 'package:joya/styles/MainColorPalettes.dart';
@@ -50,9 +49,9 @@ class ScaffoldComponent extends StatelessWidget {
             "ICONS_NAV_BAR"], // sinon prend IconConstants.ICONS_CURVED_NAV_BAR,
         color: MainColorPalettes.colorsThemeMultiple[25]!,
         buttonBackgroundColor: MainColorPalettes.colorsThemeMultiple[10]!,
-        backgroundColor: MainColorPalettes.colorsThemeMultiple[5]!,
-        animationCurve: Curves.easeInBack,
-        animationDuration: const Duration(milliseconds: 800),
+        backgroundColor: Colors.transparent,
+        animationCurve: Curves.easeInOut,
+        animationDuration: const Duration(milliseconds: 600),
         onTap: (index) async {
           if (path[index] == null) {
             await Future.delayed(const Duration(milliseconds: 1000), () {

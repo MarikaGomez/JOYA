@@ -83,7 +83,7 @@ class _LoginView2State extends State<LoginView2> {
                             ActionButtonsLogin(
                               loginState: state,
                               submit: context.read<LoginCubit>().login,
-                            )
+                            ),
                           ],
                         ),
                       ),

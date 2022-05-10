@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:joya/common/utils/snackbar.dart';
-import 'package:joya/data/enum/EnumerateCategoriesScaffold.dart';
 import 'package:joya/pages/plant/widgets/data_detail.dart';
 import 'package:joya/pages/plant/widgets/image_detail.dart';
-import '../../component/ScaffoldComponent.dart';
+import '../plant_charts/plant_chart_view.dart';
 import 'cubit/sensor_detail_cubit.dart';
 
 class SensorView extends StatefulWidget {
   final String sensorId;
 
   final String serialNumber;
+
   const SensorView(
       {Key? key, required this.sensorId, required this.serialNumber})
       : super(key: key);
@@ -65,10 +65,16 @@ class _SensorState extends State<SensorView> {
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         ImageDetailView(),
-                        const SizedBox(
-                          height: 20.0,
-                        ),
+                        SizedBox(
+                            height: MediaQuery.of(context).size.height / 25),
                         DataDetailDisplay(),
+                        SizedBox(
+                            height: MediaQuery.of(context).size.height / 25),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 16, vertical: 8),
+                          child: PlantChart(),
+                        ),
                       ],
                     ),
                   ),
