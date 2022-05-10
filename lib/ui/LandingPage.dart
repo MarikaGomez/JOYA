@@ -20,7 +20,6 @@ class LandingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     if (this.isIOSPlatform) {
       return ScaffoldComponent(
-          isIOSPlatform: isIOSPlatform,
           debugShowCheckedModeBanner: debugShowCheckedModeBanner,
           enumerateCategoriesScaffold: EnumerateCategoriesScaffold.noCurvedBar,
           child: Container(
@@ -92,7 +91,6 @@ class LandingPage extends StatelessWidget {
           ));
     } else {
       return ScaffoldComponent(
-          isIOSPlatform: isIOSPlatform,
           debugShowCheckedModeBanner: debugShowCheckedModeBanner,
           enumerateCategoriesScaffold: EnumerateCategoriesScaffold.noCurvedBar,
           child: Container(

@@ -25,7 +25,6 @@ class InscriptionPage extends StatelessWidget {
     if (this.isIOSPlatform) {
       return ScaffoldComponent(
           enumerateCategoriesScaffold: EnumerateCategoriesScaffold.noCurvedBar,
-          isIOSPlatform: isIOSPlatform,
           debugShowCheckedModeBanner: debugShowCheckedModeBanner,
           child: Container(
               height: double.infinity,
@@ -171,7 +170,6 @@ class InscriptionPage extends StatelessWidget {
     } else {
       return ScaffoldComponent(
           enumerateCategoriesScaffold: EnumerateCategoriesScaffold.noCurvedBar,
-          isIOSPlatform: isIOSPlatform,
           debugShowCheckedModeBanner: debugShowCheckedModeBanner,
           child: Container(
               height: double.infinity,

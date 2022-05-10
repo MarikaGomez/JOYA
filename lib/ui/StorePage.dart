@@ -25,7 +25,6 @@ class StorePage extends StatelessWidget {
     if (this.isIOSPlatform) {
       return ScaffoldComponent(
           enumerateCategoriesScaffold: EnumerateCategoriesScaffold.curvedBar,
-          isIOSPlatform: isIOSPlatform,
           debugShowCheckedModeBanner: debugShowCheckedModeBanner,
           index: 3,
           child: Container(
@@ -73,7 +72,6 @@ class StorePage extends StatelessWidget {
     } else {
       return ScaffoldComponent(
           enumerateCategoriesScaffold: EnumerateCategoriesScaffold.curvedBar,
-          isIOSPlatform: isIOSPlatform,
           debugShowCheckedModeBanner: debugShowCheckedModeBanner,
           index: 3,
           child: Container(

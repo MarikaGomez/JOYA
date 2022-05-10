@@ -6,9 +6,7 @@ import 'package:joya/common/utils/snackbar.dart';
 import 'package:joya/pages/login/cubit/login_cubit.dart';
 import 'package:joya/pages/login/widgets/action_buttons.dart';
 import 'package:joya/pages/login/widgets/login_form_fields.dart';
-import 'package:joya/pages/scan/cubit/scan_page.dart';
 import 'package:joya/pages/sensors/cubit/sensors_page.dart';
-import 'package:joya/pages/sensors/sensors_view.dart';
 
 class LoginView2 extends StatefulWidget {
   const LoginView2({

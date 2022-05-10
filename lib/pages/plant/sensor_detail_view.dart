@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:joya/common/utils/snackbar.dart';
+import 'package:joya/data/enum/EnumerateCategoriesScaffold.dart';
 import 'package:joya/pages/plant/widgets/data_detail.dart';
 import 'package:joya/pages/plant/widgets/image_detail.dart';
+import '../../component/ScaffoldComponent.dart';
 import 'cubit/sensor_detail_cubit.dart';
 
 class SensorView extends StatefulWidget {
@@ -77,4 +79,3 @@ class _SensorState extends State<SensorView> {
     );
   }
 }
-

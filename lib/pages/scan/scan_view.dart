@@ -183,7 +183,6 @@ class _QrCodeScanState extends State<QrCodeScan> with WidgetsBindingObserver {
 
   @override
   void dispose() {
-    context.read<ScanCubit>().disposeController();
     super.dispose();
   }
 }

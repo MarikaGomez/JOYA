@@ -5,7 +5,13 @@ import 'package:joya/pages/login/cubit/login_page.dart';
 import 'package:joya/pages/scan/cubit/scan_page.dart';
 import 'package:joya/pages/sensors/cubit/sensors_page.dart';
 import 'package:joya/styles/MainColorPalettes.dart';
+import 'package:joya/ui/About.dart';
+import 'package:joya/ui/ConfirmationEmail.dart';
 import 'package:joya/ui/LandingPage.dart';
+import 'package:joya/ui/StorePage.dart';
+
+import 'bloc/bloc_provider.dart';
+import 'bloc/controller/RequestBloc.dart';
 
 void main() => runApp(MyApp());
 
@@ -45,17 +51,19 @@ class MyApp extends StatelessWidget {
               LoginPage2.pageName: (BuildContext context) => LoginPage2(),
               ScanPage.pageName: (BuildContext context) => ScanPage(),
               SensorsPage.pageName: (BuildContext context) => SensorsPage(),
+
+              "/": (BuildContext context) => SensorsPage(),
               // 'signin': (BuildContext context) => BlocProvider<LoginBloc>(
               //     bloc: LoginBloc(context: context),
               //     child: Login(
               //         isIOSPlatform: isIOS,
               //         debugShowCheckedModeBanner: debugShowCheckedModeBanner)),
-              // "confirmEmail": (BuildContext context) => ConfirmationEmail(
-              //     isIOSPlatform: isIOS,
-              //     debugShowCheckedModeBanner: debugShowCheckedModeBanner),
-              // "about": (BuildContext context) => About(
-              //     isIOSPlatform: isIOS,
-              //     debugShowCheckedModeBanner: debugShowCheckedModeBanner),
+              "confirmEmail": (BuildContext context) => ConfirmationEmail(
+                  isIOSPlatform: isIOS,
+                  debugShowCheckedModeBanner: debugShowCheckedModeBanner),
+              "about": (BuildContext context) => About(
+                  isIOSPlatform: isIOS,
+                  debugShowCheckedModeBanner: debugShowCheckedModeBanner),
               // // "qrcode": (BuildContext context) => QrCode(
               // //     isIOSPlatform: isIOS,
               // //     debugShowCheckedModeBanner: debugShowCheckedModeBanner),
@@ -79,13 +87,13 @@ class MyApp extends StatelessWidget {
               //         debugShowCheckedModeBanner: debugShowCheckedModeBanner,
               //       ),
               //     ),
-              // 'store': (BuildContext context) => BlocProvider<RequestBloc>(
-              //       bloc: RequestBloc(),
-              //       child: StorePage(
-              //         isIOSPlatform: isIOS,
-              //         debugShowCheckedModeBanner: debugShowCheckedModeBanner,
-              //       ),
-              //     ),
+              'store': (BuildContext context) => BlocProvider<RequestBloc>(
+                    bloc: RequestBloc(),
+                    child: StorePage(
+                      isIOSPlatform: isIOS,
+                      debugShowCheckedModeBanner: debugShowCheckedModeBanner,
+                    ),
+                  ),
             },
           );
         });

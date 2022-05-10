@@ -34,7 +34,6 @@ class _PlantsPageState extends State<PlantsPage> {
     if (widget.isIOSPlatform) {
       return ScaffoldComponent(
         enumerateCategoriesScaffold: EnumerateCategoriesScaffold.curvedBar,
-        isIOSPlatform: widget.isIOSPlatform,
         debugShowCheckedModeBanner: widget.debugShowCheckedModeBanner,
         index: 1,
         child: Container(
@@ -116,7 +115,6 @@ class _PlantsPageState extends State<PlantsPage> {
     } else {
       return ScaffoldComponent(
         enumerateCategoriesScaffold: EnumerateCategoriesScaffold.curvedBar,
-        isIOSPlatform: widget.isIOSPlatform,
         debugShowCheckedModeBanner: widget.debugShowCheckedModeBanner,
         index: 1,
         child: Container(

@@ -25,7 +25,6 @@ class HomeWithoutSensorPage extends StatelessWidget {
     if (this.isIOSPlatform) {
       return ScaffoldComponent(
         enumerateCategoriesScaffold: EnumerateCategoriesScaffold.curvedBar,
-        isIOSPlatform: isIOSPlatform,
         debugShowCheckedModeBanner: debugShowCheckedModeBanner,
         index: 0,
         child: Container(
@@ -108,7 +107,6 @@ class HomeWithoutSensorPage extends StatelessWidget {
     } else {
       return ScaffoldComponent(
         enumerateCategoriesScaffold: EnumerateCategoriesScaffold.curvedBar,
-        isIOSPlatform: isIOSPlatform,
         debugShowCheckedModeBanner: debugShowCheckedModeBanner,
         index: 0,
         child: Container(
