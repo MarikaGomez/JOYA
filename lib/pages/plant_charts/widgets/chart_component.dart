@@ -20,13 +20,13 @@ class _ChartComponentState extends State<ChartComponent> {
     _tooltipBehavior = TooltipBehavior(enable: true);
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return SfCartesianChart(
       title: ChartTitle(
           text: 'Les statistiques de ma plante',
-          textStyle:
-          TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+          textStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
       legend: Legend(isVisible: true),
       tooltipBehavior: _tooltipBehavior,
       series: <ChartSeries>[
