@@ -75,11 +75,12 @@ class SensorsCubit extends Cubit<SensorsState> {
     List<Sensor> sensorFilterBySn = [];
 
     allSensorsCopy.forEach((sensor) {
-      var sensorName = sensor.name;
+      var sensorName = sensor.name?.toUpperCase();
       if (sensorName != null) {
         if (sensor.serial_number.contains(searchField))
           sensorFilterBySn.add(sensor);
-        if (sensorName.contains(searchField)) sensorFilterByName.add(sensor);
+        if (sensorName.contains(searchField.toUpperCase()))
+          sensorFilterByName.add(sensor);
       }
     });
 

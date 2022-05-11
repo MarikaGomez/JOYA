@@ -82,6 +82,8 @@ class SensorCubit extends Cubit<SensorState> {
       var fetchedSensorsData = await fetchLastSensorsData(serialNumber);
       if (responseData != null) {
         var plantName = responseData.plant?.name;
+        print(
+            "$plantName iciiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii");
         if (plantName != null)
           plantDescription = await fetchPlantDescription(plantName);
         return emit(SensorLoaded(

@@ -47,7 +47,7 @@ class ScaffoldComponent extends StatelessWidget {
         height: 50,
         items: MainIconsPalettes.iconCurved[
             "ICONS_NAV_BAR"], // sinon prend IconConstants.ICONS_CURVED_NAV_BAR,
-        color: MainColorPalettes.colorsThemeMultiple[25]!,
+        color: MainColorPalettes.colorsThemeMultiple[10]!,
         buttonBackgroundColor: MainColorPalettes.colorsThemeMultiple[10]!,
         backgroundColor: Colors.transparent,
         animationCurve: Curves.easeInOut,
