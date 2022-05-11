@@ -17,7 +17,6 @@ class _ChartComponentState extends State<ChartComponent> {
 
   @override
   void initState() {
-    print("dataaa ${widget.sensorsData}");
     widget.sensorsData.forEach(
         (element) => print("${element.created_at.toString()} sensors data"));
     _tooltipBehavior = TooltipBehavior(enable: true);

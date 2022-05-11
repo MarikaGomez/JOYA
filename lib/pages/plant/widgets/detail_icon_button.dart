@@ -15,6 +15,7 @@ class _DetailIconButtonState extends State<DetailIconButton> {
   @override
   Widget build(BuildContext context) {
     var sensor = context.read<SensorCubit>().sensor;
+    //print("${sensor?.plant} laaaaaaaaaaaaaaaaaaaaa");
     var luminosity = sensor?.sensorData?.luminosity;
     var humidity = sensor?.sensorData?.humidity;
     var temperature = sensor?.sensorData?.temperature;
