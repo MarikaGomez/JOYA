@@ -45,14 +45,11 @@ class MyApp extends StatelessWidget {
             initialRoute:
                 snapshot.hasData ? SensorsPage.pageName : LoginPage2.pageName,
             routes: <String, WidgetBuilder>{
-              'landing': (BuildContext context) => LandingPage(
-                  isIOSPlatform: isIOS,
-                  debugShowCheckedModeBanner: debugShowCheckedModeBanner),
+              'landing': (BuildContext context) => LandingPage(),
               LoginPage2.pageName: (BuildContext context) => LoginPage2(),
               ScanPage.pageName: (BuildContext context) => ScanPage(),
               SensorsPage.pageName: (BuildContext context) => SensorsPage(),
 
-              "/": (BuildContext context) => SensorsPage(),
               // 'signin': (BuildContext context) => BlocProvider<LoginBloc>(
               //     bloc: LoginBloc(context: context),
               //     child: Login(

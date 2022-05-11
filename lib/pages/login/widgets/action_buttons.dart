@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:joya/ui/LandingPage.dart';
 import '../../../component/ButtonComponent.dart';
 import '../../../data/enum/EnumerateCategoriesButton.dart';
 import '../../../styles/MainColorPalettes.dart';
@@ -17,9 +18,7 @@ class ActionButtonsLogin extends StatelessWidget {
     return Column(
       children: [
         loginState is LoginLoadingSubmit
-            ? const CircularProgressIndicator(
-                strokeWidth: 1.5,
-              )
+            ? LandingPage()
             : ButtonComponent(
                 text: MainTextPalettes
                     .textFr["CONNEXION_BUTTON_DEFAULT_TEXTFIELD"],

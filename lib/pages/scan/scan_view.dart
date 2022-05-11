@@ -9,7 +9,6 @@ import '../../common/utils/snackbar.dart';
 import '../../component/ButtonComponent.dart';
 import '../../component/TextFieldComponent.dart';
 import '../../data/enum/EnumerateCategoriesButton.dart';
-import '../../data/models/plant.dart';
 import '../../styles/MainColorPalettes.dart';
 import '../../styles/MainTextPalettes.dart';
 import '../sensors/cubit/sensors_page.dart';
@@ -154,8 +153,8 @@ class _QrCodeScanState extends State<QrCodeScan> with WidgetsBindingObserver {
 
   Widget buildQrView(BuildContext context, ScanState state) =>
       state is ScanLoading
-          ? const CircularProgressIndicator(
-              strokeWidth: 1.5,
+          ? Container(
+              color: Colors.black,
             )
           : QRView(
               onPermissionSet: (ctrl, p) => _onPermissionSet(context, ctrl, p),

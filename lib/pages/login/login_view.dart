@@ -7,6 +7,7 @@ import 'package:joya/pages/login/cubit/login_cubit.dart';
 import 'package:joya/pages/login/widgets/action_buttons.dart';
 import 'package:joya/pages/login/widgets/login_form_fields.dart';
 import 'package:joya/pages/sensors/cubit/sensors_page.dart';
+import 'package:joya/ui/LandingPage.dart';
 
 class LoginView2 extends StatefulWidget {
   const LoginView2({
@@ -51,10 +52,8 @@ class _LoginView2State extends State<LoginView2> {
           updateUI(state);
         },
         builder: (context, state) {
-          return state is LoginInitial
-              ? const CircularProgressIndicator(
-                  strokeWidth: 1.5,
-                )
+          return state is LoginInitial || state is LoginSuccess
+              ? LandingPage()
               : Scaffold(
                   resizeToAvoidBottomInset: true,
                   body: SafeArea(

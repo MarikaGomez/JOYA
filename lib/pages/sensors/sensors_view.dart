@@ -7,6 +7,7 @@ import '../../component/TextFieldComponent.dart';
 import '../../data/enum/EnumerateCategoriesScaffold.dart';
 import '../../styles/MainColorPalettes.dart';
 import '../../styles/MainTextPalettes.dart';
+import '../../ui/LandingPage.dart';
 import 'cubit/sensors_cubit.dart';
 
 class SensorsView extends StatefulWidget {
@@ -57,48 +58,41 @@ class _SensorsState extends State<SensorsView> {
           builder: (context, state) {
             const Key centerKey = ValueKey<String>('sensors');
 
-            return state is SensorsInitial
-                ? const CircularProgressIndicator(
-                    strokeWidth: 1.5,
-                  )
-                : Column(
+            return Column(
+              children: <Widget>[
+                SingleChildScrollView(
+                  physics: ScrollPhysics(),
+                  child: Column(
                     children: <Widget>[
-                      SingleChildScrollView(
-                        physics: ScrollPhysics(),
-                        child: Column(
-                          children: <Widget>[
-                            SizedBox(
-                                height:
-                                    MediaQuery.of(context).size.height / 15),
-                            Padding(
-                              padding: const EdgeInsets.symmetric(
-                                  vertical: 8, horizontal: 16),
-                              child: Text(
-                                '${MainTextPalettes.textFr["MY_PLANT"]}',
-                                style: TextStyle(
-                                    color: MainColorPalettes
-                                        .colorsThemeMultiple[10],
-                                    fontSize: 28,
-                                    fontWeight: FontWeight.w700,
-                                    fontFamily: 'DMSans-Bold.ttf'),
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.symmetric(
-                                  vertical: 8, horizontal: 16),
-                              child: TextFieldComponent(
-                                methode: (data) async {
-                                  context
-                                      .read<SensorsCubit>()
-                                      .setSearchField(data);
-                                },
-                                text: "${MainTextPalettes.textFr["SEARCH"]}",
-                                isNotValidRenderText: "",
-                                hiddenText: false,
-                                isValid: true,
-                              ),
-                            ),
-                            GridView.builder(
+                      SizedBox(height: MediaQuery.of(context).size.height / 15),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 8, horizontal: 16),
+                        child: Text(
+                          '${MainTextPalettes.textFr["MY_PLANT"]}',
+                          style: TextStyle(
+                              color: MainColorPalettes.colorsThemeMultiple[10],
+                              fontSize: 28,
+                              fontWeight: FontWeight.w700,
+                              fontFamily: 'DMSans-Bold.ttf'),
+                        ),
+                      ),
+                      Padding(
+                        padding:
+                            EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                        child: TextFieldComponent(
+                          methode: (data) async {
+                            context.read<SensorsCubit>().setSearchField(data);
+                          },
+                          text: "${MainTextPalettes.textFr["SEARCH"]}",
+                          isNotValidRenderText: "",
+                          hiddenText: false,
+                          isValid: true,
+                        ),
+                      ),
+                      state is SensorsInitial
+                          ? Container()
+                          : GridView.builder(
                               scrollDirection: Axis.vertical,
                               shrinkWrap: true,
                               itemCount:
@@ -125,11 +119,11 @@ class _SensorsState extends State<SensorsView> {
                                   const SliverGridDelegateWithFixedCrossAxisCount(
                                       crossAxisCount: 2),
                             ),
-                          ],
-                        ),
-                      ),
                     ],
-                  );
+                  ),
+                ),
+              ],
+            );
           },
         ),
       ),

@@ -10,156 +10,79 @@ import '../data/enum/EnumerateCategoriesScaffold.dart';
 
 // SWITCH BACK
 class LandingPage extends StatelessWidget {
-  final bool debugShowCheckedModeBanner;
-  final bool isIOSPlatform;
-
-  LandingPage(
-      {required this.isIOSPlatform, required this.debugShowCheckedModeBanner});
+  LandingPage();
 
   @override
   Widget build(BuildContext context) {
-    if (this.isIOSPlatform) {
-      return ScaffoldComponent(
-          debugShowCheckedModeBanner: debugShowCheckedModeBanner,
-          enumerateCategoriesScaffold: EnumerateCategoriesScaffold.noCurvedBar,
-          child: Container(
-            color: MainColorPalettes.colorsThemeMultiple[5],
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(
-                  height: MediaQuery.of(context).size.height / 50,
-                ),
-                Container(
-                  color: MainColorPalettes.colorsThemeMultiple[5],
-                  padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                  child: Image.asset(
-                    'assets/images/joyalogo.png',
-                    width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height / 5,
-                    scale: 0.8,
-                    colorBlendMode: BlendMode.darken,
-                    fit: BoxFit.fitWidth,
-                  ),
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height / 50,
-                ),
-                Text(
-                  '${MainTextPalettes.textFr["BIENVENUE"]}',
-                  style: TextStyle(
-                      color: MainColorPalettes.colorsThemeMultiple[20],
-                      fontSize: 65,
-                      fontFamily: 'DMSans-Bold.ttf'),
-                ),
-                Text(
-                  '${MainTextPalettes.textFr["VOS_PLANTES"]}',
-                  style: TextStyle(
-                      color: MainColorPalettes.colorsThemeMultiple[20],
-                      fontSize: 20,
-                      fontFamily: 'DMSans-Regular.ttf'),
-                ),
-                SizedBox(
+    return ScaffoldComponent(
+        debugShowCheckedModeBanner: true,
+        enumerateCategoriesScaffold: EnumerateCategoriesScaffold.noCurvedBar,
+        child: Container(
+          color: MainColorPalettes.colorsThemeMultiple[5],
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(
+                height: MediaQuery.of(context).size.height / 50,
+              ),
+              Container(
+                color: MainColorPalettes.colorsThemeMultiple[5],
+                padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                child: Image.asset(
+                  'assets/images/joyalogo.png',
+                  width: MediaQuery.of(context).size.width,
                   height: MediaQuery.of(context).size.height / 5,
+                  scale: 0.8,
+                  colorBlendMode: BlendMode.darken,
+                  fit: BoxFit.fitWidth,
                 ),
-                ButtonComponent(
-                  text: MainTextPalettes.textFr["INSCRIPTION"],
-                  enumerateCategoriesButton:
-                      EnumerateCategoriesButton.typeButtonTextOnly,
-                  isIOSPlatform: isIOSPlatform,
-                  methode: () => {Navigator.pushNamed(context, 'signup')},
-                  colorBorder: MainColorPalettes.colorsThemeMultiple[5]!,
-                  backgroundColorButton:
-                      MainColorPalettes.colorsThemeMultiple[10]!,
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height / 50,
-                ),
-                ButtonComponent(
-                  text: MainTextPalettes
-                      .textFr["CONNEXION_BUTTON_DEFAULT_TEXTFIELD"],
-                  enumerateCategoriesButton:
-                      EnumerateCategoriesButton.typeButtonTextOnly,
-                  isIOSPlatform: isIOSPlatform,
-                  methode: () => {Navigator.pushNamed(context, 'signin')},
-                  colorBorder: MainColorPalettes.colorsThemeMultiple[5]!,
-                  backgroundColorButton:
-                      MainColorPalettes.colorsThemeMultiple[10]!,
-                ),
-              ],
-            ),
-          ));
-    } else {
-      return ScaffoldComponent(
-          debugShowCheckedModeBanner: debugShowCheckedModeBanner,
-          enumerateCategoriesScaffold: EnumerateCategoriesScaffold.noCurvedBar,
-          child: Container(
-            color: MainColorPalettes.colorsThemeMultiple[5],
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(
-                  height: MediaQuery.of(context).size.height / 50,
-                ),
-                Container(
-                  color: MainColorPalettes.colorsThemeMultiple[5],
-                  padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                  child: Image.asset(
-                    'assets/images/joyalogo.png',
-                    width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height / 5,
-                    scale: 0.8,
-                    colorBlendMode: BlendMode.darken,
-                    fit: BoxFit.fitWidth,
-                  ),
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height / 50,
-                ),
-                Text(
-                  '${MainTextPalettes.textFr["BIENVENUE"]}',
-                  style: TextStyle(
-                      color: MainColorPalettes.colorsThemeMultiple[20],
-                      fontSize: 65,
-                      fontFamily: 'DMSans-Bold.ttf'),
-                ),
-                Text(
-                  '${MainTextPalettes.textFr["VOS_PLANTES"]}',
-                  style: TextStyle(
-                      color: MainColorPalettes.colorsThemeMultiple[20],
-                      fontSize: 20,
-                      fontFamily: 'DMSans-Regular.ttf'),
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height / 5,
-                ),
-                ButtonComponent(
-                  text: MainTextPalettes.textFr["INSCRIPTION"],
-                  enumerateCategoriesButton:
-                      EnumerateCategoriesButton.typeButtonTextOnly,
-                  isIOSPlatform: isIOSPlatform,
-                  methode: () => {Navigator.pushNamed(context, 'signup')},
-                  colorBorder: MainColorPalettes.colorsThemeMultiple[5]!,
-                  backgroundColorButton:
-                      MainColorPalettes.colorsThemeMultiple[10]!,
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height / 50,
-                ),
-                ButtonComponent(
-                  text: MainTextPalettes
-                      .textFr["CONNEXION_BUTTON_DEFAULT_TEXTFIELD"],
-                  enumerateCategoriesButton:
-                      EnumerateCategoriesButton.typeButtonTextOnly,
-                  isIOSPlatform: isIOSPlatform,
-                  methode: () => {Navigator.pushNamed(context, 'signin')},
-                  colorBorder: MainColorPalettes.colorsThemeMultiple[5]!,
-                  backgroundColorButton:
-                      MainColorPalettes.colorsThemeMultiple[10]!,
-                ),
-              ],
-            ),
-          ));
-    }
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height / 50,
+              ),
+              // Text(
+              //   '${MainTextPalettes.textFr["BIENVENUE"]}',
+              //   style: TextStyle(
+              //       color: MainColorPalettes.colorsThemeMultiple[20],
+              //       fontSize: 65,
+              //       fontFamily: 'DMSans-Bold.ttf'),
+              // ),
+              // Text(
+              //   '${MainTextPalettes.textFr["VOS_PLANTES"]}',
+              //   style: TextStyle(
+              //       color: MainColorPalettes.colorsThemeMultiple[20],
+              //       fontSize: 20,
+              //       fontFamily: 'DMSans-Regular.ttf'),
+              // ),
+              // SizedBox(
+              //   height: MediaQuery.of(context).size.height / 5,
+              // ),
+              // ButtonComponent(
+              //   text: MainTextPalettes.textFr["INSCRIPTION"],
+              //   enumerateCategoriesButton:
+              //       EnumerateCategoriesButton.typeButtonTextOnly,
+              //   isIOSPlatform: false,
+              //   methode: () => {Navigator.pushNamed(context, 'signup')},
+              //   colorBorder: MainColorPalettes.colorsThemeMultiple[5]!,
+              //   backgroundColorButton:
+              //       MainColorPalettes.colorsThemeMultiple[10]!,
+              // ),
+              // SizedBox(
+              //   height: MediaQuery.of(context).size.height / 50,
+              // ),
+              // ButtonComponent(
+              //   text: MainTextPalettes
+              //       .textFr["CONNEXION_BUTTON_DEFAULT_TEXTFIELD"],
+              //   enumerateCategoriesButton:
+              //       EnumerateCategoriesButton.typeButtonTextOnly,
+              //   isIOSPlatform: false,
+              //   methode: () => {Navigator.pushNamed(context, 'signin')},
+              //   colorBorder: MainColorPalettes.colorsThemeMultiple[5]!,
+              //   backgroundColorButton:
+              //       MainColorPalettes.colorsThemeMultiple[10]!,
+              // ),
+            ],
+          ),
+        ));
   }
 }
