@@ -31,7 +31,6 @@ class _QrCodeScanState extends State<QrCodeScan> with WidgetsBindingObserver {
   }
 
   updateUI(ScanState state) async {
-    print("sate $state");
     if (state is ScanSuccessScanQRCode) {
       context.read<ScanCubit>().fetchIfSensorExist(state.result);
     } else if (state is ScanError) {

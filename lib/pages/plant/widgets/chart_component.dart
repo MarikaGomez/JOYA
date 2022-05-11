@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:joya/data/models/sensor-data.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
@@ -16,6 +17,9 @@ class _ChartComponentState extends State<ChartComponent> {
 
   @override
   void initState() {
+    print("dataaa ${widget.sensorsData}");
+    widget.sensorsData.forEach(
+        (element) => print("${element.created_at.toString()} sensors data"));
     _tooltipBehavior = TooltipBehavior(enable: true);
     super.initState();
   }
@@ -29,27 +33,30 @@ class _ChartComponentState extends State<ChartComponent> {
       legend: Legend(isVisible: true),
       tooltipBehavior: _tooltipBehavior,
       series: <ChartSeries>[
-        /*SplineAreaSeries<SensorData, String>(
+        SplineAreaSeries<SensorData, String>(
             dataSource: widget.sensorsData,
-            xValueMapper: (SensorData exp, _) => exp.created_at,
+            xValueMapper: (SensorData exp, _) =>
+                DateFormat.Hm().format(exp.created_at),
             yValueMapper: (SensorData exp, _) => exp.luminosity,
             name: 'Luminosité',
             color: Colors.yellow,
             opacity: .5),
         SplineAreaSeries<SensorData, String>(
             dataSource: widget.sensorsData,
-            xValueMapper: (SensorData exp, _) => exp.created_at,
+            xValueMapper: (SensorData exp, _) =>
+                DateFormat.Hm().format(exp.created_at),
             yValueMapper: (SensorData exp, _) => exp.humidity,
             name: 'Humidité',
             color: Colors.blue,
             opacity: .5),
         SplineAreaSeries<SensorData, String>(
             dataSource: widget.sensorsData,
-            xValueMapper: (SensorData exp, _) => exp.created_at,
+            xValueMapper: (SensorData exp, _) =>
+                DateFormat.Hm().format(exp.created_at),
             yValueMapper: (SensorData exp, _) => exp.temperature,
             name: 'Température',
             color: Colors.teal,
-            opacity: .5),*/
+            opacity: .5),
       ],
       primaryXAxis: CategoryAxis(),
     );

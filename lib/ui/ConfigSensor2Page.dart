@@ -132,7 +132,7 @@ class ConfigSensor2 extends StatelessWidget {
                                             .colorsThemeMultiple[10]),
                                     recognizer: TapGestureRecognizer()
                                       ..onTap = () {
-                                        print("Condition");
+                                        //print("Condition");
                                       },
                                   ),
                                 ])))

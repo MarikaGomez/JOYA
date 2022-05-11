@@ -9,6 +9,7 @@ class SensorData {
   int temperature;
   int humidity;
   int soil_fertillity;
+  DateTime created_at;
 
   SensorData(
       {required this.id,
@@ -16,7 +17,8 @@ class SensorData {
       required this.luminosity,
       required this.temperature,
       required this.humidity,
-      required this.soil_fertillity});
+      required this.soil_fertillity,
+      required this.created_at});
 
   factory SensorData.fromJson(Map<String, dynamic> json) =>
       _$SensorDataFromJson(json);

@@ -13,6 +13,7 @@ SensorData _$SensorDataFromJson(Map<String, dynamic> json) => SensorData(
       temperature: json['temperature'] as int,
       humidity: json['humidity'] as int,
       soil_fertillity: json['soil_fertillity'] as int,
+      created_at: DateTime.parse(json['created_at'] as String),
     );
 
 Map<String, dynamic> _$SensorDataToJson(SensorData instance) =>
@@ -23,4 +24,5 @@ Map<String, dynamic> _$SensorDataToJson(SensorData instance) =>
       'temperature': instance.temperature,
       'humidity': instance.humidity,
       'soil_fertillity': instance.soil_fertillity,
+      'created_at': instance.created_at.toIso8601String(),
     };

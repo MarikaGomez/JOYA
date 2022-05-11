@@ -13,7 +13,6 @@ class SensorDataService {
       Response responseData =
           await _httpService.get(url: JOYA_URL + "sensors-data/$serialNumber");
       if (responseData.data == null) return [];
-
       var sensorsData = (responseData.data as List)
           .map((data) => SensorData.fromJson(data))
           .toList();
@@ -27,8 +26,8 @@ class SensorDataService {
 
   Future<List<SensorData>?> findLastSensorsData(String serialNumber) async {
     try {
-      Response responseData =
-      await _httpService.get(url: JOYA_URL + "sensors-data/statistics/$serialNumber");
+      Response responseData = await _httpService.get(
+          url: JOYA_URL + "sensors-data/statistics/$serialNumber");
       if (responseData.data == null) return [];
 
       var sensorsData = (responseData.data as List)

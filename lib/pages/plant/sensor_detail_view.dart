@@ -35,9 +35,11 @@ class _SensorState extends State<SensorView> {
     if (state is SensorSuccess) {
     } else if (state is SensorLoaded) {
       context.read<SensorCubit>().setSensor(state.sensor);
+      context.read<SensorCubit>().setSensorsData(state.sensorData);
       context.read<SensorCubit>().setDescription(state.description);
     } else if (state is SensorError) {
       showWarningSnackbar(context, state.message);
+      Navigator.pop(context);
     } else if (state is SensorLoaded) {
       context.read<SensorCubit>().setSensorsData(state.sensorData);
     }
@@ -80,7 +82,8 @@ class _SensorState extends State<SensorView> {
                             height: 600,
                             width: 700,
                             child: ChartComponent(
-                              sensorsData: [],
+                              sensorsData:
+                                  context.read<SensorCubit>().sensorsData,
                             ),
                           ),
                         ),

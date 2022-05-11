@@ -23,7 +23,7 @@ class SensorCubit extends Cubit<SensorState> {
   String description = "";
   Socket? socketCubit;
   bool isDispose = false;
-List<SensorData> sensorsData = [];
+  List<SensorData> sensorsData = [];
   SensorCubit({
     required this.sensorDataRepository,
     required this.sensorRepository,
@@ -34,7 +34,7 @@ List<SensorData> sensorsData = [];
     isDispose = value;
   }
 
-  void setSensorsData( List<SensorData> value){
+  void setSensorsData(List<SensorData> value) {
     sensorsData = value;
   }
 
@@ -74,18 +74,20 @@ List<SensorData> sensorsData = [];
 
   void loadPageData(String serialNumber, String id) async {
     try {
+      if (isDispose) return;
+
       emit(SensorLoading());
       var responseData = await fetchSensor(id);
       var plantDescription = "";
-      var sensorsData = await fetchLastSensorsData(serialNumber);
+      var fetchedSensorsData = await fetchLastSensorsData(serialNumber);
       if (responseData != null) {
         var plantName = responseData.plant?.name;
-        if (plantName != null) plantDescription = await fetchPlantDescription(plantName);
-
+        if (plantName != null)
+          plantDescription = await fetchPlantDescription(plantName);
         return emit(SensorLoaded(
           sensor: responseData,
-          description: plantDescription != null ? plantDescription : "",
-          sensorData: sensorsData != null ? sensorsData : [],
+          description: plantDescription,
+          sensorData: fetchedSensorsData != null ? fetchedSensorsData : [],
         ));
       }
       emit(SensorError(message: "Capteur introuvable"));
@@ -111,15 +113,19 @@ List<SensorData> sensorsData = [];
       SensorData newSensorData = SensorData.fromJson(data);
       if (sensor != null) {
         sensor?.sensorData = newSensorData;
-        emit(SensorLoaded(sensor: sensor!, description: description, sensorData:updateSensorDataArray(sensorsData, newSensorData)));
+        emit(SensorLoaded(
+            sensor: sensor!,
+            description: description,
+            sensorData: updateSensorDataArray(sensorsData, newSensorData)));
       }
     } on Exception catch (e) {}
   }
 
-  List<SensorData> updateSensorDataArray(List<SensorData> sensorsData, SensorData sensorData) {
+  List<SensorData> updateSensorDataArray(
+      List<SensorData> sensorsData, SensorData sensorData) {
     var copiedSensorsData = [...sensorsData];
 
-    if(copiedSensorsData.length >= 50) {
+    if (copiedSensorsData.length >= 50) {
       copiedSensorsData.removeAt(0);
     }
     copiedSensorsData.add(sensorData);
