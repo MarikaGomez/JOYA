@@ -47,7 +47,8 @@ class ItemComponent extends StatelessWidget {
                 alignment: Alignment.center,
                 child: Text(
                   " ${name.toUpperCase()} - $serial_number",
-                  style: const TextStyle(fontSize: 12.0),
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold, color: Colors.white70),
                 ),
               ),
             ),
