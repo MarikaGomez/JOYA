@@ -27,8 +27,12 @@ class _DetailIconButtonState extends State<DetailIconButton> {
                 popupTitle: "Luminosité :",
                 rate: sensor?.sensorData?.luminosity,
                 unit: "LUX",
-                min: sensor?.plant?.luminosity_needs.min,
-                max: sensor?.plant?.luminosity_needs.max,
+                min: sensor?.plant?.luminosity_needs.min != null
+                    ? sensor?.plant?.luminosity_needs.min
+                    : 0,
+                max: sensor?.plant?.luminosity_needs.max != null
+                    ? sensor?.plant?.luminosity_needs.max
+                    : 0,
                 label: "Luminosité",
                 icon: Icons.wb_sunny_outlined,
                 color: luminosity <= 300
@@ -42,8 +46,12 @@ class _DetailIconButtonState extends State<DetailIconButton> {
                 popupTitle: "Humidité :",
                 rate: sensor?.sensorData?.humidity,
                 unit: "%",
-                min: sensor?.plant?.humidity_needs.min,
-                max: sensor?.plant?.humidity_needs.max,
+                min: sensor?.plant?.humidity_needs.min != null
+                    ? sensor?.plant?.humidity_needs.min
+                    : 0,
+                max: sensor?.plant?.humidity_needs.max != null
+                    ? sensor?.plant?.humidity_needs.max
+                    : 0,
                 label: "Humidité",
                 icon: Icons.water_drop,
                 color: humidity < 400
@@ -67,8 +75,12 @@ class _DetailIconButtonState extends State<DetailIconButton> {
                 popupTitle: "Température :",
                 rate: sensor?.sensorData?.temperature,
                 unit: "°C",
-                min: sensor?.plant?.temperature_needs.min,
-                max: sensor?.plant?.temperature_needs.max,
+                min: sensor?.plant?.temperature_needs.min != null
+                    ? sensor?.plant?.temperature_needs.min
+                    : 0,
+                max: sensor?.plant?.temperature_needs.max != null
+                    ? sensor?.plant?.temperature_needs.max
+                    : 0,
                 label: "Température",
                 icon: Icons.thermostat,
                 color: temperature < 600 && temperature > 450
