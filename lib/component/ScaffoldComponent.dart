@@ -54,13 +54,9 @@ class ScaffoldComponent extends StatelessWidget {
         animationDuration: const Duration(milliseconds: 600),
         onTap: (index) async {
           if (path[index] == null) {
-            await Future.delayed(const Duration(milliseconds: 1000), () {
-              Navigator.pushNamed(context, 'landing');
-            });
+            Navigator.pushNamed(context, 'landing');
           } else {
-            await Future.delayed(const Duration(milliseconds: 1000), () {
-              Navigator.pushNamed(context, path[index].toString());
-            });
+            Navigator.pushNamed(context, path[index].toString());
           }
         },
         letIndexChange: (index) => true,

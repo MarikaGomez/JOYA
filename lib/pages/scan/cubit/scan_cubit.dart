@@ -80,7 +80,6 @@ class ScanCubit extends Cubit<ScanState> {
 
   void fetchIfSensorExist(String serialNumberScanned) async {
     emit(ScanLoading());
-
     try {
       var sensorResponse = await this
           .sensorRepository

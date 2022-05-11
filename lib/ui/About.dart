@@ -200,7 +200,7 @@ class About extends StatelessWidget {
                   enumerateCategoriesButton:
                       EnumerateCategoriesButton.typeButtonTextAndIconAndOpacity,
                   isIOSPlatform: isIOSPlatform,
-                  methode: () => {redirectToWebPage("")},
+                  methode: () => {redirectToWebPage("FAQ")},
                   colorBorder: MainColorPalettes.colorsThemeMultiple[5]!,
                   backgroundColorButton:
                       MainColorPalettes.colorsThemeMultiple[5]!,
@@ -213,7 +213,7 @@ class About extends StatelessWidget {
                   enumerateCategoriesButton:
                       EnumerateCategoriesButton.typeButtonTextAndIconAndOpacity,
                   isIOSPlatform: isIOSPlatform,
-                  methode: () => {},
+                  methode: () => {redirectToWebPage("")},
                   colorBorder: MainColorPalettes.colorsThemeMultiple[5]!,
                   backgroundColorButton:
                       MainColorPalettes.colorsThemeMultiple[5]!,
