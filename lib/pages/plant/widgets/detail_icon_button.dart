@@ -18,34 +18,39 @@ class _DetailIconButtonState extends State<DetailIconButton> {
     var luminosity = sensor?.sensorData?.luminosity;
     var humidity = sensor?.sensorData?.humidity;
     var temperature = sensor?.sensorData?.temperature;
-
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        ExpandedItem(
-          popupTitle: "Luminosité :",
-          rate: sensor?.sensorData?.luminosity,
-          unit: "LUX",
-          min: sensor?.plant?.luminosity_needs.min,
-          max: sensor?.plant?.luminosity_needs.max,
-          label: "Luminosité",
-          icon: Icons.wb_sunny_outlined,
-          color: luminosity! <= 300
-              ? Colors.yellow : luminosity > 900
-              ? Colors.red : Colors.orange
-        ),
-        ExpandedItem(
-          popupTitle: "Humidité :",
-          rate: sensor?.sensorData?.humidity,
-          unit: "%",
-          min: sensor?.plant?.humidity_needs.min,
-          max: sensor?.plant?.humidity_needs.max,
-          label: "Humidité",
-          icon: Icons.water_drop,
-          color: humidity! < 400
-              ? Colors.blue : humidity < 300 || humidity > 400
-              ? Colors.red : Colors.orange
-        ),
+        luminosity != null
+            ? ExpandedItem(
+                popupTitle: "Luminosité :",
+                rate: sensor?.sensorData?.luminosity,
+                unit: "LUX",
+                min: sensor?.plant?.luminosity_needs.min,
+                max: sensor?.plant?.luminosity_needs.max,
+                label: "Luminosité",
+                icon: Icons.wb_sunny_outlined,
+                color: luminosity <= 300
+                    ? Colors.yellow
+                    : luminosity > 900
+                        ? Colors.red
+                        : Colors.orange)
+            : Container(),
+        humidity != null
+            ? ExpandedItem(
+                popupTitle: "Humidité :",
+                rate: sensor?.sensorData?.humidity,
+                unit: "%",
+                min: sensor?.plant?.humidity_needs.min,
+                max: sensor?.plant?.humidity_needs.max,
+                label: "Humidité",
+                icon: Icons.water_drop,
+                color: humidity < 400
+                    ? Colors.blue
+                    : humidity < 300 || humidity > 400
+                        ? Colors.red
+                        : Colors.orange)
+            : Container(),
         /*ExpandedItem(
           popupTitle: "Fertilité du sol",
           rate: sensor?.sensorData?.soil_fertillity,
@@ -56,17 +61,21 @@ class _DetailIconButtonState extends State<DetailIconButton> {
           icon: Icons.compost,
           color: Colors.brown,
         ),*/
-        ExpandedItem(
-            popupTitle: "Température :",
-            rate: sensor?.sensorData?.temperature,
-            unit: "°C",
-            min: sensor?.plant?.temperature_needs.min,
-            max: sensor?.plant?.temperature_needs.max,
-            label: "Température",
-            icon: Icons.thermostat,
-            color: temperature! < 600 && temperature > 450
-                ? Colors.teal : temperature > 1200 || temperature < 200
-                ? Colors.red : Colors.orange),
+        temperature != null
+            ? ExpandedItem(
+                popupTitle: "Température :",
+                rate: sensor?.sensorData?.temperature,
+                unit: "°C",
+                min: sensor?.plant?.temperature_needs.min,
+                max: sensor?.plant?.temperature_needs.max,
+                label: "Température",
+                icon: Icons.thermostat,
+                color: temperature < 600 && temperature > 450
+                    ? Colors.teal
+                    : temperature > 1200 || temperature < 200
+                        ? Colors.red
+                        : Colors.orange)
+            : Container(),
       ],
     );
   }

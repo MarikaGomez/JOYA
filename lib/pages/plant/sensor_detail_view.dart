@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:joya/common/utils/snackbar.dart';
+import 'package:joya/pages/plant/widgets/chart_component.dart';
 import 'package:joya/pages/plant/widgets/data_detail.dart';
 import 'package:joya/pages/plant/widgets/image_detail.dart';
-import '../plant_charts/widgets/chart_component.dart';
 import 'cubit/sensor_detail_cubit.dart';
 
 class SensorView extends StatefulWidget {
