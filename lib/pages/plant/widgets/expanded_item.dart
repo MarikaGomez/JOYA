@@ -58,6 +58,8 @@ class _ExpandedItemState extends State<ExpandedItem> {
               tooltip: widget.label,
             ),
           ),
+          const SizedBox(height: 8.0),
+          Text("${widget.rate}"),
         ],
       ),
     );

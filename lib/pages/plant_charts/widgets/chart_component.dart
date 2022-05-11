@@ -35,7 +35,7 @@ class _ChartComponentState extends State<ChartComponent> {
             xValueMapper: (SensorData exp, _) => exp.sensorType,
             yValueMapper: (SensorData exp, _) => exp.luminosity,
             name: 'Luminosité',
-            color: Colors.amber,
+            color: Colors.yellow,
             opacity: .5),
         SplineAreaSeries<SensorData, String>(
             dataSource: _chartData,

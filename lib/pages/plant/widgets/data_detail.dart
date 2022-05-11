@@ -66,7 +66,9 @@ class _DataDetailDisplayState extends State<DataDetailDisplay> {
               letterSpacing: 0.5,
             ),
           ),
-          const SizedBox(height: 30.0),
+          SizedBox(
+              height:
+              MediaQuery.of(context).size.height / 25),
           DetailIconButton(),
         ],
       ),
