@@ -1,27 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:joya/styles/MainColorPalettes.dart';
 
 class MainIconsPalettes {
   static const Map<String, dynamic> iconCurved = {
     "ICONS_NAV_BAR": [
       Icon(
         Icons.home,
-        size: 35,
-        color: Color.fromARGB(255, 255, 255, 255),
+        size: 25,
+        color: Colors.white,
       ),
       Icon(
         Icons.qr_code,
         size: 35,
-        color: MaterialColor(0xFFFFFFFF, {
-          50: Color.fromARGB(255, 255, 255, 255),
-        }),
+        color: Colors.white,
       ),
       Icon(
         Icons.more_vert,
-        size: 35,
-        color: MaterialColor(0xFFFFFFFF, {
-          50: Color.fromARGB(255, 255, 255, 255),
-        }),
+        size: 25,
+        color: Colors.white,
       ),
     ]
   };

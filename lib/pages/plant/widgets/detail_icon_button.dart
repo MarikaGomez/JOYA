@@ -15,6 +15,9 @@ class _DetailIconButtonState extends State<DetailIconButton> {
   @override
   Widget build(BuildContext context) {
     var sensor = context.read<SensorCubit>().sensor;
+    var luminosity = sensor?.sensorData?.luminosity;
+    var humidity = sensor?.sensorData?.humidity;
+    var temperature = sensor?.sensorData?.temperature;
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -27,17 +30,22 @@ class _DetailIconButtonState extends State<DetailIconButton> {
           max: sensor?.plant?.luminosity_needs.max,
           label: "Luminosité",
           icon: Icons.wb_sunny_outlined,
-          color: Colors.amber,
+          color: luminosity! <= 300
+              ? Colors.yellow : luminosity > 900
+              ? Colors.red : Colors.orange
         ),
         ExpandedItem(
-            popupTitle: "Humidité :",
-            rate: sensor?.sensorData?.humidity,
-            unit: "%",
-            min: sensor?.plant?.humidity_needs.min,
-            max: sensor?.plant?.humidity_needs.max,
-            label: "Humidité",
-            icon: Icons.water_drop,
-            color: Colors.blue),
+          popupTitle: "Humidité :",
+          rate: sensor?.sensorData?.humidity,
+          unit: "%",
+          min: sensor?.plant?.humidity_needs.min,
+          max: sensor?.plant?.humidity_needs.max,
+          label: "Humidité",
+          icon: Icons.water_drop,
+          color: humidity! < 400
+              ? Colors.blue : humidity < 300 || humidity > 400
+              ? Colors.red : Colors.orange
+        ),
         /*ExpandedItem(
           popupTitle: "Fertilité du sol",
           rate: sensor?.sensorData?.soil_fertillity,
@@ -56,7 +64,9 @@ class _DetailIconButtonState extends State<DetailIconButton> {
             max: sensor?.plant?.temperature_needs.max,
             label: "Température",
             icon: Icons.thermostat,
-            color: Colors.teal),
+            color: temperature! < 600 && temperature > 450
+                ? Colors.teal : temperature > 1200 || temperature < 200
+                ? Colors.red : Colors.orange),
       ],
     );
   }
