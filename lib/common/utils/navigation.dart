@@ -1,7 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:url_launcher/url_launcher.dart';
-
-import '../variables.dart';
+//import 'package:url_launcher/url_launcher.dart';
 
 void navigationPop(BuildContext context) {
   Navigator.pop(context);
