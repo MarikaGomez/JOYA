@@ -27,7 +27,6 @@ class Login extends StatelessWidget {
     if (this.isIOSPlatform) {
       return ScaffoldComponent(
         enumerateCategoriesScaffold: EnumerateCategoriesScaffold.noCurvedBar,
-        isIOSPlatform: isIOSPlatform,
         debugShowCheckedModeBanner: debugShowCheckedModeBanner,
         child: Container(
           height: double.infinity,
@@ -56,7 +55,8 @@ class Login extends StatelessWidget {
                               fontFamily: 'DMSans-Bold.ttf'),
                         ),
                         Padding(
-                            padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                            padding: EdgeInsets.symmetric(
+                                vertical: 8, horizontal: 16),
                             child: TextFieldComponent(
                               methode: (data) async {
                                 if (data.isValidEmail()) {
@@ -67,20 +67,21 @@ class Login extends StatelessWidget {
                                 }
                               },
                               text:
-                              "${MainTextPalettes.textFr["EMAIL_LABEL_DEFAULT_TEXTFIELD"]}",
+                                  "${MainTextPalettes.textFr["EMAIL_LABEL_DEFAULT_TEXTFIELD"]}",
                               isValid: snapshot.data["isValidEmail"],
                               isNotValidRenderText:
-                              "${MainTextPalettes.textFr["ERROR_EMAIL"]}",
+                                  "${MainTextPalettes.textFr["ERROR_EMAIL"]}",
                               hiddenText: false,
                             )),
                         Padding(
-                            padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                            padding: EdgeInsets.symmetric(
+                                vertical: 8, horizontal: 16),
                             child: TextFieldComponent(
                               methode: (data) async {
                                 bloc?.setByKey("password", data);
                               },
                               text:
-                              "${MainTextPalettes.textFr["PASSWORD_LABEL_DEFAULT_TEXTFIELD"]}",
+                                  "${MainTextPalettes.textFr["PASSWORD_LABEL_DEFAULT_TEXTFIELD"]}",
                               isValid: true,
                               isNotValidRenderText: 'test',
                               hiddenText: true,
@@ -96,9 +97,9 @@ class Login extends StatelessWidget {
                             bloc?.login();
                           },
                           colorBorder:
-                          MainColorPalettes.colorsThemeMultiple[10]!,
+                              MainColorPalettes.colorsThemeMultiple[10]!,
                           backgroundColorButton:
-                          MainColorPalettes.colorsThemeMultiple[10]!,
+                              MainColorPalettes.colorsThemeMultiple[10]!,
                         ),
                         SizedBox(height: 20),
                         Center(
@@ -140,7 +141,6 @@ class Login extends StatelessWidget {
     } else {
       return ScaffoldComponent(
         enumerateCategoriesScaffold: EnumerateCategoriesScaffold.noCurvedBar,
-        isIOSPlatform: isIOSPlatform,
         debugShowCheckedModeBanner: debugShowCheckedModeBanner,
         child: Container(
           height: double.infinity,
@@ -168,7 +168,8 @@ class Login extends StatelessWidget {
                               fontFamily: 'DMSans-Bold.ttf'),
                         ),
                         Padding(
-                            padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                            padding: EdgeInsets.symmetric(
+                                vertical: 8, horizontal: 16),
                             child: TextFieldComponent(
                               methode: (data) {
                                 bloc?.setIsValidEmail(data.isValidEmail());
@@ -181,20 +182,21 @@ class Login extends StatelessWidget {
                                 }
                               },
                               text:
-                              "${MainTextPalettes.textFr["EMAIL_LABEL_DEFAULT_TEXTFIELD"]}",
+                                  "${MainTextPalettes.textFr["EMAIL_LABEL_DEFAULT_TEXTFIELD"]}",
                               isValid: snapshot.data["isValidEmail"],
                               isNotValidRenderText:
-                              "${MainTextPalettes.textFr["BOOLISVALIDMAIL"]}",
+                                  "${MainTextPalettes.textFr["BOOLISVALIDMAIL"]}",
                               hiddenText: false,
                             )),
                         Padding(
-                            padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                            padding: EdgeInsets.symmetric(
+                                vertical: 8, horizontal: 16),
                             child: TextFieldComponent(
                               methode: (data) async {
                                 bloc?.setByKey("password", data);
                               },
                               text:
-                              "${MainTextPalettes.textFr["PASSWORD_LABEL_DEFAULT_TEXTFIELD"]}",
+                                  "${MainTextPalettes.textFr["PASSWORD_LABEL_DEFAULT_TEXTFIELD"]}",
                               isValid: true,
                               isNotValidRenderText: 'test',
                               hiddenText: true,
@@ -211,9 +213,9 @@ class Login extends StatelessWidget {
                             bloc?.login();
                           },
                           colorBorder:
-                          MainColorPalettes.colorsThemeMultiple[10]!,
+                              MainColorPalettes.colorsThemeMultiple[10]!,
                           backgroundColorButton:
-                          MainColorPalettes.colorsThemeMultiple[10]!,
+                              MainColorPalettes.colorsThemeMultiple[10]!,
                         ),
                         Center(
                           child: RichText(

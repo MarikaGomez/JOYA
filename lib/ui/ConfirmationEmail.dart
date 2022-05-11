@@ -21,7 +21,6 @@ class ConfirmationEmail extends StatelessWidget {
       return ScaffoldComponent(
           enumerateCategoriesScaffold: EnumerateCategoriesScaffold.noCurvedBar,
           debugShowCheckedModeBanner: debugShowCheckedModeBanner,
-          isIOSPlatform: isIOSPlatform,
           child: Container(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
@@ -113,7 +112,6 @@ class ConfirmationEmail extends StatelessWidget {
       return ScaffoldComponent(
           enumerateCategoriesScaffold: EnumerateCategoriesScaffold.noCurvedBar,
           debugShowCheckedModeBanner: debugShowCheckedModeBanner,
-          isIOSPlatform: isIOSPlatform,
           child: Container(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,

@@ -1,5 +1,8 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:joya/pages/plant/cubit/sensor_detail_page.dart';
+import 'package:joya/pages/scan/cubit/scan_page.dart';
+import 'package:joya/pages/sensors/cubit/sensors_page.dart';
 import 'package:joya/styles/MainColorPalettes.dart';
 import 'package:joya/styles/MainIconsPalettes.dart';
 
@@ -8,14 +11,12 @@ import '../data/enum/EnumerateCategoriesScaffold.dart';
 class ScaffoldComponent extends StatelessWidget {
   Widget child;
   bool debugShowCheckedModeBanner;
-  bool isIOSPlatform;
   EnumerateCategoriesScaffold enumerateCategoriesScaffold;
   int? index;
 
   ScaffoldComponent(
       {required this.enumerateCategoriesScaffold,
       required this.child,
-      required this.isIOSPlatform,
       required this.debugShowCheckedModeBanner,
       this.index});
 
@@ -34,11 +35,9 @@ class ScaffoldComponent extends StatelessWidget {
   }
 
   Map<int, String?> path = {
-    0: "homeWithoutSensor",
-    1: "myPlant",
-    2: "qrcode",
-    3: "store",
-    4: "about"
+    0: SensorsPage.pageName,
+    1: ScanPage.pageName,
+    2: "about"
   };
 
   Widget scaffoldWithCurvedBar(context) {
@@ -46,7 +45,7 @@ class ScaffoldComponent extends StatelessWidget {
       bottomNavigationBar: CurvedNavigationBar(
         key: const Key('curved'),
         index: this.index!,
-        height: this.isIOSPlatform ? 70 : 50,
+        height: 50,
         items: MainIconsPalettes.iconCurved[
             "ICONS_NAV_BAR"], // sinon prend IconConstants.ICONS_CURVED_NAV_BAR,
         color: MainColorPalettes.colorsThemeMultiple[25]!,

@@ -25,7 +25,6 @@ class MyAccountPage extends StatelessWidget {
     if (this.isIOSPlatform) {
       return ScaffoldComponent(
           enumerateCategoriesScaffold: EnumerateCategoriesScaffold.noCurvedBar,
-          isIOSPlatform: isIOSPlatform,
           debugShowCheckedModeBanner: debugShowCheckedModeBanner,
           child: Container(
               color: MainColorPalettes.colorsThemeMultiple[5],
@@ -176,7 +175,6 @@ class MyAccountPage extends StatelessWidget {
     } else {
       return ScaffoldComponent(
         enumerateCategoriesScaffold: EnumerateCategoriesScaffold.noCurvedBar,
-        isIOSPlatform: isIOSPlatform,
         debugShowCheckedModeBanner: debugShowCheckedModeBanner,
         child: Container(
           color: MainColorPalettes.colorsThemeMultiple[5],

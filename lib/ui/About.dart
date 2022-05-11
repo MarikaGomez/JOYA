@@ -4,6 +4,7 @@ import 'package:joya/component/ScaffoldComponent.dart';
 import 'package:joya/styles/MainColorPalettes.dart';
 import 'package:joya/styles/MainTextPalettes.dart';
 
+import '../common/utils/navigation.dart';
 import '../data/enum/EnumerateCategoriesButton.dart';
 import '../data/enum/EnumerateCategoriesScaffold.dart';
 
@@ -19,9 +20,8 @@ class About extends StatelessWidget {
     if (isIOSPlatform) {
       return ScaffoldComponent(
         enumerateCategoriesScaffold: EnumerateCategoriesScaffold.curvedBar,
-        isIOSPlatform: isIOSPlatform,
         debugShowCheckedModeBanner: debugShowCheckedModeBanner,
-        index: 4,
+        index: 2,
         child: Container(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
@@ -98,7 +98,7 @@ class About extends StatelessWidget {
                   enumerateCategoriesButton:
                       EnumerateCategoriesButton.typeButtonTextAndIconAndOpacity,
                   isIOSPlatform: isIOSPlatform,
-                  methode: () => {Navigator.pushNamed(context, '')},
+                  methode: () => {redirectToWebPage("")},
                   colorBorder: MainColorPalettes.colorsThemeMultiple[5]!,
                   backgroundColorButton:
                       MainColorPalettes.colorsThemeMultiple[5]!,
@@ -122,9 +122,8 @@ class About extends StatelessWidget {
     } else {
       return ScaffoldComponent(
         enumerateCategoriesScaffold: EnumerateCategoriesScaffold.curvedBar,
-        isIOSPlatform: isIOSPlatform,
         debugShowCheckedModeBanner: debugShowCheckedModeBanner,
-        index: 4,
+        index: 2,
         child: Container(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
@@ -149,7 +148,7 @@ class About extends StatelessWidget {
                   enumerateCategoriesButton:
                       EnumerateCategoriesButton.typeButtonTextAndIconAndOpacity,
                   isIOSPlatform: isIOSPlatform,
-                  methode: () => {Navigator.pushNamed(context, '')},
+                  methode: () => {},
                   colorBorder: MainColorPalettes.colorsThemeMultiple[5]!,
                   backgroundColorButton:
                       MainColorPalettes.colorsThemeMultiple[5]!,
@@ -162,7 +161,7 @@ class About extends StatelessWidget {
                   enumerateCategoriesButton:
                       EnumerateCategoriesButton.typeButtonTextAndIconAndOpacity,
                   isIOSPlatform: isIOSPlatform,
-                  methode: () => {Navigator.pushNamed(context, '')},
+                  methode: () => {},
                   colorBorder: MainColorPalettes.colorsThemeMultiple[5]!,
                   backgroundColorButton:
                       MainColorPalettes.colorsThemeMultiple[5]!,
@@ -175,7 +174,7 @@ class About extends StatelessWidget {
                   enumerateCategoriesButton:
                       EnumerateCategoriesButton.typeButtonTextAndIconAndOpacity,
                   isIOSPlatform: isIOSPlatform,
-                  methode: () => {Navigator.pushNamed(context, 'myAccount')},
+                  methode: () => {},
                   colorBorder: MainColorPalettes.colorsThemeMultiple[5]!,
                   backgroundColorButton:
                       MainColorPalettes.colorsThemeMultiple[5]!,
@@ -188,7 +187,7 @@ class About extends StatelessWidget {
                   enumerateCategoriesButton:
                       EnumerateCategoriesButton.typeButtonTextAndIconAndOpacity,
                   isIOSPlatform: isIOSPlatform,
-                  methode: () => {Navigator.pushNamed(context, '')},
+                  methode: () => {},
                   colorBorder: MainColorPalettes.colorsThemeMultiple[5]!,
                   backgroundColorButton:
                       MainColorPalettes.colorsThemeMultiple[5]!,
@@ -201,7 +200,7 @@ class About extends StatelessWidget {
                   enumerateCategoriesButton:
                       EnumerateCategoriesButton.typeButtonTextAndIconAndOpacity,
                   isIOSPlatform: isIOSPlatform,
-                  methode: () => {Navigator.pushNamed(context, '')},
+                  methode: () => {redirectToWebPage("")},
                   colorBorder: MainColorPalettes.colorsThemeMultiple[5]!,
                   backgroundColorButton:
                       MainColorPalettes.colorsThemeMultiple[5]!,
@@ -214,7 +213,7 @@ class About extends StatelessWidget {
                   enumerateCategoriesButton:
                       EnumerateCategoriesButton.typeButtonTextAndIconAndOpacity,
                   isIOSPlatform: isIOSPlatform,
-                  methode: () => {Navigator.pushNamed(context, '')},
+                  methode: () => {},
                   colorBorder: MainColorPalettes.colorsThemeMultiple[5]!,
                   backgroundColorButton:
                       MainColorPalettes.colorsThemeMultiple[5]!,

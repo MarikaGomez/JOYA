@@ -19,7 +19,6 @@ class QrCodeScan extends StatelessWidget {
     if (isIOSPlatform) {
       return ScaffoldComponent(
           enumerateCategoriesScaffold: EnumerateCategoriesScaffold.curvedBar,
-          isIOSPlatform: isIOSPlatform,
           debugShowCheckedModeBanner: debugShowCheckedModeBanner,
           child: Container(
               height: double.infinity,
@@ -47,7 +46,6 @@ class QrCodeScan extends StatelessWidget {
     } else {
       return ScaffoldComponent(
           enumerateCategoriesScaffold: EnumerateCategoriesScaffold.curvedBar,
-          isIOSPlatform: isIOSPlatform,
           debugShowCheckedModeBanner: debugShowCheckedModeBanner,
           child: Container(
               height: double.infinity,
