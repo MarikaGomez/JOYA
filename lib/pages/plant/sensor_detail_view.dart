@@ -3,12 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:joya/common/utils/snackbar.dart';
 import 'package:joya/pages/plant/widgets/data_detail.dart';
 import 'package:joya/pages/plant/widgets/image_detail.dart';
-import '../plant_charts/plant_chart_view.dart';
+import '../plant_charts/widgets/chart_component.dart';
 import 'cubit/sensor_detail_cubit.dart';
 
 class SensorView extends StatefulWidget {
   final String sensorId;
-
   final String serialNumber;
 
   const SensorView(
@@ -24,19 +23,23 @@ class _SensorState extends State<SensorView> {
 
   @override
   void initState() {
-    context.read<SensorCubit>().fetchSensor(widget.sensorId);
+    context
+        .read<SensorCubit>()
+        .loadPageData(widget.serialNumber, widget.sensorId);
     context.read<SensorCubit>().connectAndListen(widget.serialNumber);
     super.initState();
   }
 
   void updateUI(SensorState state) {
-    debugPrint("${state.runtimeType.toString()} sensor socket");
+    //debugPrint("${state.runtimeType.toString()} sensor socket");
     if (state is SensorSuccess) {
     } else if (state is SensorLoaded) {
       context.read<SensorCubit>().setSensor(state.sensor);
       context.read<SensorCubit>().setDescription(state.description);
     } else if (state is SensorError) {
       showWarningSnackbar(context, state.message);
+    } else if (state is SensorLoaded) {
+      context.read<SensorCubit>().setSensorsData(state.sensorData);
     }
   }
 
@@ -73,7 +76,13 @@ class _SensorState extends State<SensorView> {
                         Padding(
                           padding: const EdgeInsets.symmetric(
                               horizontal: 16, vertical: 8),
-                          child: PlantChart(),
+                          child: Container(
+                            height: 600,
+                            width: 700,
+                            child: ChartComponent(
+                              sensorsData: [],
+                            ),
+                          ),
                         ),
                       ],
                     ),

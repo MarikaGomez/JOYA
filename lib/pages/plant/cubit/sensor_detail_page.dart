@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:joya/data/repositories/joya/sensor-data.dart';
 import 'package:joya/data/repositories/joya/sensor.dart';
 import 'package:joya/data/repositories/wiki/wiki-plant.dart';
+import 'package:joya/data/services/api/joya/sensor-data.dart';
 import 'package:joya/pages/plant/cubit/sensor_detail_cubit.dart';
 import '../../../data/services/api/joya/sensor.dart';
 import '../../../data/services/api/wikipedia/wiki-plant.dart';
@@ -23,6 +25,8 @@ class SensorPage extends StatelessWidget {
         RepositoryProvider<SensorRepository>(
           create: (context) => SensorRepository(sensorService: SensorService()),
         ),
+        RepositoryProvider<SensorDataRepository>(
+            create: (context) => SensorDataRepository(sensorDataService: SensorDataService())),
         RepositoryProvider<WikiPlantRepository>(
             create: (context) => WikiPlantRepository(
                 serviceWikipediaPlant: ServiceWikipediaPlant())),
@@ -33,6 +37,7 @@ class SensorPage extends StatelessWidget {
         create: (context) => SensorCubit(
           sensorRepository: context.read<SensorRepository>(),
           wikiPlantRepository: context.read<WikiPlantRepository>(),
+          sensorDataRepository: context.read<SensorDataRepository>(),
         ),
         child: SensorView(
           serialNumber: serialNumber,
