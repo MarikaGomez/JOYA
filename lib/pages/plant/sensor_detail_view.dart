@@ -91,7 +91,19 @@ class _SensorState extends State<SensorView> {
                     ),
                   ),
                 )
-              : Container();
+              : Container(
+                  child: Scaffold(
+                    backgroundColor: Color.fromRGBO(245, 234, 216, 1),
+                    body: Center(
+                      child: Image.asset(
+                        'assets/images/loading.gif',
+                        scale: 0.8,
+                        colorBlendMode: BlendMode.darken,
+                        fit: BoxFit.fitWidth,
+                      ),
+                    ),
+                  ),
+                );
         },
       ),
     );

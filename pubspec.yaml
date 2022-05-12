@@ -44,6 +44,8 @@ flutter:
     - assets/images/error_window.png
     - assets/images/joyalogo.png
     - assets/images/qrcode.png
+    - assets/images/loading.gif
+
   uses-material-design: true
   fonts:
     - family: DMSans-Bold
