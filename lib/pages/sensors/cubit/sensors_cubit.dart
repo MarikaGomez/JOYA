@@ -66,7 +66,6 @@ class SensorsCubit extends Cubit<SensorsState> {
   }
 
   void setSearchField(String value) {
-    print("$value iciiiiiiiiiiiiiiiiiiiiiii");
     var allSensorsCopy = [..._allSensors];
     emit(SensorsSearchState());
     if (value.isEmpty) {
