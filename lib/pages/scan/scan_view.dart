@@ -87,7 +87,9 @@ class _QrCodeScanState extends State<QrCodeScan> with WidgetsBindingObserver {
                 context.read<ScanCubit>().setName(data);
               });
             },
-            text: "${MainTextPalettes.textFr["NAME_PLANT"]}",
+            text: context.read<ScanCubit>().name != ""
+                ? context.read<ScanCubit>().name
+                : "${MainTextPalettes.textFr["NAME_PLANT"]}",
             //isValid: snapshot.data["isValidEmail"],
             isNotValidRenderText: "",
             hiddenText: false,
@@ -101,7 +103,9 @@ class _QrCodeScanState extends State<QrCodeScan> with WidgetsBindingObserver {
             methode: (data) async {
               context.read<ScanCubit>().setLocation(data);
             },
-            text: "${MainTextPalettes.textFr["LOCALISATION_PLANT"]}",
+            text: context.read<ScanCubit>().location != ""
+                ? context.read<ScanCubit>().location
+                : "${MainTextPalettes.textFr["LOCALISATION_PLANT"]}",
             //isValid: snapshot.data["isValidEmail"],
             isNotValidRenderText: "",
             hiddenText: false,
