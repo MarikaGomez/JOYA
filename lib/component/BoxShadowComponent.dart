@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:joya/styles/MainColorPalettes.dart';
 
@@ -19,7 +18,9 @@ class BoxShadowComponent extends StatelessWidget {
       return Container(
         child: Column(
           children: [
-            SizedBox(height: 15,),
+            SizedBox(
+              height: 15,
+            ),
             Center(
               child: RichText(
                 text: TextSpan(
@@ -55,7 +56,9 @@ class BoxShadowComponent extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 15,),
+            SizedBox(
+              height: 15,
+            ),
           ],
         ),
         decoration: BoxDecoration(
@@ -79,7 +82,9 @@ class BoxShadowComponent extends StatelessWidget {
       return Container(
         child: Column(
           children: [
-            SizedBox(height: 15,),
+            SizedBox(
+              height: 15,
+            ),
             Center(
               child: RichText(
                 text: TextSpan(
@@ -115,7 +120,9 @@ class BoxShadowComponent extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 15,),
+            SizedBox(
+              height: 15,
+            ),
           ],
         ),
         decoration: BoxDecoration(

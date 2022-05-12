@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:joya/component/BoxShadowComponent.dart';
 import 'package:joya/styles/MainBottonPalettes.dart';
