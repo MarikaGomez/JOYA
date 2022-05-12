@@ -8,7 +8,6 @@ class TextFieldComponent extends StatelessWidget {
   String text;
   bool isValid;
   String isNotValidRenderText;
-  String? initialValue;
   bool hiddenText;
 
   TextFieldComponent(
@@ -16,7 +15,6 @@ class TextFieldComponent extends StatelessWidget {
       required this.text,
       required this.isValid,
       this.icon,
-      this.initialValue,
       required this.hiddenText,
       required this.isNotValidRenderText});
 
@@ -36,8 +34,6 @@ class TextFieldComponent extends StatelessWidget {
                   MainTextFieldPalettes.simpleTextfield["RADIUS"])),
             ),
             child: TextField(
-              controller: TextEditingController()
-                ..text = initialValue != null ? initialValue! : "",
               textInputAction: TextInputAction.done,
               onChanged: methode,
               obscureText: hiddenText,

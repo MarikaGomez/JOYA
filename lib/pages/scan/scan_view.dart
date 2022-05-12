@@ -81,7 +81,7 @@ class _QrCodeScanState extends State<QrCodeScan> with WidgetsBindingObserver {
         Padding(
           padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
           child: TextFieldComponent(
-            initialValue: context.read<ScanCubit>().name,
+            // initialValue: context.read<ScanCubit>().name,
             methode: (data) async {
               setState(() {
                 context.read<ScanCubit>().setName(data);
@@ -97,7 +97,7 @@ class _QrCodeScanState extends State<QrCodeScan> with WidgetsBindingObserver {
         Padding(
           padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
           child: TextFieldComponent(
-            initialValue: context.read<ScanCubit>().location,
+            // initialValue: context.read<ScanCubit>().location,
             methode: (data) async {
               context.read<ScanCubit>().setLocation(data);
             },

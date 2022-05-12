@@ -20,8 +20,9 @@ class SensorsCubit extends Cubit<SensorsState> {
     try {
       var responseData = await sensorRepository.fetch();
       if (responseData != null && responseData.isNotEmpty) {
-        _allSensors = responseData;
-        return emit(SensorsLoaded(sensors: responseData));
+        _allSensors = [...responseData];
+        _allSensors.removeWhere((sensor) => sensor.user == null);
+        return emit(SensorsLoaded(sensors: _allSensors));
       }
       emit(SensorsLoaded(sensors: []));
     } catch (err) {
@@ -64,11 +65,11 @@ class SensorsCubit extends Cubit<SensorsState> {
     return sensorDuplicate;
   }
 
-  void setSearchField(String searchField) {
+  void setSearchField(String value) {
+    print("$value iciiiiiiiiiiiiiiiiiiiiiii");
     var allSensorsCopy = [..._allSensors];
-    searchField = searchField.trim();
     emit(SensorsSearchState());
-    if (searchField.isEmpty) {
+    if (value.isEmpty) {
       return emit(SensorsLoaded(sensors: allSensorsCopy));
     }
     List<Sensor> sensorFilterByName = [];
@@ -77,9 +78,8 @@ class SensorsCubit extends Cubit<SensorsState> {
     allSensorsCopy.forEach((sensor) {
       var sensorName = sensor.name?.toUpperCase();
       if (sensorName != null) {
-        if (sensor.serial_number.contains(searchField))
-          sensorFilterBySn.add(sensor);
-        if (sensorName.contains(searchField.toUpperCase()))
+        if (sensor.serial_number.contains(value)) sensorFilterBySn.add(sensor);
+        if (sensorName.contains(value.toUpperCase()))
           sensorFilterByName.add(sensor);
       }
     });
