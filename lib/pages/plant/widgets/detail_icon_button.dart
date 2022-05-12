@@ -36,7 +36,7 @@ class _DetailIconButtonState extends State<DetailIconButton> {
                 icon: Icons.wb_sunny_outlined,
                 color: luminosity <= 300
                     ? Colors.yellow
-                    : luminosity > 900
+                    : luminosity > 1000
                         ? Colors.red
                         : Colors.orange)
             : Container(),
@@ -53,9 +53,9 @@ class _DetailIconButtonState extends State<DetailIconButton> {
                     : 0,
                 label: "Humidité",
                 icon: Icons.water_drop,
-                color: humidity < 400
+                color: humidity > 500 && humidity <= 900
                     ? Colors.blue
-                    : humidity < 300 || humidity > 400
+                    : humidity < 400 || humidity > 900
                         ? Colors.red
                         : Colors.orange)
             : Container(),
