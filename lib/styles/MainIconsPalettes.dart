@@ -9,7 +9,7 @@ class MainIconsPalettes {
         color: Colors.white,
       ),
       Icon(
-        Icons.qr_code,
+        Icons.qr_code_scanner_sharp,
         size: 35,
         color: Colors.white,
       ),

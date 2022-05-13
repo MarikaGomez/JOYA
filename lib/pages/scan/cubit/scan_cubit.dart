@@ -22,6 +22,7 @@ class ScanCubit extends Cubit<ScanState> {
   String plantID = "";
   String location = "";
   String serialNumber = "";
+  Sensor? sensor;
   ScanCubit({required this.sensorRepository, required this.plantRepository})
       : super(ScanInitial());
 
@@ -80,7 +81,6 @@ class ScanCubit extends Cubit<ScanState> {
 
   void fetchIfSensorExist(String serialNumberScanned) async {
     emit(ScanLoading());
-
     try {
       var sensorResponse = await this
           .sensorRepository
@@ -88,6 +88,14 @@ class ScanCubit extends Cubit<ScanState> {
 
       if (sensorResponse != null) {
         serialNumber = serialNumberScanned;
+        var sensorName = sensorResponse.name;
+        var sensorLocation = sensorResponse.location;
+        var sensorPlantID = sensorResponse.plant?.id;
+
+        name = sensorName != null ? sensorName : "";
+        location = sensorLocation != null ? sensorLocation : "";
+        plantID = sensorPlantID != null ? sensorPlantID : "";
+
         return emit(ScanSuccessScanQRCodeAndVerifySensor());
       }
     } catch (err) {

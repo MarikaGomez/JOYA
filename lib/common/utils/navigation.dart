@@ -1,4 +1,6 @@
 import 'package:flutter/cupertino.dart';
+import 'package:joya/common/variables.dart';
+import 'package:url_launcher/url_launcher.dart';
 //import 'package:url_launcher/url_launcher.dart';
 
 void navigationPop(BuildContext context) {
@@ -14,8 +16,11 @@ void navigationPushByNameAndRemoveUntil(BuildContext context, String pathName) {
       .pushNamedAndRemoveUntil(pathName, (Route<dynamic> route) => false);
 }
 
-void redirectToWebPage(String url) async {
-  // if (await canLaunch(JOYA_LANDING_PAGE_URL + url)) {
-  //   launch(url);
-  // }
+void redirectToWebPage(String path) async {
+  if (!await launchUrl(
+    Uri(scheme: 'https', host: JOYA_HOST, path: path),
+    mode: LaunchMode.externalApplication,
+  )) {
+    throw 'Could not launch $path';
+  }
 }

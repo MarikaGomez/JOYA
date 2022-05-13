@@ -17,4 +17,14 @@ class SensorDataRepository {
       debugPrint(error.toString());
     }
   }
+
+  Future<List<SensorData>?> fetchLastSensorsData(String serialNumber) async {
+    try {
+      return await _sensorDataService.findLastSensorsData(serialNumber);
+    } on Exception {
+      rethrow;
+    } on Error catch (error) {
+      debugPrint(error.toString());
+    }
+  }
 }

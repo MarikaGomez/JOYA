@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:joya/common/utils/snackbar.dart';
 import 'package:joya/pages/sensors/widgets/ItemsComponent.dart';
+
 import '../../component/ScaffoldComponent.dart';
 import '../../component/TextFieldComponent.dart';
 import '../../data/enum/EnumerateCategoriesScaffold.dart';
 import '../../styles/MainColorPalettes.dart';
 import '../../styles/MainTextPalettes.dart';
-import '../../ui/LandingPage.dart';
 import 'cubit/sensors_cubit.dart';
 
 class SensorsView extends StatefulWidget {
@@ -59,48 +59,49 @@ class _SensorsState extends State<SensorsView> {
             const Key centerKey = ValueKey<String>('sensors');
 
             return Column(
-              children: <Widget>[
-                SingleChildScrollView(
-                  physics: ScrollPhysics(),
-                  child: Column(
-                    children: <Widget>[
-                      SizedBox(height: MediaQuery.of(context).size.height / 15),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 8, horizontal: 16),
-                        child: Text(
-                          '${MainTextPalettes.textFr["MY_PLANT"]}',
-                          style: TextStyle(
-                              color: MainColorPalettes.colorsThemeMultiple[10],
-                              fontSize: 28,
-                              fontWeight: FontWeight.w700,
-                              fontFamily: 'DMSans-Bold.ttf'),
-                        ),
+              children: [
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                  child: Text(
+                    '${MainTextPalettes.textFr["MY_PLANT"]}',
+                    style: TextStyle(
+                        color: MainColorPalettes.colorsThemeMultiple[10],
+                        fontSize: 28,
+                        fontWeight: FontWeight.w700,
+                        fontFamily: 'DMSans-Bold.ttf'),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                  child: TextFieldComponent(
+                    methode: (data) async {
+                      print("dataaaaaaaaaaaa $data");
+                      context.read<SensorsCubit>().setSearchField(data);
+                    },
+                    text: "${MainTextPalettes.textFr["SEARCH"]}",
+                    isNotValidRenderText: "",
+                    hiddenText: false,
+                    isValid: true,
+                  ),
+                ),
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 8.0, horizontal: 16),
+                    child: GridView.builder(
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        crossAxisSpacing: 8,
+                        mainAxisSpacing: 8,
                       ),
-                      Padding(
-                        padding:
-                            EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-                        child: TextFieldComponent(
-                          methode: (data) async {
-                            context.read<SensorsCubit>().setSearchField(data);
-                          },
-                          text: "${MainTextPalettes.textFr["SEARCH"]}",
-                          isNotValidRenderText: "",
-                          hiddenText: false,
-                          isValid: true,
-                        ),
-                      ),
-                      state is SensorsInitial
-                          ? Container()
-                          : GridView.builder(
-                              scrollDirection: Axis.vertical,
-                              shrinkWrap: true,
-                              itemCount:
-                                  context.read<SensorsCubit>().sensors.length,
-                              itemBuilder: (context, index) {
-                                var sensor =
-                                    context.read<SensorsCubit>().sensors[index];
-                                return ItemComponent(
+                      itemCount: context.read<SensorsCubit>().sensors.length,
+                      itemBuilder: (context, index) {
+                        var sensor =
+                            context.read<SensorsCubit>().sensors[index];
+                        return sensor.name != null || sensor.user != null
+                            ? GridTile(
+                                child: ItemComponent(
                                   id: sensor.id,
                                   name: sensor.name.toString(),
                                   serial_number: sensor.serial_number,
@@ -113,13 +114,11 @@ class _SensorsState extends State<SensorsView> {
                                               .isInWarnning(sensor)
                                           ? Colors.orange
                                           : Colors.green,
-                                );
-                              },
-                              gridDelegate:
-                                  const SliverGridDelegateWithFixedCrossAxisCount(
-                                      crossAxisCount: 2),
-                            ),
-                    ],
+                                ),
+                              )
+                            : Container();
+                      },
+                    ),
                   ),
                 ),
               ],

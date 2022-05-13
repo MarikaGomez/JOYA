@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:joya/styles/MainColorPalettes.dart';
 import 'package:joya/styles/MainTextFieldPalettes.dart';
@@ -21,18 +20,16 @@ class TextFieldComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
             decoration: BoxDecoration(
               border: Border.all(
-                width: 1.0,
-                color: isValid
-                    ? Colors.grey
-                    : MainColorPalettes.colorsThemeMultiple[30]!
-              ),
+                  width: 1.0,
+                  color: isValid
+                      ? Colors.grey
+                      : MainColorPalettes.colorsThemeMultiple[30]!),
               borderRadius: BorderRadius.all(Radius.circular(
                   MainTextFieldPalettes.simpleTextfield["RADIUS"])),
             ),
@@ -61,17 +58,14 @@ class TextFieldComponent extends StatelessWidget {
                     borderSide: BorderSide(
                         color: isValid
                             ? MainColorPalettes.colorsThemeMultiple[5]!
-                            : MainColorPalettes.colorsThemeMultiple[30]!)
-                ),
+                            : MainColorPalettes.colorsThemeMultiple[30]!)),
                 focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.all(Radius.circular(
                         MainTextFieldPalettes.simpleTextfield["RADIUS"])),
                     borderSide: BorderSide(
                         color: isValid
                             ? MainColorPalettes.colorsThemeMultiple[5]!
-                            : MainColorPalettes.colorsThemeMultiple[30]!
-                    )
-                ),
+                            : MainColorPalettes.colorsThemeMultiple[30]!)),
               ),
             )),
         errorInstanceTextWidget()

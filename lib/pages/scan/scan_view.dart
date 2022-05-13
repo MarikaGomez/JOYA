@@ -31,7 +31,6 @@ class _QrCodeScanState extends State<QrCodeScan> with WidgetsBindingObserver {
   }
 
   updateUI(ScanState state) async {
-    print("sate $state");
     if (state is ScanSuccessScanQRCode) {
       context.read<ScanCubit>().fetchIfSensorExist(state.result);
     } else if (state is ScanError) {
@@ -82,12 +81,15 @@ class _QrCodeScanState extends State<QrCodeScan> with WidgetsBindingObserver {
         Padding(
           padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
           child: TextFieldComponent(
+            // initialValue: context.read<ScanCubit>().name,
             methode: (data) async {
               setState(() {
                 context.read<ScanCubit>().setName(data);
               });
             },
-            text: "${MainTextPalettes.textFr["NAME_PLANT"]}",
+            text: context.read<ScanCubit>().name != ""
+                ? context.read<ScanCubit>().name
+                : "${MainTextPalettes.textFr["NAME_PLANT"]}",
             //isValid: snapshot.data["isValidEmail"],
             isNotValidRenderText: "",
             hiddenText: false,
@@ -97,10 +99,13 @@ class _QrCodeScanState extends State<QrCodeScan> with WidgetsBindingObserver {
         Padding(
           padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
           child: TextFieldComponent(
+            // initialValue: context.read<ScanCubit>().location,
             methode: (data) async {
               context.read<ScanCubit>().setLocation(data);
             },
-            text: "${MainTextPalettes.textFr["LOCALISATION_PLANT"]}",
+            text: context.read<ScanCubit>().location != ""
+                ? context.read<ScanCubit>().location
+                : "${MainTextPalettes.textFr["LOCALISATION_PLANT"]}",
             //isValid: snapshot.data["isValidEmail"],
             isNotValidRenderText: "",
             hiddenText: false,

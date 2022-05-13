@@ -47,20 +47,16 @@ class ScaffoldComponent extends StatelessWidget {
         height: 50,
         items: MainIconsPalettes.iconCurved[
             "ICONS_NAV_BAR"], // sinon prend IconConstants.ICONS_CURVED_NAV_BAR,
-        color: MainColorPalettes.colorsThemeMultiple[25]!,
+        color: MainColorPalettes.colorsThemeMultiple[10]!,
         buttonBackgroundColor: MainColorPalettes.colorsThemeMultiple[10]!,
         backgroundColor: Colors.transparent,
         animationCurve: Curves.easeInOut,
         animationDuration: const Duration(milliseconds: 600),
         onTap: (index) async {
           if (path[index] == null) {
-            await Future.delayed(const Duration(milliseconds: 1000), () {
-              Navigator.pushNamed(context, 'landing');
-            });
+            Navigator.pushNamed(context, 'landing');
           } else {
-            await Future.delayed(const Duration(milliseconds: 1000), () {
-              Navigator.pushNamed(context, path[index].toString());
-            });
+            Navigator.pushNamed(context, path[index].toString());
           }
         },
         letIndexChange: (index) => true,
