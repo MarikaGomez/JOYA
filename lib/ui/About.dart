@@ -52,15 +52,7 @@ class About extends StatelessWidget {
             SizedBox(
               height: MediaQuery.of(context).size.width / 25,
             ),
-            ButtonComponent(
-              text: MainTextPalettes.textFr["ABOUTNOTIF"],
-              enumerateCategoriesButton:
-                  EnumerateCategoriesButton.typeButtonTextAndIconAndOpacity,
-              isIOSPlatform: isIOSPlatform,
-              methode: () => {},
-              colorBorder: MainColorPalettes.colorsThemeMultiple[5]!,
-              backgroundColorButton: MainColorPalettes.colorsThemeMultiple[5]!,
-            ),
+
             SizedBox(
               height: MediaQuery.of(context).size.width / 25,
             ),

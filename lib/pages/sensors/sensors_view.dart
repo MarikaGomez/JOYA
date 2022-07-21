@@ -76,7 +76,6 @@ class _SensorsState extends State<SensorsView> {
                   padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
                   child: TextFieldComponent(
                     methode: (data) async {
-                      print("dataaaaaaaaaaaa $data");
                       context.read<SensorsCubit>().setSearchField(data);
                     },
                     text: "${MainTextPalettes.textFr["SEARCH"]}",

@@ -12,10 +12,6 @@ class DetailIconButton extends StatefulWidget {
   State<DetailIconButton> createState() => _DetailIconButtonState();
 }
 
-
-
-
-
 class _DetailIconButtonState extends State<DetailIconButton> {
   @override
   Widget build(BuildContext context) {
@@ -93,13 +89,8 @@ class _DetailIconButtonState extends State<DetailIconButton> {
                     : temperature > 1200 || temperature < 200
                         ? Colors.red
                         : Colors.orange)
-
             : Container(),
-
       ],
     );
   }
 }
-
-
-

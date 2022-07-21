@@ -7,6 +7,7 @@ import 'package:joya/pages/plant/widgets/chart_component.dart';
 import 'package:joya/pages/plant/widgets/data_detail.dart';
 import 'package:joya/pages/plant/widgets/image_detail.dart';
 import 'package:joya/pages/sensors/cubit/sensors_page.dart';
+import 'package:joya/pages/plant_alerts/cubit/plant_alerts_page.dart';
 import 'cubit/sensor_detail_cubit.dart';
 
 class SensorView extends StatefulWidget {
@@ -45,7 +46,7 @@ class _SensorState extends State<SensorView> {
       Navigator.pop(context);
     } else if (state is SensorLoaded) {
       context.read<SensorCubit>().setSensorsData(state.sensorData);
-    } else if(state is SensorResetSuccess){
+    } else if (state is SensorResetSuccess) {
       navigationPushByName(context, SensorsPage.pageName);
     }
   }
@@ -78,6 +79,18 @@ class _SensorState extends State<SensorView> {
                         SizedBox(
                             height: MediaQuery.of(context).size.height / 25),
                         DataDetailDisplay(),
+                        FloatingActionButton(
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => SensorAlertsPage(
+                                        sensorId: sensor.id,
+                                        serialNumber: sensor.serial_number)));
+                          },
+                          backgroundColor: Colors.blue,
+                          child: const Icon(Icons.settings),
+                        ),
                         SizedBox(
                             height: MediaQuery.of(context).size.height / 25),
                         Padding(
@@ -92,13 +105,13 @@ class _SensorState extends State<SensorView> {
                             ),
                           ),
                         ),
-                        AlertSensors(resetSensors: context.read<SensorCubit>().resetSensor)
+                        AlertSensors(
+                            resetSensors:
+                                context.read<SensorCubit>().resetSensor)
                       ],
                     ),
                   ),
-
                 )
-
               : Container(
                   child: Scaffold(
                     backgroundColor: Color.fromRGBO(245, 234, 216, 1),
@@ -111,9 +124,7 @@ class _SensorState extends State<SensorView> {
                       ),
                     ),
                   ),
-
                 );
-
         },
       ),
     );
