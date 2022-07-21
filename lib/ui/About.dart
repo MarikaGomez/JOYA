@@ -9,6 +9,8 @@ import '../data/enum/EnumerateCategoriesButton.dart';
 import '../data/enum/EnumerateCategoriesScaffold.dart';
 
 class About extends StatelessWidget {
+  static String pageName = "about";
+
   final bool debugShowCheckedModeBanner;
   final bool isIOSPlatform;
 
@@ -26,15 +28,17 @@ class About extends StatelessWidget {
         height: MediaQuery.of(context).size.height,
         color: MainColorPalettes.colorsThemeMultiple[5],
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(
-              height: MediaQuery.of(context).size.height / 30,
+              height: MediaQuery.of(context).size.height / 15,
             ),
             Text(
               '${MainTextPalettes.textFr["ABOUT"]}',
               style: TextStyle(
                   color: MainColorPalettes.colorsThemeMultiple[10],
-                  fontSize: 50,
+                  fontSize: 38,
+                  fontWeight: FontWeight.w600,
                   fontFamily: 'DMSans-Bold.ttf'),
             ),
             // SizedBox(
@@ -49,12 +53,11 @@ class About extends StatelessWidget {
             //   colorBorder: MainColorPalettes.colorsThemeMultiple[5]!,
             //   backgroundColorButton: MainColorPalettes.colorsThemeMultiple[5]!,
             // ),
+            // SizedBox(
+            //   height: MediaQuery.of(context).size.width / 25,
+            // ),
             SizedBox(
-              height: MediaQuery.of(context).size.width / 25,
-            ),
-
-            SizedBox(
-              height: MediaQuery.of(context).size.width / 25,
+              height: MediaQuery.of(context).size.width / 10,
             ),
             ButtonComponent(
               text: MainTextPalettes.textFr["ABOUT_MY_ACCOUNT"],
@@ -78,7 +81,7 @@ class About extends StatelessWidget {
             //   backgroundColorButton: MainColorPalettes.colorsThemeMultiple[5]!,
             // ),
             SizedBox(
-              height: MediaQuery.of(context).size.width / 25,
+              height: MediaQuery.of(context).size.width / 10,
             ),
             ButtonComponent(
               text: MainTextPalettes.textFr["ABOUT_HELP"],
@@ -90,7 +93,7 @@ class About extends StatelessWidget {
               backgroundColorButton: MainColorPalettes.colorsThemeMultiple[5]!,
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.width / 25,
+              height: MediaQuery.of(context).size.width / 10,
             ),
             ButtonComponent(
               text: MainTextPalettes.textFr["ABOUT_JOYA"],

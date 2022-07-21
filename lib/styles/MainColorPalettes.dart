@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class MainColorPalettes {
   static const MaterialColor colorsThemeMultiple = MaterialColor(0xFFFFFFFF,{
     5:Color.fromARGB(255, 255, 255, 255),
-    10:Color.fromARGB(255, 35, 162, 92),
+    10:Color.fromARGB(255, 31, 195, 113),
     15:Color.fromARGB(255, 255, 164, 0),
     20:Color.fromARGB(255, 46, 58, 89),
     25:Color.fromARGB(255, 199, 198, 198),
@@ -14,7 +14,7 @@ class MainColorPalettes {
 
   static const Map<int, Color> colorsCustum = {
     5:Color.fromARGB(255, 255, 255, 255),
-    10:Color.fromARGB(255, 35, 162, 92),
+    10:Color.fromARGB(255, 31, 195, 113),
     15:Color.fromARGB(255, 255, 164, 0),
     20:Color.fromARGB(255, 46, 58, 89),
   };

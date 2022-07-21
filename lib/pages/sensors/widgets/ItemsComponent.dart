@@ -46,7 +46,7 @@ class ItemComponent extends StatelessWidget {
               child: Container(
                 alignment: Alignment.center,
                 child: Text(
-                  " ${name.toUpperCase()} - $serial_number",
+                  " ${name.toUpperCase()}",
                   style: TextStyle(
                       fontWeight: FontWeight.bold, color: Colors.white70),
                 ),

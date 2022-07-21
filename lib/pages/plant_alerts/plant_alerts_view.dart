@@ -4,6 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:joya/common/utils/snackbar.dart';
 import 'package:joya/pages/plant_alerts/cubit/plant_alerts_cubit.dart';
 
+import '../../styles/MainColorPalettes.dart';
+
 class SensorAlertsView extends StatefulWidget {
   final String sensorId;
   final String serialNumber;
@@ -44,7 +46,8 @@ class _SensorAlertsState extends State<SensorAlertsView> {
       Navigator.pop(context);
     }
     else if (state is SensorAlertsSuccess) {
-      showSuccessSnackbar(context, "Capteur ${state.sensor.serial_number} mis à jour");
+      showSuccessSnackbar(context, "Le capteur ${state.sensor.plant?.name} a été mis à jour.");
+      Navigator.pop(context);
     }
   }
 
@@ -62,12 +65,14 @@ class _SensorAlertsState extends State<SensorAlertsView> {
           return  (state is SensorAlertsLoaded || state is SensorAlertsSuccess)
               ?  SingleChildScrollView(
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 SizedBox(
-                    height: MediaQuery.of(context).size.height / 25),
-                Center(child: Text("Humidité Alerte")),
+                    height: MediaQuery.of(context).size.height / 10),
+                Center(child: Text("Humidité")),
                 CupertinoSwitch(
+                  activeColor: MainColorPalettes.colorsThemeMultiple[10],
                   value: context.read<SensorAlertsCubit>().humidity_alert_enabled,
                   onChanged: (value) {
                     setState(() {
@@ -78,6 +83,8 @@ class _SensorAlertsState extends State<SensorAlertsView> {
                 Container(
                   width: double.maxFinite,
                   child: Slider(
+                    activeColor: MainColorPalettes.colorsThemeMultiple[10],
+                    inactiveColor: Colors.grey,
                     min: 0.0,
                     max: context.read<SensorAlertsCubit>().humidity_alert_enabled ? 100.0 : 0.0,
                     label : "${context.read<SensorAlertsCubit>().humidity_alert.toInt()}",
@@ -94,8 +101,9 @@ class _SensorAlertsState extends State<SensorAlertsView> {
 
                 SizedBox(
                     height: MediaQuery.of(context).size.height / 25),
-                Center(child: Text("Temperature Alerte")),
+                Center(child: Text("Température")),
                 CupertinoSwitch(
+                  activeColor: MainColorPalettes.colorsThemeMultiple[10],
                   value: context.read<SensorAlertsCubit>().temperature_alert_enabled,
                   onChanged: (value) {
                     setState(() {
@@ -106,6 +114,8 @@ class _SensorAlertsState extends State<SensorAlertsView> {
                 Container(
                   width: double.maxFinite,
                   child: Slider(
+                    activeColor: MainColorPalettes.colorsThemeMultiple[10],
+                    inactiveColor: Colors.grey,
                     min: 0.0,
                     max: context.read<SensorAlertsCubit>().temperature_alert_enabled ? 100.0 : 0.0 ,
                     label : "${context.read<SensorAlertsCubit>().temperature_alert.toInt()}",
@@ -122,8 +132,9 @@ class _SensorAlertsState extends State<SensorAlertsView> {
 
                 SizedBox(
                     height: MediaQuery.of(context).size.height / 25),
-                Center(child: Text("Temperature Alerte")),
+                Center(child: Text("Luminosité")),
                 CupertinoSwitch(
+                  activeColor: MainColorPalettes.colorsThemeMultiple[10],
                   value: context.read<SensorAlertsCubit>().luminosity_alert_enabled,
                   onChanged: (value) {
                     setState(() {
@@ -134,6 +145,8 @@ class _SensorAlertsState extends State<SensorAlertsView> {
                 Container(
                   width: double.maxFinite,
                   child: Slider(
+                    activeColor: MainColorPalettes.colorsThemeMultiple[10],
+                    inactiveColor: Colors.grey,
                     min: 0.0,
                     max: context.read<SensorAlertsCubit>().luminosity_alert_enabled ? 100.0 : 0.0 ,
                     label : "${context.read<SensorAlertsCubit>().luminosity_alert.toInt()}",
@@ -150,12 +163,22 @@ class _SensorAlertsState extends State<SensorAlertsView> {
 
                 SizedBox(
                     height: MediaQuery.of(context).size.height / 25),
-                FloatingActionButton(
-                  onPressed: () {
-                  context.read<SensorAlertsCubit>().submit();
-                  },
-                  backgroundColor: Colors.blue,
-                  child: const Icon(Icons.add_task),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
+                  child: FloatingActionButton.extended(
+                    onPressed: () {
+                    context.read<SensorAlertsCubit>().submit();
+                    },
+                    backgroundColor: MainColorPalettes.colorsThemeMultiple[10],
+                    label: const Text(
+                      'Sauvegarder',
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 16.0,
+                      ),
+                    ),
+                    icon: const Icon(Icons.add_task),
+                  ),
                 ),
 
               ],

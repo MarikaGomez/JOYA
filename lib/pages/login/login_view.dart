@@ -7,18 +7,18 @@ import 'package:joya/pages/login/cubit/login_cubit.dart';
 import 'package:joya/pages/login/widgets/action_buttons.dart';
 import 'package:joya/pages/login/widgets/login_form_fields.dart';
 import 'package:joya/pages/sensors/cubit/sensors_page.dart';
-import 'package:joya/ui/LandingPage.dart';
+import 'package:joya/ui/LoadingPage.dart';
 
-class LoginView2 extends StatefulWidget {
-  const LoginView2({
+class LoginView extends StatefulWidget {
+  const LoginView({
     Key? key,
   }) : super(key: key);
 
   @override
-  _LoginView2State createState() => _LoginView2State();
+  _LoginViewState createState() => _LoginViewState();
 }
 
-class _LoginView2State extends State<LoginView2> {
+class _LoginViewState extends State<LoginView> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   late StreamSubscription _intentDataStreamSubscription;
 
@@ -53,7 +53,7 @@ class _LoginView2State extends State<LoginView2> {
         },
         builder: (context, state) {
           return state is LoginInitial || state is LoginSuccess
-              ? LandingPage()
+              ? LoadingPage()
               : Scaffold(
                   resizeToAvoidBottomInset: true,
                   body: SafeArea(
@@ -77,9 +77,6 @@ class _LoginView2State extends State<LoginView2> {
                                     context.read<LoginCubit>().setPassword,
                               ),
                             ),
-                            SizedBox(
-                                height:
-                                    MediaQuery.of(context).size.height / 25),
                             ActionButtonsLogin(
                               loginState: state,
                               submit: context.read<LoginCubit>().login,

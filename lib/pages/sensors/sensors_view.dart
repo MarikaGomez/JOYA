@@ -68,7 +68,7 @@ class _SensorsState extends State<SensorsView> {
                     style: TextStyle(
                         color: MainColorPalettes.colorsThemeMultiple[10],
                         fontSize: 28,
-                        fontWeight: FontWeight.w700,
+                        fontWeight: FontWeight.w600,
                         fontFamily: 'DMSans-Bold.ttf'),
                   ),
                 ),

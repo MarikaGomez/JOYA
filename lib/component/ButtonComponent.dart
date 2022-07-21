@@ -155,11 +155,11 @@ class ButtonComponent extends StatelessWidget {
             child: Text(
           '$text',
           style: TextStyle(
-              fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.w600,
               decoration: TextDecoration.none,
               fontFamily: 'DMSans-Bold',
               fontSize: MediaQuery.of(context).size.width / 18,
-              color: MainColorPalettes.colorsThemeMultiple[20]),
+              color: MainColorPalettes.colorsThemeMultiple[35]),
         )),
       ),
     );
