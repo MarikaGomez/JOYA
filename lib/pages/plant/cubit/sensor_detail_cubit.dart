@@ -1,8 +1,10 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:joya/common/utils/navigation.dart';
 import 'package:joya/data/repositories/joya/sensor-data.dart';
 import 'package:joya/data/repositories/wiki/wiki-plant.dart';
+import 'package:joya/pages/plant/cubit/sensor_detail_page.dart';
 import 'package:socket_io_client/socket_io_client.dart';
 import 'package:socket_io_client/socket_io_client.dart' as IO;
 
@@ -24,6 +26,7 @@ class SensorCubit extends Cubit<SensorState> {
   Socket? socketCubit;
   bool isDispose = false;
   List<SensorData> sensorsData = [];
+
   SensorCubit({
     required this.sensorDataRepository,
     required this.sensorRepository,
@@ -103,6 +106,16 @@ class SensorCubit extends Cubit<SensorState> {
     socket.on(serialNumber, (data) => {updateSensorData(data)});
     socket.onDisconnect((_) => print('disconnect'));
     socketCubit = socket;
+  }
+
+  void resetSensor(BuildContext context) async {
+    try {
+      var sensorID = sensor?.id;
+      if (sensorID != null) await this.sensorRepository.resetSensor(sensorID);
+      emit(SensorResetSuccess());
+    } on Exception catch (e) {
+      emit(SensorError(message: "$e"));
+    }
   }
 
   void updateSensorData(dynamic data) {

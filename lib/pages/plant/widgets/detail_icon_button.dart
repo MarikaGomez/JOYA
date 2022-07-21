@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -11,6 +12,10 @@ class DetailIconButton extends StatefulWidget {
   State<DetailIconButton> createState() => _DetailIconButtonState();
 }
 
+
+
+
+
 class _DetailIconButtonState extends State<DetailIconButton> {
   @override
   Widget build(BuildContext context) {
@@ -18,6 +23,7 @@ class _DetailIconButtonState extends State<DetailIconButton> {
     var luminosity = sensor?.sensorData?.luminosity;
     var humidity = sensor?.sensorData?.humidity;
     var temperature = sensor?.sensorData?.temperature;
+    var sensorReset = sensor?.sensorData?.serial_number;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
@@ -52,7 +58,7 @@ class _DetailIconButtonState extends State<DetailIconButton> {
                     ? sensor?.plant?.humidity_needs.max
                     : 0,
                 label: "Humidité",
-                icon: Icons.water_drop,
+                icon: Icons.water_rounded,
                 color: humidity > 500 && humidity <= 900
                     ? Colors.blue
                     : humidity < 400 || humidity > 900
@@ -87,8 +93,13 @@ class _DetailIconButtonState extends State<DetailIconButton> {
                     : temperature > 1200 || temperature < 200
                         ? Colors.red
                         : Colors.orange)
+
             : Container(),
+
       ],
     );
   }
 }
+
+
+
