@@ -1,15 +1,18 @@
 import 'dart:developer';
 import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:joya/common/utils/navigation.dart';
 import 'package:joya/pages/scan/cubit/scan_cubit.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
+
 import '../../common/utils/snackbar.dart';
 import '../../component/ButtonComponent.dart';
 import '../../component/TextFieldComponent.dart';
 import '../../data/enum/EnumerateCategoriesButton.dart';
 import '../../styles/MainColorPalettes.dart';
+import '../../styles/MainTextFieldPalettes.dart';
 import '../../styles/MainTextPalettes.dart';
 import '../sensors/cubit/sensors_page.dart';
 
@@ -52,7 +55,9 @@ class _QrCodeScanState extends State<QrCodeScan> with WidgetsBindingObserver {
     log('${DateTime.now().toIso8601String()}_onPermissionSet $p');
     if (!p) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text("Autorisez l’application à utiliser l'appareil photo")),
+        const SnackBar(
+            content:
+                Text("Autorisez l’application à utiliser l'appareil photo")),
       );
     }
   }
@@ -115,22 +120,45 @@ class _QrCodeScanState extends State<QrCodeScan> with WidgetsBindingObserver {
         Padding(
           padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
           child: context.read<ScanCubit>().plants.length >= 1
-              ? DropdownButton<String>(
-                  value: context.read<ScanCubit>().plantID,
-                  onChanged: (String? newValue) {
-                    setState(() {
-                      context
-                          .read<ScanCubit>()
-                          .setPlantID(newValue != null ? newValue : "");
-                    });
-                  },
-                  items: [
-                      DropdownMenuItem(
-                        child: Text("Aucun"),
-                        value: "",
-                      ),
-                      ...context.read<ScanCubit>().getPlantItemsDropDown()
-                    ])
+              ? Container(
+            height: 60,
+            decoration: BoxDecoration(
+              border: Border.all(width: 1.0,
+                  color: Colors.grey),
+borderRadius: BorderRadius.all(Radius.circular(
+    MainTextFieldPalettes.simpleTextfield["RADIUS"]))),
+                child: DropdownButton<String>(
+                    value: context.read<ScanCubit>().plantID,
+                    isExpanded: true,
+                    underline: Container(),
+                    borderRadius: BorderRadius.all(Radius.circular(
+                        MainTextFieldPalettes.simpleTextfield["RADIUS"])),
+                    onChanged: (String? newValue) {
+                      setState(() {
+                        context
+                            .read<ScanCubit>()
+                            .setPlantID(newValue != null ? newValue : "");
+                      });
+                    },
+                    items: [
+                        DropdownMenuItem(
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                            child: Text(
+                              "Sélectionner le type de la plante",
+                              style: TextStyle(
+                                fontWeight: FontWeight.normal,
+                                decoration: TextDecoration.none,
+                                fontFamily: 'DMSans-Regular',
+                                fontSize: MediaQuery.of(context).size.width / 20,
+                                color: MainColorPalettes.colorsThemeMultiple[20]!,
+                              ),),
+                          ),
+                          value: "",
+                        ),
+                        ...context.read<ScanCubit>().getPlantItemsDropDown()
+                      ]),
+              )
               : const CircularProgressIndicator(
                   strokeWidth: 1.5,
                 ),

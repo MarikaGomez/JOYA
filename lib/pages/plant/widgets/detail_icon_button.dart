@@ -27,7 +27,7 @@ class _DetailIconButtonState extends State<DetailIconButton> {
             ? ExpandedItem(
                 popupTitle: "Luminosité :",
                 rate: sensor?.sensorData?.luminosity,
-                unit: "LUX",
+                unit: "% d'exposition",
                 min: sensor?.plant?.luminosity_needs.min != null
                     ? sensor?.plant?.luminosity_needs.min
                     : 0,
@@ -36,9 +36,9 @@ class _DetailIconButtonState extends State<DetailIconButton> {
                     : 0,
                 label: "Luminosité",
                 icon: Icons.wb_sunny_outlined,
-                color: luminosity <= 300
+                color: luminosity >= 70
                     ? Colors.yellow
-                    : luminosity > 1000
+                    : luminosity >= 20
                         ? Colors.red
                         : Colors.orange)
             : Container(),
@@ -55,9 +55,9 @@ class _DetailIconButtonState extends State<DetailIconButton> {
                     : 0,
                 label: "Humidité",
                 icon: Icons.water_rounded,
-                color: humidity > 500 && humidity <= 900
+                color: humidity > 80
                     ? Colors.blue
-                    : humidity < 400 || humidity > 900
+                    : humidity < 40 || humidity > 100
                         ? Colors.red
                         : Colors.orange)
             : Container(),
