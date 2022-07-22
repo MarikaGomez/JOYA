@@ -45,7 +45,9 @@ class _LoginViewState extends State<LoginView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return WillPopScope(
+      onWillPop: () async => false,
+      child: Scaffold(
       key: _scaffoldKey,
       body: BlocConsumer<LoginCubit, LoginState>(
         listener: (context, state) {
@@ -88,6 +90,7 @@ class _LoginViewState extends State<LoginView> {
                   ),
                 );
         },
+      ),
       ),
     );
   }

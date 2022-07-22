@@ -45,7 +45,9 @@ class _SensorsState extends State<SensorsView> {
 
   @override
   Widget build(BuildContext context) {
-    return ScaffoldComponent(
+    return WillPopScope(
+      onWillPop: () async => false,
+      child: ScaffoldComponent(
       debugShowCheckedModeBanner: true,
       index: 0,
       enumerateCategoriesScaffold: EnumerateCategoriesScaffold.curvedBar,
@@ -124,6 +126,7 @@ class _SensorsState extends State<SensorsView> {
             );
           },
         ),
+      ),
       ),
     );
   }

@@ -14,7 +14,9 @@ class LandingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ScaffoldComponent(
+    return WillPopScope(
+      onWillPop: () async => false,
+      child: ScaffoldComponent(
         debugShowCheckedModeBanner: false,
         enumerateCategoriesScaffold: EnumerateCategoriesScaffold.noCurvedBar,
         child: Container(
@@ -79,6 +81,7 @@ class LandingPage extends StatelessWidget {
               ),
             ],
           ),
+        ),
         ));
   }
 }

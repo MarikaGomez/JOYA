@@ -18,20 +18,20 @@ class AlertSensors extends StatelessWidget {
           context: context,
           builder: (BuildContext context) => AlertDialog(
             title: const Text('Voulez-vous supprimer votre capteur ?'),
-            content: const Text('attention vos donnés seront perdu'),
+            content: const Text('Attention vos données seront perdu'),
             actions: <Widget>[
               TextButton(
                 onPressed: () => Navigator.pop(context, 'Cancel'),
-                child: const Text('Cancel'),
+                child: const Text('Annuler'),
               ),
               TextButton(
                 onPressed: () async => {onPress()},
-                child: const Text('oui'),
+                child: const Text('Confirmer'),
               ),
             ],
           ),
         ),
-        child: const Text('Supprimer votre capteur'),
+        child: const Text('Suppression du capteur'),
       ),
     );
   }
