@@ -5,7 +5,6 @@ import 'package:joya/data/dto/sensor.dart';
 import 'package:joya/data/models/sensor-data.dart';
 import 'package:joya/data/models/sensor.dart';
 import 'package:joya/data/services/api/http_service.dart';
-import 'package:joya/pages/plant/widgets/detail_icon_button.dart';
 import '../../../../common/variables.dart';
 
 class SensorService {
@@ -81,6 +80,29 @@ class SensorService {
     try {
       await _httpService
           .post(url: JOYA_URL + "sensors/reset/${sensorID}", data: {});
+    } on Exception {
+      rethrow;
+    } on Error catch (error) {
+      debugPrint("$error");
+    }
+  }
+
+  Future<Sensor?> updateSensorAlertsSensor(UpdateSensorAlertsDTO dto) async {
+    try {
+      var data = {
+        "humidity_alert": dto.humidity_alert,
+        "humidity_alert_enabled": dto.humidity_alert_enabled,
+        "luminosity_alert": dto.luminosity_alert,
+        "luminosity_alert_enabled": dto.luminosity_alert_enabled,
+        "soil_fertillity_alert": dto.soil_fertillity_alert,
+        "soil_fertillity_alert_enabled": dto.soil_fertillity_alert_enabled,
+        "temperature_alert": dto.temperature_alert,
+        "temperature_alert_enabled": dto.temperature_alert_enabled,
+      };
+      var responseData = await _httpService.put(
+          url: JOYA_URL + "sensors/${dto.serial_number}", data: data);
+
+      return Sensor.fromJson(json.decode(responseData.toString()));
     } on Exception {
       rethrow;
     } on Error catch (error) {

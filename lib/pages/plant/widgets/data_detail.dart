@@ -16,7 +16,7 @@ class _DataDetailDisplayState extends State<DataDetailDisplay> {
     var sensor = context.read<SensorCubit>().sensor;
 
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 2),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -54,15 +54,17 @@ class _DataDetailDisplayState extends State<DataDetailDisplay> {
           ),
           const SizedBox(height: 8.0),
           Text(
-            context.read<SensorCubit>().description,
+            sensor?.plant != null
+            ? context.read<SensorCubit>().description
+            : "",
             style: TextStyle(
               fontSize: 12.0,
               height: 1.5,
               letterSpacing: 0.5,
             ),
           ),
-          SizedBox(height: MediaQuery.of(context).size.height / 25),
-          DetailIconButton(),
+          // SizedBox(height: MediaQuery.of(context).size.height / 25),
+          // DetailIconButton(),
         ],
       ),
     );

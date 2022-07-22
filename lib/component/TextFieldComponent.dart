@@ -8,15 +8,17 @@ class TextFieldComponent extends StatelessWidget {
   String text;
   bool isValid;
   String isNotValidRenderText;
+  String? initialValue;
   bool hiddenText;
 
-  TextFieldComponent(
-      {required this.methode,
-      required this.text,
-      required this.isValid,
-      this.icon,
-      required this.hiddenText,
-      required this.isNotValidRenderText});
+  TextFieldComponent({
+    required this.methode,
+    required this.text,
+    required this.isValid,
+    this.icon,
+    this.initialValue,
+    required this.hiddenText,
+    required this.isNotValidRenderText});
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +26,7 @@ class TextFieldComponent extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
+          height: 60,
             decoration: BoxDecoration(
               border: Border.all(
                   width: 1.0,

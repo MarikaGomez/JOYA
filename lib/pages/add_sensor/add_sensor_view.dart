@@ -119,7 +119,7 @@ class _AddSensorState extends State<AddSensor> {
                         submit: () => Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => LoginPage2()))),
+                                builder: (context) => LoginPage()))),
                   ]))),
     );
   }

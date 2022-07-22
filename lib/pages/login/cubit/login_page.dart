@@ -5,10 +5,10 @@ import 'package:joya/data/services/api/joya/auth.dart';
 import 'package:joya/pages/login/cubit/login_cubit.dart';
 import 'package:joya/pages/login/login_view.dart';
 
-class LoginPage2 extends StatelessWidget {
+class LoginPage extends StatelessWidget {
   static String pageName = "login";
 
-  LoginPage2({
+  LoginPage({
     Key? key,
   }) : super(key: key);
 
@@ -24,7 +24,7 @@ class LoginPage2 extends StatelessWidget {
         create: (context) => LoginCubit(
           authRepository: context.read<AuthRepository>(),
         ),
-        child: LoginView2(),
+        child: LoginView(),
       ),
     );
   }

@@ -59,4 +59,14 @@ class SensorRepository {
       debugPrint(error.toString());
     }
   }
+
+  Future<Sensor?> updateSensorAlerts(UpdateSensorAlertsDTO dto) async {
+    try {
+      return await _sensorService.updateSensorAlertsSensor(dto);
+    } on Exception {
+      rethrow;
+    } on Error catch (error) {
+      debugPrint(error.toString());
+    }
+  }
 }

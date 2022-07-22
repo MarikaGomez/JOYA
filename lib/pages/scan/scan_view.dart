@@ -52,7 +52,7 @@ class _QrCodeScanState extends State<QrCodeScan> with WidgetsBindingObserver {
     log('${DateTime.now().toIso8601String()}_onPermissionSet $p');
     if (!p) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('no Permission')),
+        const SnackBar(content: Text("Autorisez l’application à utiliser l'appareil photo")),
       );
     }
   }

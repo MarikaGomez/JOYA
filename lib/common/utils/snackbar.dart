@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
+import '../../styles/MainColorPalettes.dart';
+
 void showSuccessSnackbar(context, String message) {
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
-      backgroundColor: Colors.green,
+      backgroundColor: MainColorPalettes.colorsThemeMultiple[10],
       content: Text(
         message,
         style: const TextStyle(color: Colors.white),

@@ -45,7 +45,9 @@ class _SensorsState extends State<SensorsView> {
 
   @override
   Widget build(BuildContext context) {
-    return ScaffoldComponent(
+    return WillPopScope(
+      onWillPop: () async => false,
+      child: ScaffoldComponent(
       debugShowCheckedModeBanner: true,
       index: 0,
       enumerateCategoriesScaffold: EnumerateCategoriesScaffold.curvedBar,
@@ -68,7 +70,7 @@ class _SensorsState extends State<SensorsView> {
                     style: TextStyle(
                         color: MainColorPalettes.colorsThemeMultiple[10],
                         fontSize: 28,
-                        fontWeight: FontWeight.w700,
+                        fontWeight: FontWeight.w600,
                         fontFamily: 'DMSans-Bold.ttf'),
                   ),
                 ),
@@ -76,7 +78,6 @@ class _SensorsState extends State<SensorsView> {
                   padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
                   child: TextFieldComponent(
                     methode: (data) async {
-                      print("dataaaaaaaaaaaa $data");
                       context.read<SensorsCubit>().setSearchField(data);
                     },
                     text: "${MainTextPalettes.textFr["SEARCH"]}",
@@ -125,6 +126,7 @@ class _SensorsState extends State<SensorsView> {
             );
           },
         ),
+      ),
       ),
     );
   }
