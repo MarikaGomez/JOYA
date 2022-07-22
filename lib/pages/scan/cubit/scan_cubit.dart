@@ -39,15 +39,15 @@ class ScanCubit extends Cubit<ScanState> {
   }
 
   bool isValidPlantName() {
-    return name.isNotEmpty || !isSubmit;
+    return name.isNotEmpty && !isSubmit;
   }
 
   bool isValidPlantId() {
-    return plantID.isNotEmpty || !isSubmit;
+    return plantID.isNotEmpty && !isSubmit;
   }
 
   bool isValidLocation() {
-    return location.isNotEmpty || !isSubmit;
+    return location.isNotEmpty && !isSubmit;
   }
 
   void fetchPlants() async {
