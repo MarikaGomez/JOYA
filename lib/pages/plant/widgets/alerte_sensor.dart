@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:joya/common/utils/navigation.dart';
-import 'package:joya/pages/plant/cubit/sensor_detail_page.dart';
 
 class AlertSensors extends StatelessWidget {
   final Function resetSensors;
@@ -20,7 +17,7 @@ class AlertSensors extends StatelessWidget {
         onPressed: () => showDialog<String>(
           context: context,
           builder: (BuildContext context) => AlertDialog(
-            title: const Text('reset vos donnés '),
+            title: const Text('Voulez-vous supprimer votre capteur ?'),
             content: const Text('attention vos donnés seront perdu'),
             actions: <Widget>[
               TextButton(
@@ -34,7 +31,7 @@ class AlertSensors extends StatelessWidget {
             ],
           ),
         ),
-        child: const Text('reset de vos donnés'),
+        child: const Text('Supprimer votre capteur'),
       ),
     );
   }
