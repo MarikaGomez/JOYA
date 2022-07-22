@@ -46,6 +46,10 @@ class ScanCubit extends Cubit<ScanState> {
     return plantID.isNotEmpty || !isSubmit;
   }
 
+  bool isValidLocation() {
+    return location.isNotEmpty || !isSubmit;
+  }
+
   void fetchPlants() async {
     try {
       emit(ScanLoading());
@@ -107,14 +111,17 @@ class ScanCubit extends Cubit<ScanState> {
   submit() async {
     try {
       emit(ScanLoadingSubmit());
-      isSubmit = true;
 
-      var res = await sensorRepository.createSensor(CreateSensorDTO(
-          name: name,
-          serial_number: serialNumber,
-          plant_id: plantID,
-          location: location));
-      if (res != null) return emit(ScanSuccessSubmit());
+      if (isValidPlantName() && isValidPlantId() && isValidLocation()) {
+        isSubmit = true;
+
+        var res = await sensorRepository.createSensor(CreateSensorDTO(
+            name: name,
+            serial_number: serialNumber,
+            plant_id: plantID,
+            location: location));
+        if (res != null) return emit(ScanSuccessSubmit());
+      }
       emit(ScanError(message: "Champs invalides."));
     } catch (error) {
       print("error on create sensors : $error");
