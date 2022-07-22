@@ -5,6 +5,7 @@ import 'package:joya/data/dto/sensor.dart';
 import 'package:joya/data/models/sensor-data.dart';
 import 'package:joya/data/models/sensor.dart';
 import 'package:joya/data/services/api/http_service.dart';
+import 'package:joya/pages/plant/widgets/detail_icon_button.dart';
 import '../../../../common/variables.dart';
 
 class SensorService {
@@ -69,6 +70,17 @@ class SensorService {
           url: JOYA_URL + "sensors/${dto.serial_number}", data: data);
 
       return Sensor.fromJson(json.decode(responseData.toString()));
+    } on Exception {
+      rethrow;
+    } on Error catch (error) {
+      debugPrint("$error");
+    }
+  }
+
+  Future<void> resetSensors(String sensorID) async {
+    try {
+      await _httpService
+          .post(url: JOYA_URL + "sensors/reset/${sensorID}", data: {});
     } on Exception {
       rethrow;
     } on Error catch (error) {

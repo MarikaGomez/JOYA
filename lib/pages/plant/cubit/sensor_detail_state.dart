@@ -15,6 +15,12 @@ class SensorSearchState extends SensorState {
   List<Object?> get props => [];
 }
 
+class SensorResetSuccess extends SensorState {
+  SensorResetSuccess();
+  @override
+  List<Object?> get props => [];
+}
+
 class SensorLoaded extends SensorState {
   final Sensor sensor;
   final String description;

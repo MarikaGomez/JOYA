@@ -19,6 +19,17 @@ class SensorRepository {
     }
   }
 
+  Future<void> resetSensor( String sensorID) async {
+    try {
+      return await _sensorService.resetSensors(sensorID);
+    } on Exception {
+      rethrow;
+    } on Error catch (error) {
+      debugPrint(error.toString());
+    }
+  }
+
+
   Future<Sensor?> findOne(String id) async {
     try {
       return await _sensorService.findOne(id);
