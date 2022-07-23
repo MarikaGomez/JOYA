@@ -1,7 +1,7 @@
 ## 
 <div align="center" style="display:flex;flex-direction:column;">
   <h1>Joya</h1>
-  <h2>- Surveillez l'état de vos plantes grâce à notre application mobile et son capteur !</h2>
+  <h2>Surveillez l'état de vos plantes grâce à notre application mobile et son capteur !</h2>
 </div>
 
 
